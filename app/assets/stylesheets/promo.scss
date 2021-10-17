@@ -1,0 +1,53 @@
+// Place all the styles related to the promo controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@font-face {
+    font-family: 'Halvar Breit Md';
+    src: url('HalvarBreit-Md.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$Font: 'Halvar Breit Md', sans-serif;
+@mixin font($s: 11px, $l: 24px, $mt: 67px) {
+font-size: $s;
+line-height: $l;
+margin-top: $mt;
+}
+
+h2 {
+  font-family: $Font;
+  @include font(48px, 56px, 10px);
+
+}
+
+.section {
+  width: auto;
+  height: 680px;
+
+}
+
+.first {
+  background-color: #B09CFF;
+  background-image: image_url('elipses.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.description {
+  display: inline-block;
+  width: 84%;
+}
+.last {
+  background-color: black;
+  height: 524px;
+}
+.last h2 {
+  color: white;
+}
