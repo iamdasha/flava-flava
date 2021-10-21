@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Halvar Breit Md';
+    src: url('HalvarBreit-Md.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$Font: 'Halvar Breit Md', sans-serif;
+@mixin font($s: 11px, $l: 24px, $mt: 67px) {
+font-size: $s;
+line-height: $l;
+margin-top: $mt;
+}
+
+h4 {
+  font-family: $Font;
+  @include font(24px, 26px, 10px);
+
+}
