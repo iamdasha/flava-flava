@@ -1,0 +1,57 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <h4>Имя артиста</h4>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+  	<%= form.label :image %>
+  	<%= form.file_field :image %>
+  </div>
+  
+  <div class="field">
+    <h4>Название статьи</h4>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <h4>Происхождение</h4>
+    <%= form.select :country, ['Российские', 'Зарубержные'] %>
+  </div>
+
+  <div class="field">
+    <h4>Теги</h4>
+    <%= form.select :filterTag, ['Рэп', 'Поп', 'Креативные','Душевные', 'Легенды'] %>
+  </div>
+
+  <div class="field">
+    <h4>Характеристики стиля</h4>
+    <%= form.text_field :characteristics %>
+  </div>
+
+  <div class="field">
+    <h4>Любимые бренды</h4>
+    <%= form.text_field :brands %>
+  </div>
+
+  <div class="field">
+    <h4>Текст статьи</h4>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

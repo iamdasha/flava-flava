@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Посты</h1>
+
+<table>
+  <thead>
+    <tr>
+      <!-- <th>Имя артиста</th>
+      <th>Фото</th> -->
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody class="posts">
+    <% @posts.each do |post| %>
+      <tr class="posts_item">
+        <td><%= image_tag(post.image.thumb.url, alt: 'Image')%></td>
+        <td><%= post.name %></td>
+
+        <td>
+          <%= link_to 'Show', post %>
+          <%= link_to 'Edit', edit_post_path(post) %>
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
