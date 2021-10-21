@@ -24,3 +24,22 @@ h4 {
   @include font(24px, 26px, 10px);
 
 }
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 48px 80px;
+}
+.posts_item {
+  display: flex;
+  flex-direction: column;
+  width: 354px;
+  // margin-right: 5vw;
+  // margin-bottom: 6vw;
+  background: #FFFFFF;
+  // box-shadow: 2px 2px 15px rgba(123, 132, 165, 0.2), 0px 0px 10px rgba(177, 180, 188, 0.15);
+  // border-radius: 10px;
+}
+.post_main {
+  display: flex;
+  flex-wrap: wrap;
+}
