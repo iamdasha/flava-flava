@@ -7,14 +7,17 @@ posts = [
 	title: "Королевский стиль",
   characteristics: "#золото #яркий",
 	brands: "#Chanel #Fendi",
-	content: "чел супер классный стиль"
+	content: "чел супер классный стиль",
+  image: File.open(Rails.root.join('public', 'images', 'Asap.jpg'))
 },
 {
   name: "ASAP Rocky",
 	title: "Непредсказуемый и оригинальный стиль популярного рэпера",
   characteristics: "#оверсайз #яркий",
 	brands: "#СK #Tommy",
-	content: "хорош хорош"
+	content: "хорош хорош",
+  image: File.open(Rails.root.join('public', 'images', 'Asap.jpg'))
+
 }
 ]
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_20_234218) do
+ActiveRecord::Schema.define(version: 2021_10_21_130327) do
 
   create_table "posts", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_10_20_234218) do
     t.string "brands"
     t.string "filterTag"
     t.string "country"
+    t.string "image"
   end
 
   create_table "subscribers", force: :cascade do |t|
