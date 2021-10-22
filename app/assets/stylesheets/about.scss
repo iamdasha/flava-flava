@@ -12,8 +12,66 @@
     font-style: normal;
     font-display: swap;
 }
+
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+$white: #F2F2F2;
+$violet: #B09CFF;
+$green: #BCF369;
+
+$Font: 'Halvar Breit Md', sans-serif;
+$Font_Rg: 'Halvar Breit Rg', sans-serif;
+@mixin font($s: 11px, $l: 24px) {
+font-size: $s;
+line-height: $l;
+}
+
+
+.ab {
+  width: auto;
+  padding:133px 60px 0 60px;
+}
+
+.ab h1 {
+  font-family: $Font;
+  @include font(80px, 80px);
+  margin-bottom: 60px;
+}
+
+.ab h2 {
+  font-family: $Font_Rg;
+  @include font(48px, 56px);
+  margin-top: 0;
+  margin-bottom: 133px;
+}
+
+.heading {
+  height: 680px;
+  background-image: image_url('cover.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  h1 {
+    color: $white;
+    margin-bottom: 60px;
+    margin-top: 0;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.concept {
+  h2 {
+  max-width: 1093px;
+  }
+}
+
+.research {
+  height: 1443px;
+  background-color: $violet;
 }
