@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_21_130327) do
+ActiveRecord::Schema.define(version: 2021_10_22_230825) do
 
   create_table "posts", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(version: 2021_10_21_130327) do
     t.string "filterTag"
     t.string "country"
     t.string "image"
+    t.string "fpic"
+    t.string "spic"
+    t.string "tpic"
+    t.string "lpic"
   end
 
   create_table "subscribers", force: :cascade do |t|
