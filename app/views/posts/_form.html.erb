@@ -16,14 +16,14 @@
     <%= form.text_field :name %>
   </div>
 
-  <div>
-  	<%= form.label :image %>
-  	<%= form.file_field :image %>
+  <div class="field">
+    <h4>Фото артиста</h4>
+  	<%= form.file_field :image, :class =>"image_area" %>
   </div>
-  
+
   <div class="field">
     <h4>Название статьи</h4>
-    <%= form.text_field :title %>
+    <%= form.text_area :title, :class =>"tags_area" %>
   </div>
 
   <div class="field">
@@ -38,12 +38,12 @@
 
   <div class="field">
     <h4>Характеристики стиля</h4>
-    <%= form.text_field :characteristics %>
+    <%= form.text_area :characteristics, placeholder: "#", :class =>"tags_area" %>
   </div>
 
   <div class="field">
     <h4>Любимые бренды</h4>
-    <%= form.text_field :brands %>
+    <%= form.text_area :brands, placeholder: "#", :class =>"tags_area" %>
   </div>
 
   <div class="field">

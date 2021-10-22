@@ -1,44 +1,46 @@
-<p id="notice"><%= notice %></p>
+<%= render "promo/navbar" %>
 
 <div class="post_main">
 
   <div class="post_main_foto">
-    <%= link_to(image_tag(@post.image.thumb.url, alt: 'Image'), @post.image.url, target: '_blank') if @post.image? %>
+    <%= link_to(image_tag(@post.image.url, alt: 'Image'), @post.image.url, target: '_blank') if @post.image? %>
   </div>
   <div class="post_main_text">
-    <p>
-      <strong>Имя артиста:</strong>
+    <p class="name_in_post">
+      <strong></strong>
       <%= @post.name %>
     </p>
-
-    <p>
-    	<strong></strong>
-    	<%= @post.country %>
-    </p>
-    <p>
-    	<strong></strong>
-    	<%= @post.filterTag %>
-    </p>
-    <p>
-    	<strong>Характеристики стиля:</strong>
+    <div class="filter_block">
+      <div class="filter">
+      	<strong></strong>
+      	<%= @post.country %>
+      </div>
+      <div class="filter">
+      	<strong></strong>
+      	<%= @post.filterTag %>
+      </div>
+    </div>
+    <p class="characteristics">
+    	<strong class="characteristics_h">Характеристики стиля:</strong>
     	<%= @post.characteristics %>
     </p>
-    <p>
-    	<strong>Любимые бренды:</strong>
+    <p class="brands">
+    	<strong class="brands_h">Любимые бренды:</strong>
     	<%= @post.brands %>
     </p>
   </div>
 </div>
 
-<p>
-  <strong>Название статьи:</strong>
+<p class="content_title">
   <%= @post.title %>
 </p>
 
-<p>
+<p class="content_text">
   <strong>Текст статьи:</strong>
   <%= @post.content %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Изменить', edit_post_path(@post), :class =>"link_newpost link_newpost_edit" %> |
+<%= link_to 'Назад', posts_path, :class =>"link_newpost link_newpost_back" %>
+<div class="post_extra"></div>
+<%= render "promo/futer" %>

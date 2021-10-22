@@ -1,6 +1,10 @@
-<h1>Editing Post</h1>
+<%= render "promo/navbar" %>
+<h3 class="h3_titlepost Editing_post">Редактирование</h3>
+
 
 <%= render 'form', post: @post %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', posts_path, :class =>"link_newpost link_newpost_edit"  %>
+<div class="post_extra"></div>
+
+<%= render "promo/futer" %>

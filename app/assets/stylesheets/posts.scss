@@ -5,7 +5,20 @@
     font-style: normal;
     font-display: swap;
 }
-
+@font-face {
+    font-family: 'Halvar Breit Rg';
+    src: url('HalvarBreit-Rg.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Halvar Breit Bd';
+    src: url('HalvarBreit-Bd.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -13,6 +26,8 @@
 }
 
 $Font: 'Halvar Breit Md', sans-serif;
+$Font_Rg: 'Halvar Breit Rg', sans-serif;
+$Font_Bd: 'Halvar Breit Bd', sans-serif;
 @mixin font($s: 11px, $l: 24px, $ml: 60px, $mb: 0px) {
 font-size: $s;
 line-height: $l;
@@ -27,22 +42,20 @@ margin-bottom: $mb;
   margin-top: 63px;
 }
 
-// h4 {
-//   font-family: $Font;
-//   @include font(24px, 26px, 10px);
-//
-// }
+
+
 
 .posts {
   display: flex;
   flex-wrap: wrap;
-  margin: 37px 45px;
+  margin: 37px 45px 0 45px;
   .posts_item {
     display: flex;
     flex-direction: column;
     width: 304px;
     // background: #FFFFFF;
-    margin: 0 16px;
+    margin: 0 16px 55px 16px;
+
     .artist_name {
       font-family: $Font;
       @include font(24px, 24px, 0px, 0);
@@ -87,4 +100,133 @@ margin-bottom: $mb;
 }
 .post_extra {
   height: 100px;
+}
+.post_main_foto {
+  display: inline-block;
+  margin: 47px 30px 71px 60px;
+}
+.post_main_text {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 47px;
+  .name_in_post {
+    font-family: $Font;
+    @include font(72px, 69px, 0px, 53px);
+    color: black;
+  }
+  .filter_block {
+    display: block;
+    .filter {
+      font-family: $Font_Rg;
+      @include font(18px, 21px, 0px, 121px);
+      color: black;
+      background: #BCF369;
+      padding: 11px 30px;
+      display: inline-block;
+      margin-right: 13px;
+      border-radius: 60px;
+    }
+  }
+  .characteristics, .brands {
+    font-family: $Font_Rg;
+    @include font(18px, 25px, 0px, 53px);
+    color: black;
+    display: block;
+    width: 640px;
+    word-spacing: 13px;
+    width: 550px;
+    .characteristics_h, .brands_h {
+      font-family: $Font_Bd;
+      display: block;
+      margin-bottom: 13px;
+      word-spacing: normal;
+      line-height: 21px;
+    }
+  }
+}
+.content_title {
+  font-family: $Font;
+  @include font(48px, 48px, 60px, 29px);
+  color: black;
+  width: 1060px;
+}
+.content_text {
+  font-family: $Font_Rg;
+  @include font(24px, 29px, 60px, 65px);
+  color: black;
+  width: 862px;
+}
+.link_newpost_edit {
+  margin-right: 15px;
+}
+.link_newpost_back {
+  margin-left: 15px;
+}
+
+h4 {
+  font-family: $Font;
+  @include font(24px, 26px, 0px, 10px);
+  color: black;
+  margin-top: 30px;
+}
+.Editing_post {
+  margin-left: 397px;
+  margin-bottom: 60px;
+}
+#notice {
+  display: none;
+}
+.field {
+  margin-left: 397px;
+}
+form {
+  input, select {
+    background: #FFFFFF;
+    border: 1px solid #D6D6D6;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-family: $Font_Rg;
+    @include font(14px, 16px, 0px, 0px);
+    width: 368px;
+  }
+
+
+  .image_area {
+    background: none ;
+    border: none;
+  }
+
+  .actions input {
+    background: #B09CFF;
+    border-radius: 0px;
+    color: black;
+    width: auto;
+    margin-left: 397px;
+    margin-top: 50px;
+    transition: all .4s;
+    margin-bottom: 60px;
+    &:hover {
+      background: #BCF369;
+      transition: all .2s;
+      cursor: pointer;
+    }
+  }
+
+  textarea {
+    width: 645px;
+    height: 300px;
+    background: #FFFFFF;
+    border: 1px solid #D6D6D6;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-family: $Font_Rg;
+    @include font(14px, 16px, 0px, 0px);
+  }
+  .tags_area {
+    width: 368px;
+    padding: 8px 16px 25px 16px;
+    height: auto;
+  }
 }
