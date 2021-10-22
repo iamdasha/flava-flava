@@ -13,33 +13,78 @@
 }
 
 $Font: 'Halvar Breit Md', sans-serif;
-@mixin font($s: 11px, $l: 24px, $mt: 67px) {
+@mixin font($s: 11px, $l: 24px, $ml: 60px, $mb: 0px) {
 font-size: $s;
 line-height: $l;
-margin-top: $mt;
+margin-left: $ml;
+margin-bottom: $mb;
 }
 
-h4 {
+.h3_titlepost {
   font-family: $Font;
-  @include font(24px, 26px, 10px);
-
+  @include font(48px, 56px, 60px, 0);
+  color: black;
+  margin-top: 63px;
 }
+
+// h4 {
+//   font-family: $Font;
+//   @include font(24px, 26px, 10px);
+//
+// }
+
 .posts {
   display: flex;
   flex-wrap: wrap;
-  margin: 48px 80px;
+  margin: 37px 45px;
+  .posts_item {
+    display: flex;
+    flex-direction: column;
+    width: 304px;
+    // background: #FFFFFF;
+    margin: 0 16px;
+    .artist_name {
+      font-family: $Font;
+      @include font(24px, 24px, 0px, 0);
+      color: black;
+      margin-top: 5px;
+      margin-bottom: 13px;
+    }
+    a {
+        font-family: $Font;
+        @include font(14px, 14px, 0px, 0);
+        padding: 4px 0px;
+        text-decoration: none;
+        color: #303030;
+        transition: all .4s;
+       &:nth-of-type(2) {
+         margin-left: 57.46%;
+         color: #B4B4B4;
+         transition: all .4s;
+         &:hover {
+           color: #303030;
+           transition: all .2s;
+         }
+       }
+       &:hover {
+         color: #B09CFF;
+         transition: all .2s;
+     }
+    }
+  }
+
 }
-.posts_item {
-  display: flex;
-  flex-direction: column;
-  width: 354px;
-  // margin-right: 5vw;
-  // margin-bottom: 6vw;
-  background: #FFFFFF;
-  // box-shadow: 2px 2px 15px rgba(123, 132, 165, 0.2), 0px 0px 10px rgba(177, 180, 188, 0.15);
-  // border-radius: 10px;
+.link_newpost {
+  font-family: $Font;
+  @include font(18px, 18px, 60px, 65px);
+  text-decoration: none;
+  color: #303030 !important;
+  transition: all .4s;
+  &:hover {
+    color: #B09CFF !important;
+    transition: all .2s;
+  }
 }
-.post_main {
-  display: flex;
-  flex-wrap: wrap;
+.post_extra {
+  height: 100px;
 }

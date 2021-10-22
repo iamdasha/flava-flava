@@ -18,6 +18,24 @@ posts = [
 	content: "хорош хорош",
   image: File.open(Rails.root.join('public', 'images', 'Asap.jpg'))
 
+},
+{
+  name: "ASAP Rocky",
+	title: "Непредсказуемый и оригинальный стиль популярного рэпера",
+  characteristics: "#оверсайз #яркий",
+	brands: "#СK #Tommy",
+	content: "хорош хорош",
+  image: File.open(Rails.root.join('public', 'images', 'Asap.jpg'))
+
+},
+{
+  name: "ASAP Rocky",
+	title: "Непредсказуемый и оригинальный стиль популярного рэпера",
+  characteristics: "#оверсайз #яркий",
+	brands: "#СK #Tommy",
+	content: "хорош хорош",
+  image: File.open(Rails.root.join('public', 'images', 'Asap.jpg'))
+
 }
 ]
 

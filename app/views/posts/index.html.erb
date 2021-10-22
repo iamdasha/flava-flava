@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
+<%= render "promo/navbar" %>
 
-<h1>Посты</h1>
+<h3 class="h3_titlepost">Артисты</h3>
 
 <table>
   <thead>
     <tr>
       <!-- <th>Имя артиста</th>
       <th>Фото</th> -->
-      <th colspan="2"></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -15,12 +16,13 @@
     <% @posts.each do |post| %>
       <tr class="posts_item">
         <td><%= image_tag(post.image.thumb.url, alt: 'Image')%></td>
-        <td><%= post.name %></td>
+        <td class="artist_name"><%= post.name %></td>
 
         <td>
-          <%= link_to 'Show', post %>
-          <%= link_to 'Edit', edit_post_path(post) %>
-          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Читать', post, :class =>"link" %>
+          <%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"link" %>
+
+          <%= link_to 'Изменить', edit_post_path(post), :class =>"link" %>
         </td>
       </tr>
     <% end %>
@@ -29,4 +31,6 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'Добавить артиста', new_post_path, :class =>"link_newpost" %>
+<div class="post_extra"></div>
+<%= render "promo/futer" %>
