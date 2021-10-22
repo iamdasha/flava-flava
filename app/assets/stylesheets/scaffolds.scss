@@ -71,7 +71,7 @@ label {
    ul {
      display: flex;
      li {
-
+       transition: .5s;
        padding-top: 34px;
        a {
          font-family: 'Halvar Breit Md', sans-serif;
@@ -97,4 +97,43 @@ label {
 .header li:hover {
   background: #BCF369;
   cursor: pointer;
+  transition: .2s;
+}
+
+$Font: 'Halvar Breit Md', sans-serif;
+@mixin font($s: 11px, $l: 24px, $mt: 67px) {
+font-size: $s;
+line-height: $l;
+margin-top: $mt;
+}
+
+.futer {
+  height: 128px;
+  background: black;
+  display: flex;
+  justify-content: space-between;
+  padding:  36px 2px 36px 60px;
+  p {
+    font-family: $Font;
+    @include font(20px, 23px, 0px);
+    color: #BCF369;
+  }
+  ul {
+    display: flex;
+  }
+  li {
+    font-family: $Font;
+    @include font(20px, 23px, 0px);
+    margin-right: 58px;
+    a {
+      color: #BCF369;
+      text-decoration: none;
+      transition: .4s;
+    }
+  }
+}
+
+.futer li a:hover {
+  color: #B09CFF;
+  transition: .2s;
 }

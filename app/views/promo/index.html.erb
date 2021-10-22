@@ -15,25 +15,29 @@
         </h2>
       </div>
     </section>
-    <section class="learn">
+    <section class="section learn">
       <h2>Узнай, что носят твои кумиры и как связаны музыкальные жанры и мода</h2>
+      <%= image_tag "promo_artists.png" %>
     </section>
-    <section class="do">
-      <div class="mockup">
 
-      </div>
+    <section class="section do">
+      <div class="promo_mockup"></div>
       <div class="facts">
-        <div class=""><h3>Следи за стилем любимых артистов</h3></div>
-        <div class=""><h3>Вдохновляйся образами</h3></div>
-        <div class=""><h3>Сохраняй понравившиеся луки</h3></div>
-        <div class=""><h3>Находи крутые вещи</h3></div>
+        <div class=""><h3>Следи за стилем<br>любимых артистов</h3></div>
+        <div class=""><h3>Вдохновляйся<br>образами</h3></div>
+        <div class=""><h3>Сохраняй<br>понравившиеся луки</h3></div>
+        <div class=""><h3>Находи<br>крутые вещи</h3></div>
       </div>
     </section>
+
     <section class="section last">
-      <h2>Узнай первым о запуске проекта!</h2>
+      <h2>Узнай первым<br>о запуске проекта!</h2>
       <h3>Подпишись на нашу рассылку:</h3>
       <%= render "subscribers/form" %>
     </section>
 
+    <%= render "futer" %>
+
   </body>
+
 </html>
