@@ -51,24 +51,21 @@
     <%= form.text_area :content %>
   </div>
 
-  <div>
-  	<%= form.label :fpic %>
-  	<%= form.file_field :fpic %>
+  <div class="field">
+    <h4>Добавьте аутфиты артиста</h4>
+  	<%= form.file_field :fpic, :class =>"image_area image_area_small2" %>
   </div>
 
-  <div>
-  	<%= form.label :spic %>
-  	<%= form.file_field :spic %>
+  <div class="field">
+  	<%= form.file_field :spic, :class =>"image_area image_area_small" %>
   </div>
 
-  <div>
-  	<%= form.label :tpic %>
-  	<%= form.file_field :tpic %>
+  <div class="field">
+  	<%= form.file_field :tpic, :class =>"image_area image_area_small" %>
   </div>
 
-  <div>
-  	<%= form.label :lpic %>
-  	<%= form.file_field :lpic %>
+  <div class="field">
+  	<%= form.file_field :lpic, :class =>"image_area image_area_small" %>
   </div>
 
   <div class="actions">

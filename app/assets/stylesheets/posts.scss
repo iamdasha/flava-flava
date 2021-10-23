@@ -152,9 +152,18 @@ margin-bottom: $mb;
 }
 .content_text {
   font-family: $Font_Rg;
-  @include font(24px, 29px, 60px, 65px);
+  @include font(24px, 29px, 60px, 80px);
   color: black;
   width: 862px;
+}
+.gallery {
+  margin: 0px 45px 65px 45px;
+  display: flex;
+  justify-content: flex-start;
+  img {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
 }
 .link_newpost_edit {
   margin-right: 15px;
@@ -196,7 +205,12 @@ form {
     background: none ;
     border: none;
   }
-
+  .image_area_small {
+    padding: 2px 16px;
+  }
+  .image_area_small2 {
+    padding: 8px 16px 2px 16px;
+  }
   .actions input {
     background: #B09CFF;
     border-radius: 0px;

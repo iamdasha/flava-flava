@@ -39,10 +39,12 @@
   <strong>Текст статьи:</strong>
   <%= @post.content %>
 </p>
-<%= image_tag(@post.fpic.url, alt: 'Image') if @post.fpic? %>
-<%= image_tag(@post.spic.url, alt: 'Image') if @post.spic? %>
-<%= image_tag(@post.tpic.url, alt: 'Image') if @post.tpic? %>
-<%= image_tag(@post.lpic.url, alt: 'Image') if @post.lpic? %>
+<div class="gallery">
+  <%= image_tag(@post.fpic.url, alt: 'Image') if @post.fpic? %>
+  <%= image_tag(@post.spic.url, alt: 'Image') if @post.spic? %>
+  <%= image_tag(@post.tpic.url, alt: 'Image') if @post.tpic? %>
+  <%= image_tag(@post.lpic.url, alt: 'Image') if @post.lpic? %>
+</div>
 
 <%= link_to 'Изменить', edit_post_path(@post), :class =>"link_newpost link_newpost_edit" %> |
 <%= link_to 'Назад', posts_path, :class =>"link_newpost link_newpost_back" %>
