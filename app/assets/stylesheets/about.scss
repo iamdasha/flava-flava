@@ -40,13 +40,29 @@ line-height: $l;
   font-family: $Font;
   @include font(80px, 80px);
   margin-bottom: 60px;
+  color: black;
 }
 
 .ab h2 {
   font-family: $Font_Rg;
   @include font(48px, 56px);
   margin-top: 0;
+  color: black;
   margin-bottom: 133px;
+}
+
+.ab h3 {
+  font-family: $Font_Rg;
+  @include font(30px, 35px);
+  margin-top: 0;
+  color: black;
+}
+
+.ab h4 {
+  font-family: $Font_Rg;
+  @include font(20px, 23px);
+  color: black;
+  margin: 0;
 }
 
 .heading {
@@ -72,6 +88,209 @@ line-height: $l;
 }
 
 .research {
-  height: 1443px;
   background-color: $violet;
+  h1 {
+    margin-bottom: 133px;
+  }
+  h2 {
+  max-width: 746px;
+  }
+  .participants {
+    position: relative;
+    color: $green;
+    left: 882px;
+    padding-bottom: 133px;
+  }
+}
+
+.per_big {
+  color: $green;
+  font-family: $Font;
+  @include font(350px, 240px);
+  margin-bottom: 60px;
+  margin-left: -34px;
+}
+
+.percent_group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 133px;
+}
+
+.percent {
+  .per_small{
+    font-family: $Font;
+    @include font(135px, 90px);
+    margin-bottom: 60px;
+    color: $green;
+  }
+}
+
+.conclusion {
+  background-color: $green;
+  h2 {
+    font-family: $Font;
+    margin-bottom: 60px;
+  }
+  h3 {
+    font-family: $Font_Rg;
+    padding-bottom: 133px;
+    max-width: 783px;
+  }
+}
+
+.audience {
+  h1 {
+    margin-bottom: 133px;
+  }
+  h2 {
+    margin-bottom: 60px;
+  }
+  h3 {
+    font-family: $Font;
+
+  }
+  .st {
+    margin-bottom: 133px;
+  }
+}
+
+.el1 {
+  position: absolute;
+  background-image: image_url('green.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 565px;
+  height: 210px;
+  top: -10px;
+  z-index: 1;
+}
+
+.el2 {
+  position: absolute;
+  background-image: image_url('viol.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 565px;
+  height: 210px;
+  right: 72px;
+  z-index: 1;
+  top: -10px;
+}
+
+.segments {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 60px 0 60px;
+  height: 412px;
+  padding-top: 42px;
+  .segment {
+    z-index: 1;
+    display: block;;
+  }
+}
+
+.possibilities {
+  background-image: image_url('back_el_possib.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 1323px;
+  background-color: $green;
+  h3 {
+    margin-bottom: 60px;
+  }
+  .screeens {
+    width: 841px;
+    height: 950px;
+    background-image: image_url('screens.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-left: -20px;
+  }
+}
+
+.list {
+  max-width: 458px;
+  border-left: 3px solid $green;
+  padding-left: 18px;
+  position: relative;
+  left: 553px;
+  top: -925px;
+}
+
+.ab .possibilities {
+  padding: 0;
+}
+
+.jtbd {
+  position: relative;
+  background-image: image_url('stories_back.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1130px;
+  margin-bottom: 60px;
+  h1 {
+    margin-bottom: 30px;
+  }
+  .job {
+    position: relative;
+    top: 45px;
+    h3 {
+      max-width: 637px;
+    }
+  }
+  .user {
+    position: relative;
+    left: 784px;
+    top: 302px;
+    h1 {
+      position: relative;
+      left: 48px;
+    }
+    h3 {
+      max-width: 527px;
+    }
+  }
+}
+
+.filters {
+  position: relative;
+  top: -485px;
+  left: 711px;
+  background-image: image_url('filtres.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 600px;
+  height: 383px;
+}
+
+.unisex {
+  position: relative;
+  top: -561px;
+  left: -48px;
+  background-image: image_url('unisex.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 691px;
+  height: 709px;
+}
+
+.inspire {
+  background-color: black;
+  h2 {
+    color: $white;
+    max-width: 644px;
+    margin-bottom: 0;
+    padding-bottom: 133px;
+  }
 }
