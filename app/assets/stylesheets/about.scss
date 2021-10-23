@@ -98,8 +98,10 @@ line-height: $l;
   .participants {
     position: relative;
     color: $green;
-    left: 882px;
+    margin-left: 0px;
     padding-bottom: 133px;
+    // width: 200px;
+    margin-right: 0;
   }
 }
 
@@ -293,4 +295,7 @@ line-height: $l;
     margin-bottom: 0;
     padding-bottom: 133px;
   }
+}
+.ab {
+  overflow: hidden;
 }
