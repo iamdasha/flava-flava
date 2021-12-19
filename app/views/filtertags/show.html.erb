@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @filtertag.name %>
+</p>
+
+
+<p>
+  <strong>Display in navbar:</strong>
+  <%= @filtertag.display_in_navbar %>
+</p>
+
+<%= link_to 'Edit', edit_filtertag_path(@filtertag) %> |
+<%= link_to 'Back', filtertags_path %>

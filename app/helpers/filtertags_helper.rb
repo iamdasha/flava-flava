@@ -1,0 +1,2 @@
+module FiltertagsHelper
+end

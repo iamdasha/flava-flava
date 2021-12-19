@@ -11,6 +11,30 @@
   </head>
 
   <body>
+    <% if notice %>
+      <%= notice %>
+    <% end %>
+    <div class="sidebar">
+      <ul>
+        <li><%= link_to "Артисты", artists_path %></li>
+        <li><%= link_to "Статьи", posts_path %></li>
+        <li>Подборки</li>
+        <li>Люди</li>
+      </ul>
+
+      <ul>
+        <li><%= link_to "Фильтры", filtertags_path %></li>
+        <li>Стили</li>
+        <li>Бренды</li>
+        <li>Типы статей</li>
+        <li>Предметы одежды</li>
+      </ul>
+    </div>
+
+    <div class="menubar">
+      <a href="#"><%= image_tag("logo.svg") %></a>
+      <a href="#" ><div class="profile"></div></a>
+    </div>
     
     <%= yield %>
   </body>

@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 255px;
+  background: white;
+  padding: 150px 60px;
+  box-sizing: border-box;
+  /* display: none; */
+}
+.menubar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 102px;
+  width: 100%;
+  background: white;
+  padding: 29px 60px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  /* display: none; */
+}
+.menubar img {
+  width: 13.5vw;
+}
+.profile {
+  width: 43px;
+  height: 43px;
+  background: #181818;
+  border-radius: 50px;
+}
+html {
+  margin-left: 285px;
+  margin-top: 102px;
+}

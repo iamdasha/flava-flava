@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_22_230825) do
+ActiveRecord::Schema.define(version: 2021_12_19_192050) do
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.string "sex"
+    t.string "age"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "artistphoto"
+    t.integer "filtertag_id", null: false
+    t.index ["filtertag_id"], name: "index_artists_on_filtertag_id"
+  end
+
+  create_table "filtertags", force: :cascade do |t|
+    t.string "name"
+    t.boolean "display_in_navbar", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "name"
@@ -35,4 +53,5 @@ ActiveRecord::Schema.define(version: 2021_10_22_230825) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "artists", "filtertags"
 end
