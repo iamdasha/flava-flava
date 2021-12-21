@@ -3,16 +3,35 @@ class ArtistsController < ApplicationController
 
   # GET /artists or /artists.json
   def index
+    # @posts = Post.all
+
     if params.has_key?(:filtertag)
       @filtertag = Filtertag.find_by_name(params[:filtertag])
       @artists = Artist.where(filtertag: @filtertag)
+    elsif params.has_key?(:style)
+      @style = Style.find_by_name(params[:style])
+      @artists = Artist.where(style: @style)
+    elsif params.has_key?(:brand)
+      @brand = Brand.find_by_name(params[:brand])
+      @artists = Artist.where(brand: @brand)
     else
       @artists = Artist.all
     end
+    @posts = Post.find_by_id(params[:id])
+    @cloths = Cloth.find_by_id(params[:id])
   end
 
   # GET /artists/1 or /artists/1.json
   def show
+    @artist = Artist.find(params[:id])
+    # @posts = Post.all
+    if @artist
+      @posts = Post.where(artist_id: @artist.id)
+      @cloths = Cloth.where(artist_id: @artist.id)
+      render actions: :show
+    end
+
+  
   end
 
   # GET /artists/new
@@ -69,6 +88,6 @@ class ArtistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def artist_params
-      params.require(:artist).permit(:name, :sex, :age, :artistphoto, :filtertag_id)
+      params.require(:artist).permit(:name, :sex, :age, :artistphoto, :filtertag_id, :style_id, :brand_id)
     end
 end

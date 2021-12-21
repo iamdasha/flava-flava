@@ -1,50 +1,33 @@
-<%= render "promo/navbar" %>
 
-<div class="post_main">
-
-  <div class="post_main_foto">
-    <%= link_to(image_tag(@post.image.url, alt: 'Image'), @post.image.url, target: '_blank') if @post.image? %>
-  </div>
-  <div class="post_main_text">
-    <p class="name_in_post">
-      <strong></strong>
-      <%= @post.name %>
-    </p>
-    <div class="filter_block">
-      <div class="filter">
-      	<strong></strong>
-      	<%= @post.country %>
-      </div>
-      <div class="filter">
-      	<strong></strong>
-      	<%= @post.filterTag %>
-      </div>
-    </div>
-    <p class="characteristics">
-    	<strong class="characteristics_h">Характеристики стиля:</strong>
-    	<%= @post.characteristics %>
-    </p>
-    <p class="brands">
-    	<strong class="brands_h">Любимые бренды:</strong>
-    	<%= @post.brands %>
-    </p>
-  </div>
-</div>
 
 <p class="content_title">
   <%= @post.title %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @post.artist.name %>
+</p>
+
+<p>
+  <strong>Style:</strong>
+  <%= @post.style.name %>
+</p>
+
+<p>
+  <strong>Коллаб:</strong>
+  <%= @post.brand.name %>
+</p>
+
+<p>
+  <strong>Тип:</strong>
+  <%= @post.type.name %>
 </p>
 
 <p class="content_text">
   <strong>Текст статьи:</strong>
   <%= @post.content %>
 </p>
-<div class="gallery">
-  <%= image_tag(@post.fpic.url, alt: 'Image') if @post.fpic? %>
-  <%= image_tag(@post.spic.url, alt: 'Image') if @post.spic? %>
-  <%= image_tag(@post.tpic.url, alt: 'Image') if @post.tpic? %>
-  <%= image_tag(@post.lpic.url, alt: 'Image') if @post.lpic? %>
-</div>
 
 <%= link_to 'Изменить', edit_post_path(@post), :class =>"link_newpost link_newpost_edit" %> |
 <%= link_to 'Назад', posts_path, :class =>"link_newpost link_newpost_back" %>

@@ -24,10 +24,10 @@
 
       <ul>
         <li><%= link_to "Фильтры", filtertags_path %></li>
-        <li>Стили</li>
-        <li>Бренды</li>
-        <li>Типы статей</li>
-        <li>Предметы одежды</li>
+        <li><%= link_to "Стили", styles_path %></li>
+        <li><%= link_to "Бренды", brands_path %></li>
+        <li><%= link_to "Типы статей", types_path %></li>
+        <li><%= link_to "Предметы одежды", cloths_path %></li>
       </ul>
     </div>
 
@@ -35,7 +35,7 @@
       <a href="#"><%= image_tag("logo.svg") %></a>
       <a href="#" ><div class="profile"></div></a>
     </div>
-    
+
     <%= yield %>
   </body>
 </html>

@@ -11,15 +11,6 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <h4>Имя артиста</h4>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <h4>Фото артиста</h4>
-  	<%= form.file_field :image, :class =>"image_area" %>
-  </div>
 
   <div class="field">
     <h4>Название статьи</h4>
@@ -27,23 +18,25 @@
   </div>
 
   <div class="field">
-    <h4>Происхождение</h4>
-    <%= form.select :country, ['Российские', 'Зарубержные'] %>
+    <%= form.label :artist_id %>
+    <%= form.select :artist_id, Artist.pluck(:name, :id) %>
   </div>
 
   <div class="field">
-    <h4>Категории</h4>
-    <%= form.select :filterTag, ['Рэп', 'Поп', 'Креативные','Душевные', 'Легенды'] %>
+    <%= form.label :style_id %>
+    <%= form.select :style_id, Style.pluck(:name, :id) %>
   </div>
 
   <div class="field">
-    <h4>Характеристики стиля</h4>
-    <%= form.text_area :characteristics, placeholder: "#", :class =>"tags_area" %>
+    <h4>Укажите коллаб</h4>
+      <%= form.label :brand_id %>
+      <%= form.select :brand_id, Brand.pluck(:name, :id) %>
   </div>
 
   <div class="field">
-    <h4>Любимые бренды</h4>
-    <%= form.text_area :brands, placeholder: "#", :class =>"tags_area" %>
+    <h4>Укажите тип статьи</h4>
+      <%= form.label :type_id %>
+      <%= form.select :type_id, Type.pluck(:name, :id) %>
   </div>
 
   <div class="field">
@@ -51,22 +44,7 @@
     <%= form.text_area :content %>
   </div>
 
-  <div class="field">
-    <h4>Добавьте аутфиты артиста</h4>
-  	<%= form.file_field :fpic, :class =>"image_area image_area_small2" %>
-  </div>
 
-  <div class="field">
-  	<%= form.file_field :spic, :class =>"image_area image_area_small" %>
-  </div>
-
-  <div class="field">
-  	<%= form.file_field :tpic, :class =>"image_area image_area_small" %>
-  </div>
-
-  <div class="field">
-  	<%= form.file_field :lpic, :class =>"image_area image_area_small" %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>

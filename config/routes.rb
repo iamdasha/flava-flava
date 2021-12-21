@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :cloths
+  resources :types
+  resources :brands
+  resources :styles
   resources :filtertags
   resources :artists
   get 'about/index'
@@ -15,11 +19,17 @@ Rails.application.routes.draw do
   get 'about', to: 'about#index'
   get 'artists', to: 'artists#index'
   get 'posts', to: 'posts#index'
+  get 'cloths', to: 'cloths#index'
   get 'filtertags', to: 'filtertags#index'
+  get 'styles', to: 'styles#index'
+  get 'brands', to: 'brands#index'
+  get 'types', to: 'types#index'
 
   # root 'promo#index'
 
   get 'artists/index'
+  get 'artists/:id' => 'artists#show'
+
 
   root 'artists#index'
   # root 'posts#index'

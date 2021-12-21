@@ -4,7 +4,21 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    if params.has_key?(:style)
+      @style = Style.find_by_name(params[:style])
+      @posts = Post.where(style: @style)
+    elsif params.has_key?(:brand)
+      @brand = Brand.find_by_name(params[:brand])
+      @posts = Post.where(brand: @brand)
+    elsif params.has_key?(:type)
+      @type = Type.find_by_name(params[:type])
+      @posts = Post.where(type: @type)
+    elsif params.has_key?(:id)
+        @artist = Artist.find_by_id(params[:id])
+        @posts = Post.where(id: @artist)
+    else
+      @posts = Post.all
+    end
   end
 
   # GET /posts/1 or /posts/1.json
@@ -19,6 +33,7 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
   end
+
 
   # POST /posts or /posts.json
   def create
@@ -65,6 +80,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:name, :characteristics, :brands, :title, :content, :filterTag, :country, :image, :fpic, :spic, :tpic, :lpic)
+      params.require(:post).permit(:title, :content, :artist_id, :style_id, :brand_id, :type_id)
     end
 end

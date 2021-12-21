@@ -5,4 +5,9 @@ class Artist < ApplicationRecord
   mount_uploader :artistphoto, ArtistphotoUploader
 
   belongs_to :filtertag
+  belongs_to :style
+  belongs_to :brand
+  has_many :posts
+  has_many :cloths
+
 end

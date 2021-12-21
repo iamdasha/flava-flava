@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_19_192050) do
+ActiveRecord::Schema.define(version: 2021_12_21_141853) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -20,7 +20,26 @@ ActiveRecord::Schema.define(version: 2021_12_19_192050) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "artistphoto"
     t.integer "filtertag_id", null: false
+    t.integer "style_id", null: false
+    t.integer "brand_id", null: false
+    t.index ["brand_id"], name: "index_artists_on_brand_id"
     t.index ["filtertag_id"], name: "index_artists_on_filtertag_id"
+    t.index ["style_id"], name: "index_artists_on_style_id"
+  end
+
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.string "link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "cloths", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "artist_id", null: false
+    t.index ["artist_id"], name: "index_cloths_on_artist_id"
   end
 
   create_table "filtertags", force: :cascade do |t|
@@ -30,21 +49,33 @@ ActiveRecord::Schema.define(version: 2021_12_19_192050) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.string "name"
+    t.integer "artist_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artist_id"], name: "index_items_on_artist_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "characteristics"
-    t.string "brands"
-    t.string "filterTag"
-    t.string "country"
-    t.string "image"
-    t.string "fpic"
-    t.string "spic"
-    t.string "tpic"
-    t.string "lpic"
+    t.integer "artist_id", null: false
+    t.integer "style_id", null: false
+    t.integer "brand_id", null: false
+    t.integer "type_id", null: false
+    t.index ["artist_id"], name: "index_posts_on_artist_id"
+    t.index ["brand_id"], name: "index_posts_on_brand_id"
+    t.index ["style_id"], name: "index_posts_on_style_id"
+    t.index ["type_id"], name: "index_posts_on_type_id"
+  end
+
+  create_table "styles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "subscribers", force: :cascade do |t|
@@ -53,5 +84,19 @@ ActiveRecord::Schema.define(version: 2021_12_19_192050) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "artists", "brands"
   add_foreign_key "artists", "filtertags"
+  add_foreign_key "artists", "styles"
+  add_foreign_key "cloths", "artists"
+  add_foreign_key "items", "artists"
+  add_foreign_key "posts", "artists"
+  add_foreign_key "posts", "brands"
+  add_foreign_key "posts", "styles"
+  add_foreign_key "posts", "types"
 end

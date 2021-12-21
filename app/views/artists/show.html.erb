@@ -21,5 +21,28 @@
   <strong>Filtertag:</strong>
   <%= @artist.filtertag.name %>
 </p>
+
+<p>
+  <strong>Style:</strong>
+  <%= @artist.style.name %>
+</p>
+
+<p>
+  <strong>Brand like:</strong>
+  <%= @artist.brand.name %>
+</p>
+
+<% @posts.each do |post| %>
+  <p>
+    <%= link_to post.title, post %>
+  </p>
+<% end %>
+
+<% @cloths.each do |cloth| %>
+  <p>
+    <%= link_to cloth.name, cloth %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>

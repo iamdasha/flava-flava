@@ -1,6 +1,20 @@
-<%= render "promo/navbar" %>
 
-<h3 class="h3_titlepost">Артисты</h3>
+
+<h3>Посты</h3>
+
+<% Style.all.each do |style| %>
+<%= link_to style.name, posts_path(style: style.name) %>|
+<% end %>
+
+<hr>
+<% Brand.all.each do |brand| %>
+<%= link_to brand.name, posts_path(brand: brand.name) %>|
+<% end %>
+
+<hr>
+<% Type.all.each do |type| %>
+<%= link_to type.name, posts_path(type: type.name) %>|
+<% end %>
 
 <table>
   <thead>
@@ -11,11 +25,11 @@
     </tr>
   </thead>
 
-  <tbody class="posts">
+  <tbody >
     <% @posts.each do |post| %>
       <tr class="posts_item">
-        <td><%= image_tag(post.image.thumb.url, alt: 'Image')%></td>
-        <td class="artist_name"><%= post.name %></td>
+        <td><%= post.title %></td>
+        <td><%= post.artist.name %></td>
 
         <td>
           <%= link_to 'Читать', post, :class =>"link" %>
@@ -30,6 +44,6 @@
 
 
 
-<%= link_to 'Добавить артиста', new_post_path, :class =>"link_newpost" %>
+<%= link_to 'Добавить пост', new_post_path, :class =>"link_newpost" %>
 <div class="post_extra"></div>
 <%= render "promo/futer" %>

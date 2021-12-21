@@ -10,7 +10,15 @@
 <%= link_to filtertag.name, artists_path(filtertag: filtertag.name) %> |
 <% end %>
 
+<hr>
+<% Style.all.each do |style| %>
+<%= link_to style.name, artists_path(style: style.name) %>|
+<% end %>
 
+<hr>
+<% Brand.all.each do |brand| %>
+<%= link_to brand.name, artists_path(brand: brand.name) %>|
+<% end %>
 
 <table>
   <thead>
