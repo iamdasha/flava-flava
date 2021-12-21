@@ -7,7 +7,9 @@ class Artist < ApplicationRecord
   belongs_to :filtertag
   belongs_to :style
   belongs_to :brand
+  belongs_to :user
   has_many :posts
   has_many :cloths
 
+  has_many :artistfavorites, dependent: :destroy
 end

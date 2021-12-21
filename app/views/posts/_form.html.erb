@@ -17,6 +17,11 @@
     <%= form.text_area :title, :class =>"tags_area" %>
   </div>
 
+  <div>
+  	<%= form.label :postcover %>
+  	<%= form.file_field :postcover %>
+  </div>
+
   <div class="field">
     <%= form.label :artist_id %>
     <%= form.select :artist_id, Artist.pluck(:name, :id) %>
@@ -44,7 +49,18 @@
     <%= form.text_area :content %>
   </div>
 
-
+  <div>
+    <%= form.label :fimage %>
+    <%= form.file_field :fimage %>
+  </div>
+  <div>
+    <%= form.label :simage %>
+    <%= form.file_field :simage %>
+  </div>
+  <div>
+    <%= form.label :timage %>
+    <%= form.file_field :timage %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

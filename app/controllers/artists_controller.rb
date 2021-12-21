@@ -1,3 +1,4 @@
+
 class ArtistsController < ApplicationController
   before_action :set_artist, only: %i[ show edit update destroy ]
 
@@ -31,7 +32,7 @@ class ArtistsController < ApplicationController
       render actions: :show
     end
 
-  
+
   end
 
   # GET /artists/new
@@ -45,8 +46,7 @@ class ArtistsController < ApplicationController
 
   # POST /artists or /artists.json
   def create
-    @artist = Artist.new(artist_params)
-
+    @artist = Artist.new(artist_params.merge(user_id: current_user.id))
     respond_to do |format|
       if @artist.save
         format.html { redirect_to @artist, notice: "Artist was successfully created." }
@@ -88,6 +88,6 @@ class ArtistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def artist_params
-      params.require(:artist).permit(:name, :sex, :age, :artistphoto, :filtertag_id, :style_id, :brand_id)
+      params.require(:artist).permit(:name, :sex, :age, :artistphoto, :filtertag_id, :style_id, :brand_id, :genre, :instagram, :youtube, :spotify)
     end
 end

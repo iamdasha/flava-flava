@@ -4,6 +4,8 @@
   <%= @post.title %>
 </p>
 
+<%= image_tag(@post.postcover.url, alt: 'Image') if @post.postcover? %>
+
 <p>
   <strong>Artist:</strong>
   <%= @post.artist.name %>
@@ -29,7 +31,27 @@
   <%= @post.content %>
 </p>
 
+<%= image_tag(@post.fimage.url, alt: 'Image') if @post.fimage? %>
+<%= image_tag(@post.simage.url, alt: 'Image') if @post.simage? %>
+<%= image_tag(@post.timage.url, alt: 'Image') if @post.timage? %>
+
+
+<% if user_signed_in? %>
+
+  <% pre_favorite = @post.favorites.find { |favorite| favorite.user_id == current_user.id} %>
+  <% if pre_favorite %>
+      <%= button_to 'Remove from Favorite', post_favorite_path(@post, pre_favorite), method: :delete %>
+  <% else %>
+      <%= button_to 'Add to Favorite', post_favorites_path(@post), method: :post %>
+  <% end %>
+
+<% end %>
+
+
+<% if user_signed_in? %>
 <%= link_to 'Изменить', edit_post_path(@post), :class =>"link_newpost link_newpost_edit" %> |
+<% end %>
+
 <%= link_to 'Назад', posts_path, :class =>"link_newpost link_newpost_back" %>
 <div class="post_extra"></div>
 <%= render "promo/futer" %>

@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -8,29 +9,60 @@
 <%= image_tag(@artist.artistphoto.url, alt: 'Image') if @artist.artistphoto? %>
 
 <p>
-  <strong>Sex:</strong>
+  <strong>Пол:</strong>
   <%= @artist.sex %>
 </p>
 
 <p>
-  <strong>Age:</strong>
+  <strong>Возраст:</strong>
   <%= @artist.age %>
 </p>
 
 <p>
-  <strong>Filtertag:</strong>
+  <strong>Фильтр:</strong>
   <%= @artist.filtertag.name %>
 </p>
 
 <p>
-  <strong>Style:</strong>
+  <strong>Стиль одежды:</strong>
   <%= @artist.style.name %>
 </p>
 
 <p>
-  <strong>Brand like:</strong>
+  <strong>Любимые бренды:</strong>
   <%= @artist.brand.name %>
 </p>
+
+<p>
+	<strong>Жанр:</strong>
+	<%= @artist.genre %>
+</p>
+
+<p>
+	<strong>Инстаграм:</strong>
+	<%= @artist.instagram %>
+</p>
+
+<p>
+	<strong>Ютуб:</strong>
+	<%= @artist.youtube %>
+</p>
+
+<p>
+	<strong>Спотифай:</strong>
+	<%= @artist.spotify %>
+</p>
+
+<% if user_signed_in? %>
+
+  <% pre_artistfavorite = @artist.artistfavorites.find { |artistfavorite| artistfavorite.user_id == current_user.id} %>
+  <% if pre_artistfavorite %>
+      <%= button_to 'Remove from Artistfavorite', artist_artistfavorite_path(@artist, pre_artistfavorite), method: :delete %>
+  <% else %>
+      <%= button_to 'Add to Artistfavorite', artist_artistfavorites_path(@artist), method: :artist %>
+  <% end %>
+
+<% end %>
 
 <% @posts.each do |post| %>
   <p>

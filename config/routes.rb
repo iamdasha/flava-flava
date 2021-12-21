@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :cloths
   resources :types
   resources :brands
@@ -9,6 +10,14 @@ Rails.application.routes.draw do
   resources :posts
   resources :subscribers
   get 'promo/index'
+
+  resources :posts do
+    resources :favorites
+  end
+
+  resources :artists do
+    resources :artistfavorites
+  end
 
   # root 'promo#index'
   get 'posts/index'
@@ -30,6 +39,9 @@ Rails.application.routes.draw do
   get 'artists/index'
   get 'artists/:id' => 'artists#show'
 
+  get 'users', to: 'users#index'
+  get 'users/:id' => 'users#show', :as => :user
+  delete 'users/:id', to: 'users#destroy'
 
   root 'artists#index'
   # root 'posts#index'

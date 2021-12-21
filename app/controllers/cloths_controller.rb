@@ -69,6 +69,6 @@ class ClothsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cloth_params
-      params.require(:cloth).permit(:name, :artist_id)
+      params.require(:cloth).permit(:name, :artist_id, :clothimage, :link)
     end
 end

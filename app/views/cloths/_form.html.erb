@@ -20,7 +20,17 @@
     <%= form.label :artist_id %>
     <%= form.select :artist_id, Artist.pluck(:name, :id) %>
   </div>
-  
+
+  <div>
+  	<%= form.label :clothimage %>
+  	<%= form.file_field :clothimage %>
+  </div>
+
+  <div class="field">
+  	<%= form.label :link %>
+  	<%= form.text_field :link %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

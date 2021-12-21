@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :sex %>
-    <%= form.text_field :sex %>
+    <%= form.select :sex, ['Мужcкой', 'Женский', 'Вне гендера']%>
   </div>
 
   <div class="field">
@@ -44,6 +44,26 @@
   <div class="field">
     <%= form.label :brand_id %>
     <%= form.select :brand_id, Brand.pluck(:name, :id) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre %>
+    <%= form.select :genre, ['Хип–хоп', 'Поп', 'Рок','Электро', 'Джаз', 'Народная', 'Классика', 'Шансон']%>
+  </div>
+
+  <div class="field">
+  	<%= form.label :instagram %>
+  	<%= form.text_field :instagram %>
+  </div>
+
+  <div class="field">
+    <%= form.label :youtube %>
+    <%= form.text_field :youtube %>
+  </div>
+
+  <div class="field">
+    <%= form.label :spotify %>
+    <%= form.text_field :spotify %>
   </div>
 
   <div class="actions">
