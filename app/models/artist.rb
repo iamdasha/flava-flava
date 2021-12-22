@@ -8,8 +8,8 @@ class Artist < ApplicationRecord
   belongs_to :style
   belongs_to :brand
   belongs_to :user
-  has_many :posts
-  has_many :cloths
+  has_many :posts, dependent: :destroy
+  has_many :cloths, dependent: :destroy
 
   has_many :artistfavorites, dependent: :destroy
 end

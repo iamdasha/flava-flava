@@ -1,49 +1,55 @@
+<div class="index_handb">
+  <h1>Статьи</h1>
+  <% if user_signed_in? && current_user.isadmin == true %>
+  <%= link_to 'Создать', new_post_path, :class =>"link_newpost", :class =>"link_new" %>
+    <% end %>
+</div>
+
+<div class="filter">
+  <% Type.all.each do |type| %>
+  <%= link_to type.name, posts_path(type: type.name) %>
+  <% end %>
+</div>
+
+<div class="filter styles ">
+  <% Style.all.each do |style| %>
+  <%= link_to style.name, posts_path(style: style.name) %>
+  <% end %>
+</div>
 
 
-<h3>Посты</h3>
-
-<% Style.all.each do |style| %>
-<%= link_to style.name, posts_path(style: style.name) %>|
+<h2>Подборки</h2>
+<% Collection.all.each do |collection| %>
+	<%= link_to collection.name, posts_path(collection: collection.name) %> <br>
 <% end %>
 
-<hr>
-<% Brand.all.each do |brand| %>
-<%= link_to brand.name, posts_path(brand: brand.name) %>|
-<% end %>
-
-<hr>
-<% Type.all.each do |type| %>
-<%= link_to type.name, posts_path(type: type.name) %>|
-<% end %>
 
 <table>
   <thead>
     <tr>
-      <!-- <th>Имя артиста</th>
-      <th>Фото</th> -->
-      <th colspan="3"></th>
+
+      <th class="table1">Название</th>
+      <th>Артист</th>
+      <th>Создатель</th>
+      <th>Дата</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody >
     <% @posts.each do |post| %>
-      <tr class="posts_item">
-        <td><%= post.title %></td>
-        <td><%= post.artist.name %></td>
+      <tr>
+        <td class="font24 table1"><%= post.title %></td>
+        <td class="font20"><%= post.artist.name %></td>
+        <td class="font20"><%= post.user.username %></td>
+        <td class="font20"><%= post.updated_at %></td>
+        <td><%= link_to image_tag('show.svg'), post, :class =>"link" %></td>
+        <% if user_signed_in? && current_user.isadmin == true %>
+          <td><%= link_to image_tag('edit.svg'), edit_post_path(post), :class =>"link"%></td>
+          <td><%= link_to image_tag('destroy.svg'), post, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"link"%></td>
+        <% end %>
 
-        <td>
-          <%= link_to 'Читать', post, :class =>"link" %>
-          <%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"link" %>
-
-          <%= link_to 'Изменить', edit_post_path(post), :class =>"link" %>
-        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-
-
-<%= link_to 'Добавить пост', new_post_path, :class =>"link_newpost" %>
-<div class="post_extra"></div>
-<%= render "promo/futer" %>

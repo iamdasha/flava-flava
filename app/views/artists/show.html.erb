@@ -1,12 +1,50 @@
 
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
-</p>
+<div class="">
 
-<%= image_tag(@artist.artistphoto.url, alt: 'Image') if @artist.artistphoto? %>
+  <div class="">
+    <%= image_tag(@artist.artistphoto.url, alt: 'Image') if @artist.artistphoto? %>
+  </div>
+
+  <div class="">
+    <div class="">
+      <p>
+        <strong>Name:</strong>
+        <%= @artist.name %>
+      </p>
+      <p>
+      	<strong>Инстаграм:</strong>
+        <%= link_to image_tag('instagram.svg'), @artist.instagram, :target => "_blank" %>
+      </p>
+      <p>
+      	<strong>Ютуб:</strong>
+        <%= link_to image_tag('youtube.svg'), @artist.youtube, :target => "_blank" %>
+      </p>
+      <p>
+      	<strong>Спотифай:</strong>
+        <%= link_to image_tag('spotify.svg'), @artist.spotify, :target => "_blank" %>
+      </p>
+    </div>
+
+    <p>
+      <strong>Фильтр:</strong>
+      <%= @artist.filtertag.name %>
+    </p>
+    <p>
+      <strong>Стиль одежды:</strong>
+      <%= @artist.style.name %>
+    </p>
+    <p>
+      <strong>Любимые бренды:</strong>
+      <%= @artist.brand.name %>
+    </p>
+
+  </div>
+</div>
+
+
+
+
 
 <p>
   <strong>Пол:</strong>
@@ -18,40 +56,16 @@
   <%= @artist.age %>
 </p>
 
-<p>
-  <strong>Фильтр:</strong>
-  <%= @artist.filtertag.name %>
-</p>
 
-<p>
-  <strong>Стиль одежды:</strong>
-  <%= @artist.style.name %>
-</p>
 
-<p>
-  <strong>Любимые бренды:</strong>
-  <%= @artist.brand.name %>
-</p>
+
 
 <p>
 	<strong>Жанр:</strong>
 	<%= @artist.genre %>
 </p>
 
-<p>
-	<strong>Инстаграм:</strong>
-	<%= @artist.instagram %>
-</p>
 
-<p>
-	<strong>Ютуб:</strong>
-	<%= @artist.youtube %>
-</p>
-
-<p>
-	<strong>Спотифай:</strong>
-	<%= @artist.spotify %>
-</p>
 
 <% if user_signed_in? %>
 

@@ -1,6 +1,6 @@
 class StylesController < ApplicationController
   before_action :set_style, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /styles or /styles.json
   def index
     @styles = Style.all
@@ -21,8 +21,7 @@ class StylesController < ApplicationController
 
   # POST /styles or /styles.json
   def create
-    @style = Style.new(style_params)
-
+    @style = Style.new(style_params.merge(user_id: current_user.id))
     respond_to do |format|
       if @style.save
         format.html { redirect_to @style, notice: "Style was successfully created." }

@@ -1,5 +1,5 @@
 <p>ID <%= @user.id %></p>
-<%= image_tag(@user.avatar.url, alt: 'Image') if @user.avatar? %>
+<%= image_tag(@user.avatar.thumb.url, alt: 'Image') if @user.avatar? %>
 <p>Email <%= @user.email %></p>
 <p>Username <%= @user.username %></p>
 
@@ -15,6 +15,12 @@ In favorites <%= @user.favorites.count %> <%= (@user.favorites.count) == 1 ? 'Po
 In artistfavorites <%= @user.artistfavorites.count %> <%= (@user.artistfavorites.count) == 1 ? 'Artist' : 'Artists'%>
 <% @artists.each do |artist| %>
   <br><%= link_to artist.name, artist %>
+<% end %>
+<hr>
+
+In colectfavorites <%= @user.colectfavorites.count %> <%= (@user.colectfavorites.count) == 1 ? 'Collection' : 'Collections'%>
+<% @collections.each do |collection| %>
+  <br><%= link_to collection.name, collection %>
 <% end %>
 <hr>
 

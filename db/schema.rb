@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_21_222526) do
+ActiveRecord::Schema.define(version: 2021_12_22_194750) do
 
   create_table "artistfavorites", force: :cascade do |t|
     t.integer "artist_id", null: false
@@ -59,6 +59,21 @@ ActiveRecord::Schema.define(version: 2021_12_21_222526) do
     t.index ["artist_id"], name: "index_cloths_on_artist_id"
   end
 
+  create_table "colectfavorites", force: :cascade do |t|
+    t.integer "collection_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["collection_id"], name: "index_colectfavorites_on_collection_id"
+    t.index ["user_id"], name: "index_colectfavorites_on_user_id"
+  end
+
+  create_table "collections", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.integer "post_id", null: false
     t.integer "user_id", null: false
@@ -82,6 +97,8 @@ ActiveRecord::Schema.define(version: 2021_12_21_222526) do
     t.boolean "display_in_navbar", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_filtertags_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -106,8 +123,10 @@ ActiveRecord::Schema.define(version: 2021_12_21_222526) do
     t.string "fimage"
     t.string "simage"
     t.string "timage"
+    t.integer "collection_id", null: false
     t.index ["artist_id"], name: "index_posts_on_artist_id"
     t.index ["brand_id"], name: "index_posts_on_brand_id"
+    t.index ["collection_id"], name: "index_posts_on_collection_id"
     t.index ["style_id"], name: "index_posts_on_style_id"
     t.index ["type_id"], name: "index_posts_on_type_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
@@ -117,6 +136,8 @@ ActiveRecord::Schema.define(version: 2021_12_21_222526) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_styles_on_user_id"
   end
 
   create_table "subscribers", force: :cascade do |t|
@@ -153,14 +174,19 @@ ActiveRecord::Schema.define(version: 2021_12_21_222526) do
   add_foreign_key "artists", "styles"
   add_foreign_key "artists", "users"
   add_foreign_key "cloths", "artists"
+  add_foreign_key "colectfavorites", "collections"
+  add_foreign_key "colectfavorites", "users"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
   add_foreign_key "favotite_as", "artists"
   add_foreign_key "favotite_as", "users"
+  add_foreign_key "filtertags", "users"
   add_foreign_key "items", "artists"
   add_foreign_key "posts", "artists"
   add_foreign_key "posts", "brands"
+  add_foreign_key "posts", "collections"
   add_foreign_key "posts", "styles"
   add_foreign_key "posts", "types"
   add_foreign_key "posts", "users"
+  add_foreign_key "styles", "users"
 end

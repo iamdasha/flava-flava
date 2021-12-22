@@ -1,12 +1,23 @@
 body {
   background-color: #fff;
-  color: #333;
-  margin: 33px; }
+  color: #181818;
+  margin: 33px 60px 33px 0px;
+}
 
+  @font-face {
+      font-family: 'Pangram';
+      src: url('PPPangramSans-Medium.otf') format('OpenType');
+      // font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+  }
+$Font: 'Pangram';
+$Fontb: 'Pangram Semibold';
 body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px; }
+  font-family: $Font;
+  font-size: 18px;
+  line-height: 20px; }
+
 
 pre {
   background-color: #eee;
@@ -14,20 +25,21 @@ pre {
   font-size: 11px; }
 
 a {
-  color: #000; }
+  color: #424242;
+  text-decoration: none;
+}
 
-a:visited {
-  color: #666; }
 
-a:hover {
-  color: #fff;
-  background-color: #000; }
 
-th {
-  padding-bottom: 5px; }
+// a:hover {
+//   color: #fff;
+//   background-color: #000; }
 
-td {
-  padding: 0 5px 7px; }
+// th {
+//   padding-bottom: 5px; }
+//
+// td {
+//   padding: 0 5px 7px; }
 
 div.field,
 div.actions {
@@ -63,3 +75,14 @@ div.actions {
 
 label {
   display: block; }
+  @font-face {
+      font-family: 'Pangram Semibold';
+      src: font-url('PPPangramSans-Semibold.otf') format('OpenType');
+      font-weight:bold;
+      font-style: normal;
+      font-display: swap;
+  }
+.menubar_left a {
+  font-family: $Fontb;
+  color: #181818;
+}

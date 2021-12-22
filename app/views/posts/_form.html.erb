@@ -61,7 +61,10 @@
     <%= form.label :timage %>
     <%= form.file_field :timage %>
   </div>
-
+  <div class="field">
+    <%= form.label :collection_id %>
+    <%= form.select :collection_id, Collection.pluck(:name, :id) %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

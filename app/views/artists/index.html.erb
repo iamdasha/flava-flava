@@ -1,31 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Artists</h1>
+<div class="index_handb">
+  <h1>Артисты</h1>
+  <% if user_signed_in? && current_user.isadmin == true %>
+    <%= link_to 'Создать', new_artist_path, :class =>"link_new" %>
+  <% end %>
+</div>
 
 
 
 
+<div class="filter">
+  <% Filtertag.where(display_in_navbar: true).each do |filtertag| %>
+  <%= link_to filtertag.name, artists_path(filtertag: filtertag.name) %>
+  <% end %>
+</div>
 
-<% Filtertag.where(display_in_navbar: true).each do |filtertag| %>
-<%= link_to filtertag.name, artists_path(filtertag: filtertag.name) %> |
-<% end %>
 
-<hr>
+
+<div class="filter styles ">
 <% Style.all.each do |style| %>
-<%= link_to style.name, artists_path(style: style.name) %>|
+<%= link_to style.name, artists_path(style: style.name) %>
 <% end %>
+</div>
 
-<hr>
-<% Brand.all.each do |brand| %>
-<%= link_to brand.name, artists_path(brand: brand.name) %>|
-<% end %>
+
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Sex</th>
-      <th>Age</th>
+      <th></th>
+      <th>Имя артиста</th>
+      <th>Создатель</th>
+      <th>Дата обновления</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -33,17 +40,19 @@
   <tbody>
     <% @artists.each do |artist| %>
       <tr>
-        <td><%= artist.name %></td>
-        <td><%= artist.sex %></td>
-        <td><%= artist.age %></td>
-        <td><%= artist.filtertag.name %></td>
-        <td><%= link_to 'Show', artist %></td>
-        <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="table1"><%= link_to(image_tag(artist.artistphoto.thumb.url, alt: 'Image'), artist.artistphoto.url, target: '_blank') if artist.artistphoto? %></td>
+        <td class="font24 "><%= artist.name %></td>
+        <td class="font20"><%= artist.user.username %></td>
+        <td class="font20"><%= artist.updated_at %></td>
+        <td><%= link_to image_tag('show.svg'), artist %></td>
+        <% if user_signed_in? && current_user.isadmin == true %>
+          <td><%= link_to image_tag('edit.svg'), edit_artist_path(artist) %></td>
+          <td><%= link_to image_tag('destroy.svg'), artist, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<%= link_to 'New Artist', new_artist_path %>

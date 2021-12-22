@@ -1,8 +1,9 @@
 
 class ArtistsController < ApplicationController
   before_action :set_artist, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /artists or /artists.json
+  
   def index
     # @posts = Post.all
 
@@ -19,6 +20,8 @@ class ArtistsController < ApplicationController
       @artists = Artist.all
     end
     @posts = Post.find_by_id(params[:id])
+    @artist = Artist.where(params[:artistphoto])
+
     @cloths = Cloth.find_by_id(params[:id])
   end
 

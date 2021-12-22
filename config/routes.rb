@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :collections
   devise_for :users
   resources :cloths
   resources :types
@@ -19,6 +20,9 @@ Rails.application.routes.draw do
     resources :artistfavorites
   end
 
+  resources :collections do
+      resources :colectfavorites
+  end
   # root 'promo#index'
   get 'posts/index'
   get 'about/index'
@@ -33,6 +37,7 @@ Rails.application.routes.draw do
   get 'styles', to: 'styles#index'
   get 'brands', to: 'brands#index'
   get 'types', to: 'types#index'
+  get 'collections', to: 'types#index'
 
   # root 'promo#index'
 

@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
-
+  
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
   # GET /posts or /posts.json
+
   def index
     if params.has_key?(:style)
       @style = Style.find_by_name(params[:style])
@@ -16,6 +17,12 @@ class PostsController < ApplicationController
     elsif params.has_key?(:id)
         @artist = Artist.find_by_id(params[:id])
         @posts = Post.where(id: @artist)
+    elsif params.has_key?(:collection)
+      @collection = Collection.find_by_name(params[:collection])
+      @posts = Post.where(collection: @collection)
+    elsif params.has_key?(:id)
+        @collection = Collection.find_by_id(params[:id])
+        @posts = Post.where(id: @collection)
     else
       @posts = Post.all
     end
@@ -80,6 +87,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :content, :artist_id, :style_id, :brand_id, :type_id, :postcover, :fimage, :simage, :timage)
+      params.require(:post).permit(:title, :content, :artist_id, :style_id, :brand_id, :type_id, :postcover, :fimage, :simage, :timage, :collection_id)
     end
 end

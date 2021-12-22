@@ -15,35 +15,41 @@
     <p class="alert"><%= alert %></p>
   <% end %>
   <body>
-    <% if notice %>
-      <%= notice %>
-    <% end %>
+
     <div class="sidebar">
-      <ul>
+      <ul class="ul1">
         <li><%= link_to "Артисты", artists_path %></li>
         <li><%= link_to "Статьи", posts_path %></li>
-        <li>Подборки</li>
+        <li><%= link_to "Подборки", collections_path %></li>
         <li><%= link_to "Люди", users_path %></li>
       </ul>
 
-      <ul>
+      <ul class="ul2">
         <li><%= link_to "Фильтры", filtertags_path %></li>
         <li><%= link_to "Стили", styles_path %></li>
         <li><%= link_to "Бренды", brands_path %></li>
-        <li><%= link_to "Типы статей", types_path %></li>
+        <li><%= link_to "Категории статей", types_path %></li>
         <li><%= link_to "Предметы одежды", cloths_path %></li>
       </ul>
     </div>
-    <div class="top_menu">
-      <% if user_signed_in? %>
-        <%= link_to 'Account', current_user %> | <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Sign In', new_user_session_path %> | <%= link_to 'Sign Up', new_user_registration_path %>
-      <% end %>
-    </div>
+
     <div class="menubar">
-      <a href="#"><%= image_tag("logo.svg") %></a>
-      <a href="#" ><div class="profile"></div></a>
+      <%= image_tag("logo.svg") %>
+      <div class="menubar_left">
+        <% if user_signed_in? %>
+            <%= link_to 'Выйти', destroy_user_session_path, method: :delete, :class =>"link_new" %>
+
+            <%= link_to(image_tag(current_user.avatar.thumb.url, alt: 'Image'), current_user) if current_user.avatar? %>
+            <%# <%= link_to(current_user.avatar? image_tag(current_user.avatar.thumb.url) : image_tag('avatar.svg'), current_user) %> %>
+            <!-- @user.reviews.each do |r|
+  a href="#"
+    = avatar r.user -->
+        <% else %>
+          <%= link_to 'Войти', new_user_session_path, :class =>"link_new" %> | <%= link_to 'Регистрация', new_user_registration_path, :class =>"link_new" %>
+        <% end %>
+      </div>
+
+
     </div>
 
     <%= yield %>

@@ -6,6 +6,7 @@ class Post < ApplicationRecord
 		belongs_to :brand
 		belongs_to :type
 		belongs_to :user
+		belongs_to :collection
 		has_many :favorites, dependent: :destroy
 
 		mount_uploader :postcover, PostcoverUploader

@@ -10,5 +10,8 @@ class User < ApplicationRecord
   has_many :artistfavorites, dependent: :destroy
   has_many :artistfavorited_artists, :through => :artistfavorites, :source => :artist
 
+  has_many :colectfavorites, dependent: :destroy
+  has_many :colectfavorited_collections, :through => :colectfavorites, :source => :collection
+
   mount_uploader :avatar, AvatarUploader
 end

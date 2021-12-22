@@ -1,3 +1,100 @@
 // Place all the styles related to the Artists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+$Fontb: 'Pangram Semibold';
+h1 {
+  font-family: $Fontb;
+  font-size: 48px;
+  margin-bottom: 1.5vh;
+  display: inline-block;
+}
+
+.index_handb {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5vh;
+  box-sizing: border-box;
+  width: 100%;
+
+}
+.filter {
+  margin-bottom: 6vh;
+}
+
+.filter a {
+  box-sizing: content-box;
+  font-family: $Fontb;
+  margin-right: 1vw;
+  padding: 1.3vh 1.8vw;
+  // background: #FC62FF;
+  color: #111112;
+  border: 2px solid #FC62FF;
+  transition: all .2s;
+
+}
+.filter a:hover {
+  background: #FC62FF;
+}
+
+.styles a{
+  border: 2px solid #33FEB4;
+}
+
+.styles a:hover{
+  background: #33FEB4;
+}
+table {
+  width: 100%;
+}
+th {
+  padding-top: 1.5vh;
+  padding-bottom: 1.5vh;
+  vertical-align: middle;
+  text-align: left;
+}
+td {
+  vertical-align: middle;
+}
+thead tr {
+  background: #F2F2F2;
+  padding: 1vh 0;
+}
+tbody tr {
+  height: 10vh;
+}
+.font24 {
+  font-size: 24px;
+  line-height: 26px;
+}
+.font20 a{
+
+  color: #181818;
+}
+.link_new {
+  font-family: $Fontb;
+  color: #181818;
+  transition: all .2s;
+}
+.link_new:hover {
+  color: #FC62FF;
+}
+.fontbold {
+  font-family: $Fontb;
+}
+.table1 {
+  padding-left: 2vw;
+}
+.user_view {
+  width: 3vw;
+}
+.user_view2 {
+  width: 3.3vw;
+}
+.brand_link a {
+  transition: all .2s;
+}
+.brand_link a:hover {
+  color: #FC62FF;
+}

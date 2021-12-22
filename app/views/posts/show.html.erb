@@ -35,6 +35,10 @@
 <%= image_tag(@post.simage.url, alt: 'Image') if @post.simage? %>
 <%= image_tag(@post.timage.url, alt: 'Image') if @post.timage? %>
 
+<p>
+  <strong>Подборка:</strong>
+  <%= @post.collection.name %>
+</p>
 
 <% if user_signed_in? %>
 

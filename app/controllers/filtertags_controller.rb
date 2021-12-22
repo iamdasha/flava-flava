@@ -1,6 +1,6 @@
 class FiltertagsController < ApplicationController
   before_action :set_filtertag, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /filtertags or /filtertags.json
   def index
     @filtertags = Filtertag.all
@@ -21,7 +21,8 @@ class FiltertagsController < ApplicationController
 
   # POST /filtertags or /filtertags.json
   def create
-    @filtertag = Filtertag.new(filtertag_params)
+    @filtertag = Filtertag.new(filtertag_params.merge(user_id: current_user.id))
+    
 
     respond_to do |format|
       if @filtertag.save
