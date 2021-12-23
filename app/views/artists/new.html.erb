@@ -1,5 +1,12 @@
-<h1>New Artist</h1>
+<div class="collection_content">
+  <%= link_to image_tag('back.svg'), artists_path %>
+
+  <div class="post_title collection_title">
+    <h1 class="">Создание артиста</h1>
+
+  </div>
+
+</div>
+
 
 <%= render 'form', artist: @artist %>
-
-<%= link_to 'Back', artists_path %>

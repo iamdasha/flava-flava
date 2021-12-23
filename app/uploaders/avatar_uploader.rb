@@ -54,10 +54,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
 #     end
 #   end
 # end
+process resize_to_fill: [195, 195]
 
   version :thumb do
      # process resize_to_fill: [50, 50]
-     process :resize_and_round => ['50x50', 25]
+     process :resize_to_fill => [50,50]
   end
   # Process files as they are uploaded:
   # process scale: [200, 300]

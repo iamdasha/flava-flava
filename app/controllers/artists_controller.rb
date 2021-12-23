@@ -3,7 +3,7 @@ class ArtistsController < ApplicationController
   before_action :set_artist, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
   # GET /artists or /artists.json
-  
+
   def index
     # @posts = Post.all
 

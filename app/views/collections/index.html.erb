@@ -1,11 +1,19 @@
 <p id="notice"><%= notice %></p>
+<div class="index_handb">
+  <h1>Подборки</h1>
+  <% if user_signed_in? && current_user.isadmin == true %>
+    <%= link_to 'Создать', new_collection_path, :class =>"link_new" %>
+  <% end %>
+</div>
 
-<h1>Collections</h1>
+
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th class="table1">Название</th>
+      <th>Создатель</th>
+      <th>Дата обновления</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,10 +21,16 @@
   <tbody>
     <% @collections.each do |collection| %>
       <tr>
-        <td><%= collection.name %></td>
-        <td><%= link_to 'Show', collection %></td>
-        <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
-        <td><%= link_to 'Destroy', collection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="font24 table1"><%= collection.name %></td>
+        <td class="font20"><%= collection.user.username %></td>
+        <td class="font20"><%= collection.updated_at %></td>
+        <td class="user_view user_view2"><%= link_to image_tag('show.svg'), collection %></td>
+
+        <% if user_signed_in? && current_user.isadmin == true %>
+          <td class="user_view"><%= link_to image_tag('edit.svg'), edit_collection_path(collection)%></td>
+          <td class="user_view"><%= link_to image_tag('destroy.svg'), collection, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +38,4 @@
 
 <br>
 
-<%= link_to 'New Collection', new_collection_path %>
+<%= render "promo/futerindex" %>

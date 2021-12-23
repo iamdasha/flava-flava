@@ -21,7 +21,7 @@ class TypesController < ApplicationController
 
   # POST /types or /types.json
   def create
-    @type = Type.new(type_params)
+    @type = Type.new(type_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @type.save

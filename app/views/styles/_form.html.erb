@@ -12,11 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <p class="p_form">Название стиля</p>
+    <%= form.text_field :name , placeholder: "Введите название"%>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions button_form">
+    <%= form.submit "Сохранить" %>
   </div>
+
+
 <% end %>

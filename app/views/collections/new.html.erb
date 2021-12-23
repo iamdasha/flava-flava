@@ -1,5 +1,10 @@
-<h1>New Collection</h1>
+<div class="collection_content">
+  <%= link_to image_tag('back.svg'), collections_path %>
+
+  <div class="post_title collection_title">
+    <h1 class="">Создание подборки</h1>
+  </div>
+
+</div>
 
 <%= render 'form', collection: @collection %>
-
-<%= link_to 'Back', collections_path %>

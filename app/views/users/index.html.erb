@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <div class="index_handb">
   <h1>Люди</h1>
@@ -11,7 +11,9 @@
       <th class="table1">ID</th>
       <th>Email</th>
       <th>Никнейм</th>
-      <th>Статус</th>
+      <% if user_signed_in? && current_user.isadmin == true  %>
+        <th>Статус</th>
+      <% end %>
       <th colspan="3"></th>
 
     </tr>
@@ -23,11 +25,18 @@
         <td class="font24 table1"><%= user.id %></td>
         <td class="font20"><%= link_to user.email, user %></td>
         <td class="font20"><%= user.username %></td>
+
+
+        <% if user_signed_in? && current_user.isadmin == true  %>
         <td class="font20"><%= user.isadmin %></td>
-        <td class="user_view"><%= link_to image_tag('show.svg'), user %></td>
+          <td class="user_view"><%= link_to image_tag('show.svg'), user %></td>
+          <td class="user_view"><%= link_to image_tag('edit.svg'), edit_user_registration_path%></td>
+        <% end %>
       </tr>
 
 
     <% end %>
   </tbody>
 </table>
+
+<%= render "promo/futerindex" %>

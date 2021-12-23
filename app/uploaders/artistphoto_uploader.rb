@@ -30,7 +30,11 @@ class ArtistphotoUploader < CarrierWave::Uploader::Base
 process resize_to_fill: [420, 546]
 
 version :thumb do
-   process resize_to_fill: [83, 83]
+   process resize_to_fill: [308, 401]
+end
+
+version :small_thumb, from_version: :thumb do
+    process resize_to_fill: [83, 83]
 end
   # Create different versions of your uploaded files:
   # version :thumb do

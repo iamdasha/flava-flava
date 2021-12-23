@@ -1,94 +1,145 @@
 
 
-<div class="">
-
-  <div class="">
+<div class="artist_content">
+  <%= link_to image_tag('back.svg'), artists_path %>
+  <div class="artist_photo">
     <%= image_tag(@artist.artistphoto.url, alt: 'Image') if @artist.artistphoto? %>
   </div>
 
-  <div class="">
-    <div class="">
-      <p>
-        <strong>Name:</strong>
+  <div class="artist_info">
+    <div class="artist_info_top">
+      <h1 class="artist_name">
         <%= @artist.name %>
-      </p>
-      <p>
-      	<strong>Инстаграм:</strong>
+      </h1>
+      <p class="social_link">
         <%= link_to image_tag('instagram.svg'), @artist.instagram, :target => "_blank" %>
       </p>
-      <p>
-      	<strong>Ютуб:</strong>
+      <p class="social_link">
         <%= link_to image_tag('youtube.svg'), @artist.youtube, :target => "_blank" %>
       </p>
-      <p>
-      	<strong>Спотифай:</strong>
+      <p class="social_link">
         <%= link_to image_tag('spotify.svg'), @artist.spotify, :target => "_blank" %>
       </p>
     </div>
 
-    <p>
-      <strong>Фильтр:</strong>
+    <p class="filter_inartistpage">
       <%= @artist.filtertag.name %>
     </p>
-    <p>
-      <strong>Стиль одежды:</strong>
+    <p class="info_margin_big">
+      <strong class="font24 strong_title">Стили одежды:</strong>
       <%= @artist.style.name %>
     </p>
-    <p>
-      <strong>Любимые бренды:</strong>
+    <p class="info_margin">
+      <strong class="font24 strong_title">Любимые бренды:</strong>
       <%= @artist.brand.name %>
     </p>
-
+    <p class="info_margin">
+      <strong class="font24 strong_title">Коллаборации:</strong>
+      <%= @artist.brand.name %>
+    </p>
   </div>
 </div>
 
 
 
 
+<div class="info_margin artist_extra_info ">
+  <div>
+    <p class="strong_title">
+      <strong class="font24">Пол:</strong>
+      <strong class="extra_info_strong"><%= @artist.sex %></strong>
+    </p>
 
-<p>
-  <strong>Пол:</strong>
-  <%= @artist.sex %>
-</p>
+    <p class="strong_title">
+      <strong class="font24">Возраст:</strong>
+      <strong class="extra_info_strong2"><%= @artist.age %></strong>
 
-<p>
-  <strong>Возраст:</strong>
-  <%= @artist.age %>
-</p>
+    </p>
 
+    <p class="strong_title">
+    	<strong class="font24">Жанр:</strong>
+      <strong class="extra_info_strong3"><%= @artist.genre %></strong>
 
+    </p>
 
+    <p class="strong_title">
+    	<strong class="font24">Согруппники:</strong>
+      <strong class="extra_info_strong4">Сольный артист</strong>
+    </p>
+  </div>
 
+  <% if user_signed_in? %>
 
-<p>
-	<strong>Жанр:</strong>
-	<%= @artist.genre %>
-</p>
+    <% pre_artistfavorite = @artist.artistfavorites.find { |artistfavorite| artistfavorite.user_id == current_user.id} %>
+    <% if pre_artistfavorite %>
+        <%= button_to 'Удалить из избранного', artist_artistfavorite_path(@artist, pre_artistfavorite), method: :delete %>
+    <% else %>
+        <%= button_to 'В избранное', artist_artistfavorites_path(@artist), method: :artist %>
+    <% end %>
 
-
-
-<% if user_signed_in? %>
-
-  <% pre_artistfavorite = @artist.artistfavorites.find { |artistfavorite| artistfavorite.user_id == current_user.id} %>
-  <% if pre_artistfavorite %>
-      <%= button_to 'Remove from Artistfavorite', artist_artistfavorite_path(@artist, pre_artistfavorite), method: :delete %>
-  <% else %>
-      <%= button_to 'Add to Artistfavorite', artist_artistfavorites_path(@artist), method: :artist %>
   <% end %>
 
-<% end %>
 
-<% @posts.each do |post| %>
-  <p>
-    <%= link_to post.title, post %>
-  </p>
-<% end %>
+</div>
 
-<% @cloths.each do |cloth| %>
-  <p>
-    <%= link_to cloth.name, cloth %>
-  </p>
-<% end %>
+<div class="user_link_edit filtertag_link_edit">
 
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+  <% if user_signed_in? && current_user.isadmin == true %>
+    <div class="filtertag_link_edit_item filtertag_extra">
+      <%= link_to image_tag('edit.svg'), edit_artist_path(@artist) %>
+      <p>
+        <%= link_to 'Редактировать', edit_artist_path(@artist), :class =>"link_new link_new_user" %>
+      </p>
+    </div>
+    <div class="filtertag_link_edit_item">
+      <%= link_to image_tag('destroy.svg'), @artist, method: :delete, data: { confirm: 'Are you sure?' }%>
+      <p>
+        <%= link_to 'Удалить', @artist, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"link_new link_new_user" %>
+      </p>
+    </div>
+
+  <% end %>
+</div>
+
+
+
+
+<h1 class="h1_postsinartist">Статьи об артисте</h1>
+<div class="posts_inartist">
+  <% @posts.each do |post| %>
+    <div class="posts_inartist_item">
+      <%= link_to image_tag(post.fimage.thumb.url), post if post.fimage? %>
+      <div class="posts_inartist_bottom">
+        <p class="posttitle_inartist">
+          <%= link_to post.title, post %>
+        </p>
+        <%= link_to image_tag('show.svg'), post %>
+      </div>
+
+
+    </div>
+
+  <% end %>
+</div>
+
+<h1 class="h1_postsinartist">Вещи как у артиста</h1>
+<div class="posts_inartist">
+  <% @cloths.each do |cloth| %>
+    <div class="posts_inartist_item">
+      <%= link_to image_tag(cloth.clothimage.url), cloth if cloth.clothimage? %>
+      <div class="posts_inartist_bottom">
+        <p class="posttitle_inartist">
+          <%= link_to cloth.name, cloth %>
+        </p>
+        <%= link_to image_tag('show.svg'), cloth %>
+      </div>
+
+
+    </div>
+
+  <% end %>
+</div>
+
+
+
+<%= render "promo/futer" %>

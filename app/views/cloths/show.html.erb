@@ -1,21 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="collection_content">
+  <%= link_to image_tag('back.svg'), cloths_path %>
+  <div class="post_title collection_title">
+    <h1 class="">Предмет одежды</h1>
+  </div>
+  <p class="strong_title link_shop">
+    <strong class="font24 link "><%= link_to "Перейти на сайт", @cloth.link, :target => "_blank" %></strong>
+  </p>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cloth.name %>
-</p>
+<div class="info_margin artist_extra_info cloth_photo">
+  <%= image_tag(@cloth.clothimage.url, alt: 'Image') if @cloth.clothimage? %>
 
-<p>
-  <strong>Artist:</strong>
-  <%= @cloth.artist.name %>
-</p>
+  <div >
+    <p class="strong_title">
+      <strong class="font24">Название:</strong>
+      <strong class="c_extra_info_strong"><%= @cloth.name %></strong>
+    </p>
+    <p class="strong_title">
+      <strong class="font24">Принадлежит:</strong>
+      <strong class="f_extra_info_strong"><%= @cloth.artist.name %></strong>
+    </p>
 
-<p>
-	<strong>Link:</strong>
-	<%= @cloth.link %>
-</p>
+  </div>
+</div>
 
-<%= image_tag(@cloth.clothimage.url, alt: 'Image') if @cloth.clothimage? %>
+<div class="user_link_edit filtertag_link_edit">
 
-<%= link_to 'Edit', edit_cloth_path(@cloth) %> |
-<%= link_to 'Back', cloths_path %>
+  <% if user_signed_in? && current_user.isadmin == true %>
+    <div class="filtertag_link_edit_item filtertag_extra">
+      <%= link_to image_tag('edit.svg'), edit_cloth_path(@cloth) %>
+      <p>
+        <%= link_to 'Редактировать', edit_cloth_path(@cloth), :class =>"link_new link_new_user" %>
+      </p>
+    </div>
+    <div class="filtertag_link_edit_item">
+      <%= link_to image_tag('destroy.svg'), @cloth, method: :delete, data: { confirm: 'Are you sure?' }%>
+      <p>
+        <%= link_to 'Удалить', @cloth, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"link_new link_new_user" %>
+      </p>
+    </div>
+
+  <% end %>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_22_194750) do
+ActiveRecord::Schema.define(version: 2021_12_23_181856) do
 
   create_table "artistfavorites", force: :cascade do |t|
     t.integer "artist_id", null: false
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2021_12_22_194750) do
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_brands_on_user_id"
   end
 
   create_table "cloths", force: :cascade do |t|
@@ -56,7 +58,9 @@ ActiveRecord::Schema.define(version: 2021_12_22_194750) do
     t.integer "artist_id", null: false
     t.string "clothimage"
     t.string "link"
+    t.integer "user_id", null: false
     t.index ["artist_id"], name: "index_cloths_on_artist_id"
+    t.index ["user_id"], name: "index_cloths_on_user_id"
   end
 
   create_table "colectfavorites", force: :cascade do |t|
@@ -72,6 +76,9 @@ ActiveRecord::Schema.define(version: 2021_12_22_194750) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.string "cover"
+    t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -150,6 +157,8 @@ ActiveRecord::Schema.define(version: 2021_12_22_194750) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_types_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -173,9 +182,12 @@ ActiveRecord::Schema.define(version: 2021_12_22_194750) do
   add_foreign_key "artists", "filtertags"
   add_foreign_key "artists", "styles"
   add_foreign_key "artists", "users"
+  add_foreign_key "brands", "users"
   add_foreign_key "cloths", "artists"
+  add_foreign_key "cloths", "users"
   add_foreign_key "colectfavorites", "collections"
   add_foreign_key "colectfavorites", "users"
+  add_foreign_key "collections", "users"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
   add_foreign_key "favotite_as", "artists"
@@ -189,4 +201,5 @@ ActiveRecord::Schema.define(version: 2021_12_22_194750) do
   add_foreign_key "posts", "types"
   add_foreign_key "posts", "users"
   add_foreign_key "styles", "users"
+  add_foreign_key "types", "users"
 end

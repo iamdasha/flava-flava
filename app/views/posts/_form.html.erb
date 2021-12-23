@@ -11,61 +11,61 @@
     </div>
   <% end %>
 
+  <h2>Общая информация</h2>
 
   <div class="field">
-    <h4>Название статьи</h4>
-    <%= form.text_area :title, :class =>"tags_area" %>
-  </div>
-
-  <div>
-  	<%= form.label :postcover %>
-  	<%= form.file_field :postcover %>
-  </div>
-
-  <div class="field">
-    <%= form.label :artist_id %>
+    <p class="p_form">Про кого статья?</p>
     <%= form.select :artist_id, Artist.pluck(:name, :id) %>
   </div>
 
   <div class="field">
-    <%= form.label :style_id %>
-    <%= form.select :style_id, Style.pluck(:name, :id) %>
-  </div>
-
-  <div class="field">
-    <h4>Укажите коллаб</h4>
-      <%= form.label :brand_id %>
-      <%= form.select :brand_id, Brand.pluck(:name, :id) %>
-  </div>
-
-  <div class="field">
-    <h4>Укажите тип статьи</h4>
-      <%= form.label :type_id %>
+    <p class="p_form">Категория статьи</p>
       <%= form.select :type_id, Type.pluck(:name, :id) %>
   </div>
 
   <div class="field">
-    <h4>Текст статьи</h4>
+    <p class="p_form">Стили одежды</p>
+    <%= form.select :style_id, Style.pluck(:name, :id) %>
+  </div>
+
+  <div class="field field_desc">
+    <p class="p_form">Коллаборация</p>
+    <p class="">Если в статье говорится о коллаборции, выберите соотвествующий бренд. В противном случае, выберите вариант «нет».</p>
+
+      <%= form.select :brand_id, Brand.pluck(:name, :id) %>
+  </div>
+
+  <div class="field">
+    <p class="p_form">К какой подборке относится статья?</p>
+    <%= form.select :collection_id, Collection.pluck(:name, :id) %>
+  </div>
+
+  <h2 class="h2_form">Контент статьи</h2>
+
+
+  <div class="field">
+    <p class="p_form">Название статьи</p>
+    <%= form.text_field :title, :class =>"tags_area", placeholder: "Введите название" %>
+  </div>
+
+  <div class="field">
+    <p class="p_form">Текст статьи</p>
     <%= form.text_area :content %>
   </div>
 
-  <div>
-    <%= form.label :fimage %>
-    <%= form.file_field :fimage %>
+
+
+  <div class="field photo_form">
+    <p class="p_form">Фото образов</p>
+    <%= form.file_field :fimage, :class =>"social_link_form social_link_form2" %>
+    <%= form.file_field :simage, :class =>"social_link_form social_link_form2" %>
+    <%= form.file_field :timage, :class =>"social_link_form social_link_form1" %>
   </div>
-  <div>
-    <%= form.label :simage %>
-    <%= form.file_field :simage %>
+
+
+  <div class="actions button_form">
+    <%= form.submit "Сохранить" %>
   </div>
-  <div>
-    <%= form.label :timage %>
-    <%= form.file_field :timage %>
-  </div>
-  <div class="field">
-    <%= form.label :collection_id %>
-    <%= form.select :collection_id, Collection.pluck(:name, :id) %>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+
+
 <% end %>

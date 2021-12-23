@@ -1,9 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="collection_content">
+  <%= link_to image_tag('back.svg'), types_path %>
+  <div class="post_title collection_title">
+    <h1 class="">Категория статей</h1>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @type.name %>
-</p>
+<div class="info_margin artist_extra_info">
+  <div>
+    <p class="strong_title">
+      <strong class="font24">Название категории:</strong>
+      <strong class="f_extra_info_strong"><%= @type.name %></strong>
+    </p>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_type_path(@type) %> |
-<%= link_to 'Back', types_path %>
+<div class="user_link_edit filtertag_link_edit">
+
+  <% if user_signed_in? && current_user.isadmin == true %>
+    <div class="filtertag_link_edit_item filtertag_extra">
+      <%= link_to image_tag('edit.svg'), edit_type_path(@type) %>
+      <p>
+        <%= link_to 'Редактировать', edit_type_path(@type), :class =>"link_new link_new_user" %>
+      </p>
+    </div>
+    <div class="filtertag_link_edit_item">
+      <%= link_to image_tag('destroy.svg'), @type, method: :delete, data: { confirm: 'Are you sure?' }%>
+      <p>
+        <%= link_to 'Удалить', @type, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"link_new link_new_user" %>
+      </p>
+    </div>
+
+  <% end %>
+</div>

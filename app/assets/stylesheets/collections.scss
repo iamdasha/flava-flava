@@ -1,3 +1,14 @@
 // Place all the styles related to the collections controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+// .collection_content {
+//   display: flex;
+//   justify-content: space-between;
+// }
+.collection_content > * {
+  display: inline-block;
+}
+.collection_content {
+  display: flex;
+  margin-bottom: 5vh;
+}

@@ -18,10 +18,7 @@
 </div>
 
 
-<h2>Подборки</h2>
-<% Collection.all.each do |collection| %>
-	<%= link_to collection.name, posts_path(collection: collection.name) %> <br>
-<% end %>
+
 
 
 <table>
@@ -53,3 +50,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= render "promo/futerindex" %>

@@ -1,14 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="collection_content">
+  <%= link_to image_tag('back.svg'), brands_path %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @brand.name %>
-</p>
+  <div class="post_title collection_title">
+    <h1 class="">Бренд одежды</h1>
 
-<p>
-  <strong>Link:</strong>
-  <%= @brand.link %>
-</p>
+  </div>
+  <p class="strong_title link_shop">
+    <strong class="font24 link "><%= link_to "Перейти на сайт", @brand.link, :target => "_blank" %></strong>
 
-<%= link_to 'Edit', edit_brand_path(@brand) %> |
-<%= link_to 'Back', brands_path %>
+  </p>
+</div>
+
+<div class="info_margin artist_extra_info ">
+  <div>
+    <p class="strong_title">
+      <strong class="font24">Название бренда:</strong>
+      <strong class="f_extra_info_strong"><%= @brand.name %></strong>
+    </p>
+
+  </div>
+</div>
+
+<div class="user_link_edit filtertag_link_edit">
+
+  <% if user_signed_in? && current_user.isadmin == true %>
+    <div class="filtertag_link_edit_item filtertag_extra">
+      <%= link_to image_tag('edit.svg'), edit_brand_path(@brand) %>
+      <p>
+        <%= link_to 'Редактировать', edit_brand_path(@brand), :class =>"link_new link_new_user" %>
+      </p>
+    </div>
+    <div class="filtertag_link_edit_item">
+      <%= link_to image_tag('destroy.svg'), @brand, method: :delete, data: { confirm: 'Are you sure?' }%>
+      <p>
+        <%= link_to 'Удалить', @brand, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"link_new link_new_user" %>
+      </p>
+    </div>
+
+  <% end %>
+</div>

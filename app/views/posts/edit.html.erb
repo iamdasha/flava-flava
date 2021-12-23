@@ -1,10 +1,14 @@
-<%= render "promo/navbar" %>
-<h3 class="h3_titlepost Editing_post">Редактирование</h3>
+<div class="collection_content">
+  <%= link_to image_tag('back.svg'), posts_path %>
+
+  <div class="post_title collection_title">
+    <h1 class="">Редактирование статьи</h1>
+
+  </div>
+
+</div>
+
+
 
 
 <%= render 'form', post: @post %>
-
-<%= link_to 'Back', posts_path, :class =>"link_newpost link_newpost_edit"  %>
-<div class="post_extra"></div>
-
-<%= render "promo/futer" %>

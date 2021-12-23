@@ -40,7 +40,7 @@
   <tbody>
     <% @artists.each do |artist| %>
       <tr>
-        <td class="table1"><%= link_to(image_tag(artist.artistphoto.thumb.url, alt: 'Image'), artist.artistphoto.url, target: '_blank') if artist.artistphoto? %></td>
+        <td class="table1"><%= link_to(image_tag(artist.artistphoto.small_thumb.url, alt: 'Image'), artist.artistphoto.url, target: '_blank') if artist.artistphoto? %></td>
         <td class="font24 "><%= artist.name %></td>
         <td class="font20"><%= artist.user.username %></td>
         <td class="font20"><%= artist.updated_at %></td>
@@ -55,4 +55,6 @@
   </tbody>
 </table>
 
-<br>
+
+
+<%= render "promo/futerindex" %>

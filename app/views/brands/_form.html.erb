@@ -12,16 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <p class="p_form">Название бренда</p>
+    <%= form.text_field :name , placeholder: "Введите название"%>
   </div>
 
   <div class="field">
-    <%= form.label :link %>
-    <%= form.text_field :link %>
+    <p class="p_form">Ссылка на бренд</p>
+    <%= form.text_field :link, placeholder: "Введите ссылку" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions button_form">
+    <%= form.submit "Сохранить" %>
   </div>
+
+
+
+
+
 <% end %>

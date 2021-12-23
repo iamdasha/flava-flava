@@ -22,7 +22,7 @@
       <tr>
         <td class="table1"><%= link_to(image_tag(cloth.clothimage.thumb.url, alt: 'Image'), cloth.clothimage.url, target: '_blank') if cloth.clothimage? %></td>
         <td class="font24 "><%= cloth.name %></td>
-        <td class="font20"><%= cloth.artist.name %></td>
+        <td class="font20"><%= cloth.user.username %></td>
         <td class="font20"><%= cloth.updated_at %></td>
         <td><%= link_to image_tag('show.svg'), cloth %></td>
         <% if user_signed_in? && current_user.isadmin == true %>
@@ -35,4 +35,4 @@
   </tbody>
 </table>
 
-<br>
+<%= render "promo/futerindex" %>

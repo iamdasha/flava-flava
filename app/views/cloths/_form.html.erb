@@ -12,26 +12,29 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <p class="p_form">Название предмета одежды</p>
+    <%= form.text_field :name , placeholder: "Введите название"%>
   </div>
 
   <div class="field">
-    <%= form.label :artist_id %>
+    <p class="p_form">Кому принадлежит вещь?</p>
     <%= form.select :artist_id, Artist.pluck(:name, :id) %>
   </div>
 
-  <div>
-  	<%= form.label :clothimage %>
-  	<%= form.file_field :clothimage %>
+  <div class="field photo_form">
+    <p class="p_form ">Фото</p>
+    <%= form.file_field :clothimage %>
   </div>
 
   <div class="field">
-  	<%= form.label :link %>
-  	<%= form.text_field :link %>
+    <p class="p_form">Ссылка на вещь</p>
+    <%= form.text_field :link, placeholder: "Введите ссылку" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions button_form">
+    <%= form.submit "Сохранить" %>
   </div>
+
+
+
 <% end %>

@@ -1,15 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="collection_content">
+  <%= link_to image_tag('back.svg'), filtertags_path %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @filtertag.name %>
-</p>
+  <div class="post_title collection_title">
+    <h1 class="">Фильтр</h1>
+
+  </div>
+
+</div>
 
 
-<p>
-  <strong>Display in navbar:</strong>
-  <%= @filtertag.display_in_navbar %>
-</p>
+<div class="info_margin artist_extra_info ">
+  <div>
+    <p class="strong_title">
+      <strong class="font24">Название фильтра:</strong>
+      <strong class="f_extra_info_strong"><%= @filtertag.name%></strong>
+    </p>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_filtertag_path(@filtertag) %> |
-<%= link_to 'Back', filtertags_path %>
+<div class="user_link_edit filtertag_link_edit">
+
+  <% if user_signed_in? && current_user.isadmin == true %>
+    <div class="filtertag_link_edit_item filtertag_extra">
+      <%= link_to image_tag('edit.svg'), edit_filtertag_path(@filtertag) %>
+      <p>
+        <%= link_to 'Редактировать', edit_filtertag_path(@filtertag), :class =>"link_new link_new_user" %>
+      </p>
+    </div>
+    <div class="filtertag_link_edit_item">
+      <%= link_to image_tag('destroy.svg'), @filtertag, method: :delete, data: { confirm: 'Are you sure?' }%>
+      <p>
+        <%= link_to 'Удалить', @filtertag, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"link_new link_new_user" %>
+      </p>
+    </div>
+
+  <% end %>
+</div>

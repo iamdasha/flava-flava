@@ -26,7 +26,7 @@ class ClothsController < ApplicationController
 
   # POST /cloths or /cloths.json
   def create
-    @cloth = Cloth.new(cloth_params)
+    @cloth = Cloth.new(cloth_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @cloth.save

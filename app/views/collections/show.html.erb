@@ -1,26 +1,65 @@
-<p id="notice"><%= notice %></p>
+<div class="collection_content">
+  <%= link_to image_tag('back.svg'), collections_path %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @collection.name %>
-</p>
+  <div class="post_title collection_title">
+    <h1 class="">
+      <%= @collection.name %>
+    </h1>
 
-<% @posts.each do |post| %>
-  <p>
-    <%= link_to post.title, post %>
-  </p>
-<% end %>
+  </div>
 
-<% if user_signed_in? %>
+</div>
 
-  <% pre_colectfavorite = @collection.colectfavorites.find { |colectfavorite| colectfavorite.user_id == current_user.id} %>
-  <% if pre_colectfavorite %>
-      <%= button_to 'Remove from Colectfavorite', collection_colectfavorite_path(@collection, pre_colectfavorite), method: :delete %>
-  <% else %>
-      <%= button_to 'Add to Colectfavorite', collection_colectfavorites_path(@collection), method: :collection %>
+
+
+<div class="posts_inartist">
+  <% @posts.each do |post| %>
+    <div class="posts_inartist_item">
+      <%= link_to image_tag(post.fimage.thumb.url), post if post.fimage? %>
+      <div class="posts_inartist_bottom">
+        <p class="posttitle_inartist">
+          <%= link_to post.title, post %>
+        </p>
+        <%= link_to image_tag('show.svg'), post %>
+      </div>
+
+
+    </div>
+
   <% end %>
+</div>
 
-<% end %>
+<div class="info_margin artist_extra_info collection_extra_info">
+  <% if user_signed_in? %>
+    <% pre_colectfavorite = @collection.colectfavorites.find { |colectfavorite| colectfavorite.user_id == current_user.id} %>
+    <% if pre_colectfavorite %>
+        <%= button_to 'Удалить из избранного', collection_colectfavorite_path(@collection, pre_colectfavorite), method: :delete %>
+    <% else %>
+        <%= button_to 'В избранное', collection_colectfavorites_path(@collection), method: :collection %>
+    <% end %>
+  <% end %>
+</div>
 
-<%= link_to 'Edit', edit_collection_path(@collection) %> |
-<%= link_to 'Back', collections_path %>
+
+<div class="user_link_edit filtertag_link_edit">
+
+  <% if user_signed_in? && current_user.isadmin == true %>
+    <div class="filtertag_link_edit_item filtertag_extra">
+      <%= link_to image_tag('edit.svg'), edit_collection_path(@collection) %>
+      <p>
+        <%= link_to 'Редактировать', edit_collection_path(@collection), :class =>"link_new link_new_user" %>
+      </p>
+    </div>
+    <div class="filtertag_link_edit_item">
+      <%= link_to image_tag('destroy.svg'), @collection, method: :delete, data: { confirm: 'Are you sure?' }%>
+      <p>
+        <%= link_to 'Удалить', @collection, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"link_new link_new_user" %>
+      </p>
+    </div>
+
+  <% end %>
+</div>
+
+
+
+<%= render "promo/futer" %>

@@ -21,7 +21,7 @@ class BrandsController < ApplicationController
 
   # POST /brands or /brands.json
   def create
-    @brand = Brand.new(brand_params)
+    @brand = Brand.new(brand_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @brand.save

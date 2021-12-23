@@ -1,5 +1,6 @@
 class CollectionsController < ApplicationController
   before_action :set_collection, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /collections or /collections.json
   def index
@@ -11,7 +12,7 @@ class CollectionsController < ApplicationController
   # GET /collections/1 or /collections/1.json
   def show
     @acollection = Collection.find(params[:id])
-    
+
     if @collection
       @posts = Post.where(collection_id: @collection.id)
       render actions: :show
@@ -29,7 +30,7 @@ class CollectionsController < ApplicationController
 
   # POST /collections or /collections.json
   def create
-    @collection = Collection.new(collection_params)
+    @collection = Collection.new(collection_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @collection.save
@@ -72,6 +73,6 @@ class CollectionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def collection_params
-      params.require(:collection).permit(:name)
+      params.require(:collection).permit(:name, :cover)
     end
 end

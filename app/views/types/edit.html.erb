@@ -1,6 +1,11 @@
-<h1>Editing Type</h1>
+<div class="collection_content">
+  <%= link_to image_tag('back.svg'), types_path  %>
+
+  <div class="post_title collection_title">
+    <h1 class="">Редактирование стиля</h1>
+
+  </div>
+
+</div>
 
 <%= render 'form', type: @type %>
-
-<%= link_to 'Show', @type %> |
-<%= link_to 'Back', types_path %>

@@ -1,61 +1,92 @@
+<div class="artist_content">
+
+  <%= link_to image_tag('back.svg'), posts_path %>
+  <div class="post_info">
+    <p class="post_artistname">
+
+      <%= @post.artist.name %>
+    </p>
+
+    <h1 class="post_title">
+      <%= @post.title %>
+    </h1>
+
+    <p class="post_text">
+      <%= @post.content %>
+    </p>
+  </div>
+</div>
 
 
-<p class="content_title">
-  <%= @post.title %>
-</p>
+<div class="post_images">
+  <%= image_tag(@post.fimage.url, alt: 'Image') if @post.fimage? %>
+  <%= image_tag(@post.simage.url, alt: 'Image') if @post.simage? %>
+  <%= image_tag(@post.timage.url, alt: 'Image') if @post.timage? %>
+</div>
 
-<%= image_tag(@post.postcover.url, alt: 'Image') if @post.postcover? %>
 
-<p>
-  <strong>Artist:</strong>
-  <%= @post.artist.name %>
-</p>
+<div class="info_margin artist_extra_info ">
+  <div>
+    <p class="strong_title">
+      <strong class="font24">Стиль одежды:</strong>
+      <strong class="p_extra_info_strong"><%= @post.style.name %></strong>
+    </p>
 
-<p>
-  <strong>Style:</strong>
-  <%= @post.style.name %>
-</p>
+    <p class="strong_title">
+      <strong class="font24">Коллаборция:</strong>
+      <strong class="p_extra_info_strong2"><%= @post.brand.name %></strong>
 
-<p>
-  <strong>Коллаб:</strong>
-  <%= @post.brand.name %>
-</p>
+    </p>
 
-<p>
-  <strong>Тип:</strong>
-  <%= @post.type.name %>
-</p>
+    <p class="strong_title">
+    	<strong class="font24">Категория статьи:</strong>
+      <strong class="p_extra_info_strong3"><%= @post.type.name %></strong>
 
-<p class="content_text">
-  <strong>Текст статьи:</strong>
-  <%= @post.content %>
-</p>
+    </p>
 
-<%= image_tag(@post.fimage.url, alt: 'Image') if @post.fimage? %>
-<%= image_tag(@post.simage.url, alt: 'Image') if @post.simage? %>
-<%= image_tag(@post.timage.url, alt: 'Image') if @post.timage? %>
+    <p class="strong_title">
+    	<strong class="font24">Согруппники:</strong>
+      <strong class="p_extra_info_strong4">Сольный артист</strong>
+    </p>
+  </div>
 
-<p>
-  <strong>Подборка:</strong>
-  <%= @post.collection.name %>
-</p>
+  <% if user_signed_in? %>
 
-<% if user_signed_in? %>
+    <% pre_favorite = @post.favorites.find { |favorite| favorite.user_id == current_user.id} %>
+    <% if pre_favorite %>
+        <%= button_to 'Удалить из избранного', post_favorite_path(@post, pre_favorite), method: :delete %>
+    <% else %>
+        <%= button_to 'В избранное', post_favorites_path(@post), method: :post %>
+    <% end %>
 
-  <% pre_favorite = @post.favorites.find { |favorite| favorite.user_id == current_user.id} %>
-  <% if pre_favorite %>
-      <%= button_to 'Remove from Favorite', post_favorite_path(@post, pre_favorite), method: :delete %>
-  <% else %>
-      <%= button_to 'Add to Favorite', post_favorites_path(@post), method: :post %>
   <% end %>
 
-<% end %>
+
+</div>
+
+<div class="user_link_edit filtertag_link_edit">
+
+  <% if user_signed_in? && current_user.isadmin == true %>
+    <div class="filtertag_link_edit_item filtertag_extra">
+      <%= link_to image_tag('edit.svg'), edit_post_path(@post) %>
+      <p>
+        <%= link_to 'Редактировать', edit_post_path(@post), :class =>"link_new link_new_user" %>
+      </p>
+    </div>
+    <div class="filtertag_link_edit_item">
+      <%= link_to image_tag('destroy.svg'), @post, method: :delete, data: { confirm: 'Are you sure?' }%>
+      <p>
+        <%= link_to 'Удалить', @post, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"link_new link_new_user" %>
+      </p>
+    </div>
+
+  <% end %>
+</div>
 
 
-<% if user_signed_in? %>
-<%= link_to 'Изменить', edit_post_path(@post), :class =>"link_newpost link_newpost_edit" %> |
-<% end %>
 
-<%= link_to 'Назад', posts_path, :class =>"link_newpost link_newpost_back" %>
-<div class="post_extra"></div>
+
+
+
+
 <%= render "promo/futer" %>

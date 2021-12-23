@@ -3,4 +3,5 @@ class Cloth < ApplicationRecord
 
   belongs_to :artist
   mount_uploader :clothimage, ClothUploader
+  belongs_to :user
 end

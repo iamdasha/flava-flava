@@ -1,4 +1,4 @@
-<%= form_with(model: artist) do |form| %>
+<%= form_with(model: artist) do |form|%>
   <% if artist.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
@@ -11,62 +11,64 @@
     </div>
   <% end %>
 
+  <h2>Общая информация</h2>
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <p class="p_form">Имя артиста</p>
+    <%= form.text_field :name , placeholder: "Введите имя"%>
   </div>
 
-  <div>
-  	<%= form.label :artistphoto %>
+  <div class="field photo_form">
+    <p class="p_form ">Фото артиста</p>
   	<%= form.file_field :artistphoto %>
   </div>
 
   <div class="field">
-    <%= form.label :sex %>
+    <p class="p_form">Пол артиста</p>
     <%= form.select :sex, ['Мужcкой', 'Женский', 'Вне гендера']%>
   </div>
 
   <div class="field">
-    <%= form.label :age %>
-    <%= form.text_field :age %>
+    <p class="p_form">Возраст артиста</p>
+    <%= form.text_field :age , placeholder: "Введите возраст артиста"%>
   </div>
 
   <div class="field">
-    <%= form.label :filtertag_id %>
-    <%= form.select :filtertag_id, Filtertag.pluck(:name, :id) %>
-  </div>
-
-  <div class="field">
-      <%= form.label :style_id %>
-      <%= form.select :style_id, Style.pluck(:name, :id) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :brand_id %>
-    <%= form.select :brand_id, Brand.pluck(:name, :id) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :genre %>
+    <p class="p_form">Жанры артиста</p>
     <%= form.select :genre, ['Хип–хоп', 'Поп', 'Рок','Электро', 'Джаз', 'Народная', 'Классика', 'Шансон']%>
   </div>
 
   <div class="field">
-  	<%= form.label :instagram %>
-  	<%= form.text_field :instagram %>
+    <p class="p_form">Соцсети артиста</p>
+  	<%= form.text_field :instagram, :class =>"social_link_form social_link_form2", placeholder: "Вставьте ссылку на инстраграм" %>
+    <%= form.text_field :youtube, :class =>"social_link_form social_link_form2", placeholder: "Вставьте ссылку на ютуб" %>
+    <%= form.text_field :spotify, :class =>"social_link_form social_link_form1", placeholder: "Вставьте ссылку на спотифай" %>
+
+  </div>
+
+
+  <div class="field">
+    <p class="p_form">Выберите фильтр артиста</p>
+    <%= form.select :filtertag_id, Filtertag.pluck(:name, :id) %>
+  </div>
+
+  <h2 class="h2_form">Информация о стиле</h2>
+
+
+  <div class="field">
+      <p class="p_form">Выберите стиль одежды</p>
+      <%= form.select :style_id, Style.pluck(:name, :id) %>
   </div>
 
   <div class="field">
-    <%= form.label :youtube %>
-    <%= form.text_field :youtube %>
+    <p class="p_form">Выберите любимый бренд</p>
+    <%= form.select :brand_id, Brand.pluck(:name, :id) %>
   </div>
 
-  <div class="field">
-    <%= form.label :spotify %>
-    <%= form.text_field :spotify %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
+
+
+
+  <div class="actions button_form">
+    <%= form.submit "Сохранить" %>
   </div>
 <% end %>

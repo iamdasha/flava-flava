@@ -12,11 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <p class="p_form">Название подборки</p>
+    <%= form.text_field :name , placeholder: "Введите название"%>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field photo_form">
+    <p class="p_form ">Обложка подборки</p>
+    <%= form.file_field :cover %>
   </div>
+
+  <div class="actions button_form">
+    <%= form.submit "Сохранить" %>
+  </div>
+
+
 <% end %>

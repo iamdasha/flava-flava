@@ -1,6 +1,6 @@
 body {
   background-color: #fff;
-  color: #181818;
+  color: #111112;
   margin: 33px 60px 33px 0px;
 }
 
@@ -25,7 +25,7 @@ pre {
   font-size: 11px; }
 
 a {
-  color: #424242;
+  color: #111112;
   text-decoration: none;
 }
 
@@ -85,4 +85,217 @@ label {
 .menubar_left a {
   font-family: $Fontb;
   color: #181818;
+}
+.collection_title {
+  margin-left: 2vw;
+  // margin-bottom: 16vh;
+}
+.collection_extra_info form {
+  margin-top: 5vh;
+}
+
+.link_editcollection {
+  margin-top: 1.2vh;
+}
+
+.user_info {
+  margin-bottom: 3vh;
+}
+.user_info_block {
+  margin-left: 2vw;
+}
+.link_new_user {
+  margin-left: 0.5vw;
+  margin-top: 0;
+
+}
+.user_link_edit {
+  margin-left: 3.7vw;
+  margin-top: 1vh;
+}
+
+.user_link_edit > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+.user_link_edit_item p {
+  margin-top: 0.5vh;
+}
+.f_extra_info_strong {
+  margin-left: 2vw;
+}
+.filtertag_link_edit {
+  margin-top: 10vh;
+  margin-bottom: 8vh;
+}
+.filtertag_link_edit_item > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+.filtertag_extra {
+  margin-right: 16vw;
+}
+.link a {
+  transition: all .2s;
+}
+.link a:hover {
+  color: #FC62FF;
+}
+.link_shop {
+  margin-top: 1.9vh;
+  margin-left: 5vw;
+}
+.cloth_photo, .cloth_photo img  {
+  display: block;
+}
+.cloth_photo div {
+  margin-top: 6vh;
+}
+.c_extra_info_strong {
+  margin-left: 4.4vw;
+}
+.field {
+  margin-left: 3.7vw;
+
+}
+.field p {
+  font-family: $Fontb;
+  color: #111112;
+  margin-bottom: 1vh;
+}
+input {
+  width: 32vw;
+  background: #F2F2F2;
+  border: none;
+  padding: 1vh 2vh;
+  font-family: $Font;
+  font-size: 16px;
+  margin-bottom: 2vh;
+
+}
+textarea {
+  width: 32vw;
+  background: #F2F2F2;
+  border: none;
+  padding: 1vh 2vh;
+  height: 20vh;
+  font-family: $Font;
+  font-size: 16px;
+  margin-bottom: 2vh;
+}
+h2 {
+  font-family: $Fontb;
+  color: #111112;
+  margin-left: 3.7vw;
+  font-size: 36px;
+  line-height: 38px;
+  margin-bottom: 4vh;
+}
+.h2_form {
+  margin-top: 8vh;
+}
+.p_form {
+  display: block;
+}
+.photo_form input {
+  background: none;
+  width: 20vw;
+}
+
+select {
+  width: 21vw;
+  background: #F2F2F2;
+  border: none;
+  padding: 1vh 2vh;
+  font-family: $Font;
+  font-size: 16px;
+  margin-bottom: 2vh;
+}
+.social_link_form {
+  display: block;
+}
+.social_link_form2 {
+  margin-bottom: 1vh;
+}
+.social_link_form1 {
+  margin-bottom: 3vh;
+}
+.button_form {
+  margin-left: 3.7vw;
+  margin-top: 8vh;
+}
+.button_form input, .deleteacc input {
+  box-sizing: content-box;
+  font-family: $Fontb;
+  padding: 1.3vh 1.8vw;
+  width: auto;
+  color: #111112;
+  border: 2px solid #33FEB4;
+  background: #33FEB4;
+  transition: all .2s;
+  margin-bottom: 16vh;
+}
+.button_form input:hover {
+  background: none;
+}
+.field_desc p + p {
+  font-family: $Font;
+  font-size: 16px;
+  line-height: 18px;
+  margin-top: 0.5vh;
+  width: 40vw;
+}
+.field_i i, .field_i em {
+  font-family: $Font;
+  font-size: 16px;
+  line-height: 18px;
+  margin-top: 0.5vh;
+  width: 40vw;
+}
+
+
+.deleteacc input {
+  border: 2px solid #FC62FF;
+  background: #FC62FF;
+  margin-left: 3.7vw;
+}
+.deleteacc p {
+  font-family: $Font;
+  margin-left: 3.7vw;
+  font-size: 16px;
+  line-height: 18px;
+  margin-top: 0.5vh;
+  width: 40vw;
+  margin-bottom: 1vh;
+}
+.formuser_title {
+  margin-left: 3.7vw;
+}
+.button_form1 a {
+  font-family: $Fontb;
+  margin-left: 2vw;
+  font-size: 18px;
+}
+.button_form1 input {
+  font-size: 18px;
+
+}
+.field_remember {
+  display: flex;
+  justify-content: flex-start;
+}
+.field_remember input {
+  width: auto;
+}
+.field_remember p {
+  margin-right: 2vw;
+}
+
+.button_form1 {
+ display: flex;
+
+}
+.button_form1 a {
+  height: 2vh;
+  margin-top: 1.6vh;
 }

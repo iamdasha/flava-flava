@@ -1,29 +1,109 @@
-<p>ID <%= @user.id %></p>
-<%= image_tag(@user.avatar.thumb.url, alt: 'Image') if @user.avatar? %>
-<p>Email <%= @user.email %></p>
-<p>Username <%= @user.username %></p>
+<div class="artist_content">
+  <%= link_to image_tag('back.svg'), users_path %>
+  <div class="artist_photo">
+    <%= image_tag(@user.avatar.url, alt: 'Image') if @user.avatar? %>
+  </div>
 
-<% if user_signed_in? && current_user.isadmin == true %>
-  <p>Admin <%= @user.isadmin %></p>
-<% end %>
+  <div class="artist_info user_info_block">
 
-In favorites <%= @user.favorites.count %> <%= (@user.favorites.count) == 1 ? 'Post' : 'Posts'%>
-<% @posts.each do |post| %>
-  <br><%= link_to post.title, post %>
-<% end %>
-<hr>
-In artistfavorites <%= @user.artistfavorites.count %> <%= (@user.artistfavorites.count) == 1 ? 'Artist' : 'Artists'%>
-<% @artists.each do |artist| %>
-  <br><%= link_to artist.name, artist %>
-<% end %>
-<hr>
+    <p class="user_info">
+      <strong class="font24">Номер:</strong>
+      <%= @user.id %>
+    </p>
+    <p class="user_info">
+      <strong class="font24">Email:</strong>
+      <%= @user.email %>
+    </p>
+    <p class="user_info">
+      <strong class="font24">Никнейм:</strong>
+      <%= @user.username %>
+    </p>
 
-In colectfavorites <%= @user.colectfavorites.count %> <%= (@user.colectfavorites.count) == 1 ? 'Collection' : 'Collections'%>
-<% @collections.each do |collection| %>
-  <br><%= link_to collection.name, collection %>
-<% end %>
-<hr>
+    <% if user_signed_in? && current_user.isadmin == true %>
+      <p class="user_info">
+        <strong class="font24">Права администратора:</strong>
+        <%= @user.isadmin %>
 
-<% if user_signed_in? && @user.id == current_user.id %>
-	<p><%= link_to 'Edit profile', edit_user_registration_path %></p>
-<% end %>
+    <% end %>
+
+
+
+  </div>
+</div>
+
+<div class="user_link_edit filtertag_link_edit">
+
+  <% if user_signed_in? && @user.id == current_user.id || current_user.isadmin == true %>
+    <div class="filtertag_link_edit_item filtertag_extra">
+      <%= link_to image_tag('edit.svg'), edit_user_registration_path %>
+      <p>
+        <%= link_to 'Редактировать', edit_user_registration_path, :class =>"link_new link_new_user" %>
+      </p>
+    </div>
+
+
+  <% end %>
+</div>
+
+
+
+<h1 class="h1_postsinartist">Избранные посты</h1>
+<div class="posts_inartist">
+  <% @posts.each do |post| %>
+    <div class="posts_inartist_item">
+      <%= link_to image_tag(post.fimage.thumb.url), post if post.fimage? %>
+      <div class="posts_inartist_bottom">
+        <p class="posttitle_inartist">
+          <%= link_to post.title, post %>
+        </p>
+        <%= link_to image_tag('show.svg'), post %>
+      </div>
+
+
+    </div>
+
+  <% end %>
+</div>
+
+
+<h1 class="h1_postsinartist">Избранные артисты</h1>
+<div class="posts_inartist">
+  <% @artists.each do |artist| %>
+    <div class="posts_inartist_item">
+      <%= link_to image_tag(artist.artistphoto.thumb.url), artist if artist.artistphoto? %>
+      <div class="posts_inartist_bottom">
+        <p class="posttitle_inartist">
+          <%= link_to artist.name, artist %>
+        </p>
+        <%= link_to image_tag('show.svg'), artist %>
+      </div>
+
+
+    </div>
+
+  <% end %>
+</div>
+
+<h1 class="h1_postsinartist">Избранные подборки</h1>
+<div class="posts_inartist">
+  <% @collections.each do |collection| %>
+    <div class="posts_inartist_item">
+      <%= link_to image_tag(collection.cover.thumb.url), collection if collection.cover? %>
+      <div class="posts_inartist_bottom">
+        <p class="posttitle_inartist">
+          <%= link_to collection.name, collection %>
+        </p>
+        <%= link_to image_tag('show.svg'), collection %>
+      </div>
+
+
+    </div>
+
+  <% end %>
+</div>
+
+
+
+
+
+<%= render "promo/futer" %>
