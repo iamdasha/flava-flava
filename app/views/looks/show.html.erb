@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag(@look.image.url, alt: 'Image') if @look.image? %>
+
+<p>
+  <strong>Артист:</strong>
+  <%= @look.artist.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @look.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @look.content %>
+</p>
+
+<p>
+  <strong>Фильтр</strong>
+  <%= @look.filtertag.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_look_path(@look) %> |
+<%= link_to 'Back', looks_path %>
+
+
+<h1 class="h1_postsinartist">Одежда в образе</h1>
+<div>
+  <% @cloths.each do |cloth| %>
+    <div class="posts_inartist_item">
+      <%= link_to image_tag(cloth.clothimage.thumb.url), cloth if cloth.clothimage? %>
+      <div class="posts_inartist_bottom">
+        <p class="posttitle_inartist">
+          <%= link_to cloth.name, cloth %>
+        </p>
+        <%= link_to image_tag('show.svg'), cloth %>
+      </div>
+
+
+    </div>
+
+  <% end %>
+</div>

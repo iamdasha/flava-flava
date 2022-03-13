@@ -5,16 +5,10 @@
     <% end %>
 </div>
 
-<div class="filter">
-  <% Type.all.each do |type| %>
-  <%= link_to type.name, posts_path(type: type.name) %>
-  <% end %>
-</div>
-
-<div class="filter styles ">
-  <% Style.all.each do |style| %>
-  <%= link_to style.name, posts_path(style: style.name) %>
-  <% end %>
+<div class="filter ">
+<% Filtertag.all.each do |filtertag| %>
+<%= link_to filtertag.name, posts_path(filtertag: filtertag.name) %>
+<% end %>
 </div>
 
 

@@ -4,12 +4,11 @@ class Artist < ApplicationRecord
   validates :age, :presence => true
   mount_uploader :artistphoto, ArtistphotoUploader
 
-  belongs_to :filtertag
-  belongs_to :style
   belongs_to :brand
   belongs_to :user
+  belongs_to :collection
   has_many :posts, dependent: :destroy
-  has_many :cloths, dependent: :destroy
+  has_many :looks, dependent: :destroy
 
   has_many :artistfavorites, dependent: :destroy
 end

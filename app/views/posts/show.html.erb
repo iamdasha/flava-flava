@@ -24,31 +24,11 @@
   <%= image_tag(@post.timage.url, alt: 'Image') if @post.timage? %>
 </div>
 
+<p>
+  <strong>Фильтр-тэг</strong>
+  <%= @post.filtertag.name %>
+</p>
 
-<div class="info_margin artist_extra_info ">
-  <div>
-    <p class="strong_title">
-      <strong class="font24">Стиль одежды:</strong>
-      <strong class="p_extra_info_strong"><%= @post.style.name %></strong>
-    </p>
-
-    <p class="strong_title">
-      <strong class="font24">Коллаборция:</strong>
-      <strong class="p_extra_info_strong2"><%= @post.brand.name %></strong>
-
-    </p>
-
-    <p class="strong_title">
-    	<strong class="font24">Категория статьи:</strong>
-      <strong class="p_extra_info_strong3"><%= @post.type.name %></strong>
-
-    </p>
-
-    <p class="strong_title">
-    	<strong class="font24">Согруппники:</strong>
-      <strong class="p_extra_info_strong4">Сольный артист</strong>
-    </p>
-  </div>
 
   <% if user_signed_in? %>
 

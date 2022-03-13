@@ -22,21 +22,18 @@
       </p>
     </div>
 
-    <p class="filter_inartistpage">
-      <%= @artist.filtertag.name %>
-    </p>
-    <p class="info_margin_big">
-      <strong class="font24 strong_title">Стили одежды:</strong>
-      <%= @artist.style.name %>
-    </p>
+
+
     <p class="info_margin">
       <strong class="font24 strong_title">Любимые бренды:</strong>
       <%= @artist.brand.name %>
     </p>
+
     <p class="info_margin">
-      <strong class="font24 strong_title">Коллаборации:</strong>
-      <%= @artist.brand.name %>
+      <strong class="font24 strong_title">Подборка:</strong>
+      <%= @artist.collection.name %>
     </p>
+
   </div>
 </div>
 
@@ -62,10 +59,7 @@
 
     </p>
 
-    <p class="strong_title">
-    	<strong class="font24">Согруппники:</strong>
-      <strong class="extra_info_strong4">Сольный артист</strong>
-    </p>
+
   </div>
 
   <% if user_signed_in? %>
@@ -122,23 +116,7 @@
   <% end %>
 </div>
 
-<h1 class="h1_postsinartist">Вещи как у артиста</h1>
-<div class="posts_inartist">
-  <% @cloths.each do |cloth| %>
-    <div class="posts_inartist_item">
-      <%= link_to image_tag(cloth.clothimage.url), cloth if cloth.clothimage? %>
-      <div class="posts_inartist_bottom">
-        <p class="posttitle_inartist">
-          <%= link_to cloth.name, cloth %>
-        </p>
-        <%= link_to image_tag('show.svg'), cloth %>
-      </div>
 
-
-    </div>
-
-  <% end %>
-</div>
 
 
 

@@ -7,13 +7,7 @@ class ArtistsController < ApplicationController
   def index
     # @posts = Post.all
 
-    if params.has_key?(:filtertag)
-      @filtertag = Filtertag.find_by_name(params[:filtertag])
-      @artists = Artist.where(filtertag: @filtertag)
-    elsif params.has_key?(:style)
-      @style = Style.find_by_name(params[:style])
-      @artists = Artist.where(style: @style)
-    elsif params.has_key?(:brand)
+    if params.has_key?(:brand)
       @brand = Brand.find_by_name(params[:brand])
       @artists = Artist.where(brand: @brand)
     else
@@ -91,6 +85,6 @@ class ArtistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def artist_params
-      params.require(:artist).permit(:name, :sex, :age, :artistphoto, :filtertag_id, :style_id, :brand_id, :genre, :instagram, :youtube, :spotify)
+      params.require(:artist).permit(:name, :sex, :age, :artistphoto, :collection_id, :brand_id, :genre, :instagram, :youtube, :spotify)
     end
 end

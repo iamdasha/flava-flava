@@ -5,6 +5,7 @@ class CollectionsController < ApplicationController
   # GET /collections or /collections.json
   def index
     @posts = Post.find_by_id(params[:id])
+    @artists = Artist.find_by_id(params[:id])
     @collections = Collection.all
 
   end
@@ -15,6 +16,7 @@ class CollectionsController < ApplicationController
 
     if @collection
       @posts = Post.where(collection_id: @collection.id)
+      @artists = Artist.where(collection_id: @collection.id)
       render actions: :show
     end
   end

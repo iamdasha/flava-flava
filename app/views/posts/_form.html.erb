@@ -19,20 +19,8 @@
   </div>
 
   <div class="field">
-    <p class="p_form">Категория статьи</p>
-      <%= form.select :type_id, Type.pluck(:name, :id) %>
-  </div>
-
-  <div class="field">
-    <p class="p_form">Стили одежды</p>
-    <%= form.select :style_id, Style.pluck(:name, :id) %>
-  </div>
-
-  <div class="field field_desc">
-    <p class="p_form">Коллаборация</p>
-    <p class="">Если в статье говорится о коллаборции, выберите соотвествующий бренд. В противном случае, выберите вариант «нет».</p>
-
-      <%= form.select :brand_id, Brand.pluck(:name, :id) %>
+    <p class="p_form">Выберите фильтр статьи</p>
+    <%= form.select :filtertag_id, Filtertag.pluck(:name, :id) %>
   </div>
 
   <div class="field">

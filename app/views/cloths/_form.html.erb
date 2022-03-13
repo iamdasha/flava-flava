@@ -17,8 +17,13 @@
   </div>
 
   <div class="field">
-    <p class="p_form">Кому принадлежит вещь?</p>
-    <%= form.select :artist_id, Artist.pluck(:name, :id) %>
+    <p class="p_form">Бренд одежды</p>
+    <%= form.select :brand_id, Brand.pluck(:name, :id) %>
+  </div>
+
+  <div class="field">
+    <p class="p_form">Образ</p>
+    <%= form.select :look_id, Look.pluck(:title, :id) %>
   </div>
 
   <div class="field photo_form">

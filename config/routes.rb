@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :looks
   resources :collections
   devise_for :users
   resources :cloths
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   resources :styles
   resources :filtertags
   resources :artists
+  resources :looks
   get 'about/index'
   resources :posts
   resources :subscribers
@@ -38,6 +40,7 @@ Rails.application.routes.draw do
   get 'brands', to: 'brands#index'
   get 'types', to: 'types#index'
   get 'collections', to: 'types#index'
+  get 'looks/index', to: 'styles#index'
 
   # root 'promo#index'
 

@@ -10,19 +10,10 @@
 
 
 
-<div class="filter">
-  <% Filtertag.where(display_in_navbar: true).each do |filtertag| %>
-  <%= link_to filtertag.name, artists_path(filtertag: filtertag.name) %>
-  <% end %>
-</div>
 
 
 
-<div class="filter styles ">
-<% Style.all.each do |style| %>
-<%= link_to style.name, artists_path(style: style.name) %>
-<% end %>
-</div>
+
 
 
 

@@ -29,6 +29,24 @@
   <% end %>
 </div>
 
+<h2>Артисты</h2>
+<div class="posts_inartist">
+  <% @artists.each do |artist| %>
+    <div class="posts_inartist_item">
+      <%= link_to image_tag(artist.artistphoto.url), artist if artist.artistphoto? %>
+      <div class="posts_inartist_bottom">
+        <p class="posttitle_inartist">
+          <%= link_to artist.name, artist %>
+        </p>
+        <%= link_to image_tag('show.svg'), artist %>
+      </div>
+
+
+    </div>
+
+  <% end %>
+</div>
+
 <div class="info_margin artist_extra_info collection_extra_info">
   <% if user_signed_in? %>
     <% pre_colectfavorite = @collection.colectfavorites.find { |colectfavorite| colectfavorite.user_id == current_user.id} %>

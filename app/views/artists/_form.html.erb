@@ -34,7 +34,7 @@
 
   <div class="field">
     <p class="p_form">Жанры артиста</p>
-    <%= form.select :genre, ['Хип–хоп', 'Поп', 'Рок','Электро', 'Джаз', 'Народная', 'Классика', 'Шансон']%>
+    <%= form.select :genre, ['Хип–хоп', 'Поп', 'Рок','Электро', 'Джаз', 'Народная', 'Классика', 'Шансон', 'Танцевальная']%>
   </div>
 
   <div class="field">
@@ -46,25 +46,22 @@
   </div>
 
 
-  <div class="field">
-    <p class="p_form">Выберите фильтр артиста</p>
-    <%= form.select :filtertag_id, Filtertag.pluck(:name, :id) %>
-  </div>
+
 
   <h2 class="h2_form">Информация о стиле</h2>
 
 
-  <div class="field">
-      <p class="p_form">Выберите стиль одежды</p>
-      <%= form.select :style_id, Style.pluck(:name, :id) %>
-  </div>
+
 
   <div class="field">
     <p class="p_form">Выберите любимый бренд</p>
     <%= form.select :brand_id, Brand.pluck(:name, :id) %>
   </div>
 
-
+  <div class="field">
+    <p class="p_form">Выберите подборку</p>
+      <%= form.select :collection_id, Collection.pluck(:name, :id) %>
+  </div>
 
 
 
