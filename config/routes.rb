@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   resources :looks
   resources :collections
   devise_for :users
   resources :cloths
-  resources :types
   resources :brands
-  resources :styles
   resources :filtertags
   resources :artists
   resources :looks
@@ -25,6 +24,15 @@ Rails.application.routes.draw do
   resources :collections do
       resources :colectfavorites
   end
+
+  resources :looks do
+      resources :lookfavorites
+  end
+
+  resources :cloths do
+      resources :clothfavorites
+  end
+
   # root 'promo#index'
   get 'posts/index'
   get 'about/index'
@@ -36,9 +44,7 @@ Rails.application.routes.draw do
   get 'posts', to: 'posts#index'
   get 'cloths', to: 'cloths#index'
   get 'filtertags', to: 'filtertags#index'
-  get 'styles', to: 'styles#index'
   get 'brands', to: 'brands#index'
-  get 'types', to: 'types#index'
   get 'collections', to: 'types#index'
   get 'looks/index', to: 'styles#index'
 

@@ -22,6 +22,16 @@
   <%= @look.filtertag.name %>
 </p>
 
+<% if user_signed_in? %>
+
+  <% pre_lookfavorite = @look.lookfavorites.find { |lookfavorite| lookfavorite.user_id == current_user.id} %>
+  <% if pre_lookfavorite %>
+      <%= button_to 'Удалить из избранного', look_lookfavorite_path(@look, pre_lookfavorite), method: :delete %>
+  <% else %>
+      <%= button_to 'В избранное', look_lookfavorites_path(@look), method: :look %>
+  <% end %>
+
+<% end %>
 
 <%= link_to 'Edit', edit_look_path(@look) %> |
 <%= link_to 'Back', looks_path %>

@@ -4,6 +4,9 @@ class CreateCloths < ActiveRecord::Migration[6.1]
       t.string :name
 
       t.timestamps
+
+      t.string :clothimage
+      t.string :link    
     end
   end
 end

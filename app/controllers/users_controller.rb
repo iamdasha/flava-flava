@@ -8,16 +8,22 @@ def show
 
   @artists = Artist.find_by_id(params[:id])
   @collections = Collection.find_by_id(params[:id])
+  @looks = Look.find_by_id(params[:id])
+  @cloths = Cloth.find_by_id(params[:id])
   @user = User.find(params[:id])
   if @user
     @posts = @user.favorited_posts
     @artists = @user.artistfavorited_artists
     @collections = @user.colectfavorited_collections
+    @looks = @user.lookfavorited_looks
+    @cloths = @user.clothfavorited_cloths
 
     render actions: :show
     @favorites = @user.favorites.all
     @artistfavorites = @user.artistfavorites.all
     @colectfavorites = @user.colectfavorites.all
+    @lookfavorites = @user.lookfavorites.all
+    @clothfavorites = @user.clothfavorites.all
 
   else
       render file: 'public/404', status: 404, formats: [:html]
@@ -31,6 +37,14 @@ end
 
 def artistfavorited?(artist)
   artistfavorites.find_by(artist_id: artist.id).present?
+end
+
+def lookfavorited?(look)
+  lookfavorites.find_by(look_id: look.id).present?
+end
+
+def clothfavorited?(cloth)
+  clothfavorites.find_by(cloth_id: cloth.id).present?
 end
 
 def user_avatar user

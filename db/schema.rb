@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_13_211447) do
+ActiveRecord::Schema.define(version: 2022_03_16_180137) do
 
   create_table "artistfavorites", force: :cascade do |t|
     t.integer "artist_id", null: false
@@ -28,13 +28,15 @@ ActiveRecord::Schema.define(version: 2022_03_13_211447) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "artistphoto"
-    t.integer "brand_id", null: false
-    t.integer "user_id", null: false
     t.string "genre"
     t.string "instagram"
     t.string "youtube"
     t.string "spotify"
+    t.integer "brand_id", null: false
+    t.integer "user_id", null: false
     t.integer "collection_id", null: false
+    t.string "style"
+    t.string "wiki"
     t.index ["brand_id"], name: "index_artists_on_brand_id"
     t.index ["collection_id"], name: "index_artists_on_collection_id"
     t.index ["user_id"], name: "index_artists_on_user_id"
@@ -47,6 +49,25 @@ ActiveRecord::Schema.define(version: 2022_03_13_211447) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_brands_on_user_id"
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "type", limit: 30
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
+  create_table "clothfavorites", force: :cascade do |t|
+    t.integer "cloth_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cloth_id"], name: "index_clothfavorites_on_cloth_id"
+    t.index ["user_id"], name: "index_clothfavorites_on_user_id"
   end
 
   create_table "cloths", force: :cascade do |t|
@@ -74,10 +95,11 @@ ActiveRecord::Schema.define(version: 2022_03_13_211447) do
 
   create_table "collections", force: :cascade do |t|
     t.string "name"
+    t.string "cover"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
-    t.string "cover"
+    t.text "description"
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
@@ -90,15 +112,6 @@ ActiveRecord::Schema.define(version: 2022_03_13_211447) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "favotite_as", force: :cascade do |t|
-    t.integer "artist_id", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["artist_id"], name: "index_favotite_as_on_artist_id"
-    t.index ["user_id"], name: "index_favotite_as_on_user_id"
-  end
-
   create_table "filtertags", force: :cascade do |t|
     t.string "name"
     t.boolean "display_in_navbar", default: true
@@ -108,20 +121,21 @@ ActiveRecord::Schema.define(version: 2022_03_13_211447) do
     t.index ["user_id"], name: "index_filtertags_on_user_id"
   end
 
-  create_table "items", force: :cascade do |t|
-    t.string "name"
-    t.integer "artist_id", null: false
+  create_table "lookfavorites", force: :cascade do |t|
+    t.integer "look_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["artist_id"], name: "index_items_on_artist_id"
+    t.index ["look_id"], name: "index_lookfavorites_on_look_id"
+    t.index ["user_id"], name: "index_lookfavorites_on_user_id"
   end
 
   create_table "looks", force: :cascade do |t|
     t.string "title"
     t.text "content"
+    t.text "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "image"
     t.integer "artist_id", null: false
     t.integer "filtertag_id", null: false
     t.index ["artist_id"], name: "index_looks_on_artist_id"
@@ -133,12 +147,12 @@ ActiveRecord::Schema.define(version: 2022_03_13_211447) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "artist_id", null: false
-    t.integer "user_id", null: false
     t.string "postcover"
     t.string "fimage"
     t.string "simage"
     t.string "timage"
+    t.integer "artist_id", null: false
+    t.integer "user_id", null: false
     t.integer "collection_id", null: false
     t.integer "filtertag_id", null: false
     t.index ["artist_id"], name: "index_posts_on_artist_id"
@@ -147,26 +161,10 @@ ActiveRecord::Schema.define(version: 2022_03_13_211447) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "styles", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
-    t.index ["user_id"], name: "index_styles_on_user_id"
-  end
-
   create_table "subscribers", force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "types", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
-    t.index ["user_id"], name: "index_types_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -190,6 +188,8 @@ ActiveRecord::Schema.define(version: 2022_03_13_211447) do
   add_foreign_key "artists", "collections"
   add_foreign_key "artists", "users"
   add_foreign_key "brands", "users"
+  add_foreign_key "clothfavorites", "cloths"
+  add_foreign_key "clothfavorites", "users"
   add_foreign_key "cloths", "brands"
   add_foreign_key "cloths", "looks"
   add_foreign_key "cloths", "users"
@@ -198,16 +198,13 @@ ActiveRecord::Schema.define(version: 2022_03_13_211447) do
   add_foreign_key "collections", "users"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
-  add_foreign_key "favotite_as", "artists"
-  add_foreign_key "favotite_as", "users"
   add_foreign_key "filtertags", "users"
-  add_foreign_key "items", "artists"
+  add_foreign_key "lookfavorites", "looks"
+  add_foreign_key "lookfavorites", "users"
   add_foreign_key "looks", "artists"
   add_foreign_key "looks", "filtertags"
   add_foreign_key "posts", "artists"
   add_foreign_key "posts", "collections"
   add_foreign_key "posts", "filtertags"
   add_foreign_key "posts", "users"
-  add_foreign_key "styles", "users"
-  add_foreign_key "types", "users"
 end

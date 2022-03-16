@@ -3,6 +3,7 @@ class CreateLooks < ActiveRecord::Migration[6.1]
     create_table :looks do |t|
       t.string :title
       t.text :content
+      t.text :image
 
       t.timestamps
     end

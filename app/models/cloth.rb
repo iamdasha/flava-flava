@@ -5,4 +5,6 @@ class Cloth < ApplicationRecord
   belongs_to :user
   belongs_to :brand
   belongs_to :look
+
+  has_many :clothfavorites, dependent: :destroy
 end

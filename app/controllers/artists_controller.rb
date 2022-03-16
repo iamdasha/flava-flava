@@ -16,7 +16,7 @@ class ArtistsController < ApplicationController
     @posts = Post.find_by_id(params[:id])
     @artist = Artist.where(params[:artistphoto])
 
-    @cloths = Cloth.find_by_id(params[:id])
+    @looks = Look.find_by_id(params[:id])
   end
 
   # GET /artists/1 or /artists/1.json
@@ -25,7 +25,7 @@ class ArtistsController < ApplicationController
     # @posts = Post.all
     if @artist
       @posts = Post.where(artist_id: @artist.id)
-      @cloths = Cloth.where(artist_id: @artist.id)
+      @looks = Look.where(artist_id: @artist.id)
       render actions: :show
     end
 
@@ -85,6 +85,6 @@ class ArtistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def artist_params
-      params.require(:artist).permit(:name, :sex, :age, :artistphoto, :collection_id, :brand_id, :genre, :instagram, :youtube, :spotify)
+      params.require(:artist).permit(:name, :sex, :age, :artistphoto, :collection_id, :brand_id, :genre, :instagram, :youtube, :spotify, :wiki, :style)
     end
 end

@@ -6,9 +6,15 @@
       <%= @collection.name %>
     </h1>
 
+
+
   </div>
 
+
 </div>
+<p class="post_text">
+  <%= @collection.description %>
+</p>
 
 
 
@@ -47,16 +53,7 @@
   <% end %>
 </div>
 
-<div class="info_margin artist_extra_info collection_extra_info">
-  <% if user_signed_in? %>
-    <% pre_colectfavorite = @collection.colectfavorites.find { |colectfavorite| colectfavorite.user_id == current_user.id} %>
-    <% if pre_colectfavorite %>
-        <%= button_to 'Удалить из избранного', collection_colectfavorite_path(@collection, pre_colectfavorite), method: :delete %>
-    <% else %>
-        <%= button_to 'В избранное', collection_colectfavorites_path(@collection), method: :collection %>
-    <% end %>
-  <% end %>
-</div>
+
 
 
 <div class="user_link_edit filtertag_link_edit">

@@ -29,6 +29,17 @@
   </div>
 </div>
 
+<% if user_signed_in? %>
+
+  <% pre_clothfavorite = @cloth.clothfavorites.find { |clothfavorite| clothfavorite.user_id == current_user.id} %>
+  <% if pre_clothfavorite %>
+      <%= button_to 'Удалить из избранного', cloth_clothfavorite_path(@cloth, pre_clothfavorite), method: :delete %>
+  <% else %>
+      <%= button_to 'В избранное', cloth_clothfavorites_path(@cloth), method: :cloth %>
+  <% end %>
+
+<% end %>
+
 <div class="user_link_edit filtertag_link_edit">
 
   <% if user_signed_in? && current_user.isadmin == true %>
