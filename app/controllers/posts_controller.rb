@@ -20,10 +20,18 @@ class PostsController < ApplicationController
     else
       @posts = Post.all
     end
+    @looks = Look.find_by_id(params[:id])
+
   end
 
   # GET /posts/1 or /posts/1.json
   def show
+    @post = Post.find(params[:id])
+    # @posts = Post.all
+    if @post
+      @looks = Look.where(post_id: @post.id)
+      render actions: :show
+    end
   end
 
   # GET /posts/new

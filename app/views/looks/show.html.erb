@@ -22,6 +22,11 @@
   <%= @look.filtertag.name %>
 </p>
 
+<p>
+  <strong>Статья</strong>
+  <%= @look.post.title %>
+</p>
+
 <% if user_signed_in? %>
 
   <% pre_lookfavorite = @look.lookfavorites.find { |lookfavorite| lookfavorite.user_id == current_user.id} %>

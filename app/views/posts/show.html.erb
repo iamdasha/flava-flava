@@ -14,7 +14,7 @@
     <p class="post_text">
       <%= @post.content.html_safe %>
     </p>
-    
+
   </div>
 </div>
 
@@ -65,7 +65,23 @@
 </div>
 
 
+<h1 class="h1_postsinartist">Образы  по теме</h1>
+<div class="posts_inartist">
+  <% @looks.each do |look| %>
+    <div class="posts_inartist_item">
+      <%= link_to image_tag(look.image.url), look if look.image? %>
+      <div class="posts_inartist_bottom">
+        <p class="posttitle_inartist">
+          <%= link_to look.title, look %>
+        </p>
+        <%= link_to image_tag('show.svg'), look %>
+      </div>
 
+
+    </div>
+
+  <% end %>
+</div>
 
 
 

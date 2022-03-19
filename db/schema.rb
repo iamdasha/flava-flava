@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_16_180137) do
+ActiveRecord::Schema.define(version: 2022_03_19_142706) do
 
   create_table "artistfavorites", force: :cascade do |t|
     t.integer "artist_id", null: false
@@ -138,8 +138,10 @@ ActiveRecord::Schema.define(version: 2022_03_16_180137) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "artist_id", null: false
     t.integer "filtertag_id", null: false
+    t.integer "post_id", null: false
     t.index ["artist_id"], name: "index_looks_on_artist_id"
     t.index ["filtertag_id"], name: "index_looks_on_filtertag_id"
+    t.index ["post_id"], name: "index_looks_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -203,6 +205,7 @@ ActiveRecord::Schema.define(version: 2022_03_16_180137) do
   add_foreign_key "lookfavorites", "users"
   add_foreign_key "looks", "artists"
   add_foreign_key "looks", "filtertags"
+  add_foreign_key "looks", "posts"
   add_foreign_key "posts", "artists"
   add_foreign_key "posts", "collections"
   add_foreign_key "posts", "filtertags"

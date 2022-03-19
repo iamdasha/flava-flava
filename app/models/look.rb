@@ -3,6 +3,7 @@ class Look < ApplicationRecord
 
   belongs_to :artist
   belongs_to :filtertag
+  belongs_to :post
   has_many :cloths, dependent: :destroy
   has_many :lookfavorites, dependent: :destroy
 
