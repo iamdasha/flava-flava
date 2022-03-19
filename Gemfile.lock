@@ -62,7 +62,15 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+<<<<<<< HEAD
     bcrypt (3.1.17)
+=======
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
+    bcrypt (3.1.16)
+>>>>>>> ffc6aed13fc1bc25fc89e3dadd3aba48aa752415
     bindex (0.8.1)
     bootsnap (1.11.1)
       msgpack (~> 1.2)
@@ -89,6 +97,7 @@ GEM
     ckeditor (5.1.1)
       orm_adapter (~> 0.5.0)
     concurrent-ruby (1.1.9)
+    connection_pool (2.2.5)
     crass (1.0.6)
     devise (4.8.1)
       bcrypt (~> 3.0)
@@ -97,8 +106,14 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.10.0)
+<<<<<<< HEAD
     ffi (1.15.5)
     globalid (1.0.0)
+=======
+    execjs (2.8.1)
+    ffi (1.15.4)
+    globalid (0.5.2)
+>>>>>>> ffc6aed13fc1bc25fc89e3dadd3aba48aa752415
       activesupport (>= 5.0)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
@@ -124,7 +139,13 @@ GEM
     minitest (5.15.0)
     msgpack (1.4.5)
     nio4r (2.5.8)
+<<<<<<< HEAD
     nokogiri (1.13.3-arm64-darwin)
+=======
+    nokogiri (1.12.5-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.12.5-x86_64-darwin)
+>>>>>>> ffc6aed13fc1bc25fc89e3dadd3aba48aa752415
       racc (~> 1.4)
     orm_adapter (0.5.0)
     public_suffix (4.0.6)
@@ -168,7 +189,17 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+<<<<<<< HEAD
     regexp_parser (2.2.1)
+=======
+    react-rails (2.6.1)
+      babel-transpiler (>= 0.7.0)
+      connection_pool
+      execjs
+      railties (>= 3.2)
+      tilt
+    regexp_parser (2.1.1)
+>>>>>>> ffc6aed13fc1bc25fc89e3dadd3aba48aa752415
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -246,6 +277,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
+  react-rails (~> 2.6)
   sass-rails (>= 6)
   selenium-webdriver
   spring
