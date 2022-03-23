@@ -1,14 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-class A_Text extends React.Component {
+
+class A_Logo extends React.Component {
   render () {
     return (
-      <h1>
-        Flava
-      </h1>
+      <div></div>
     );
   }
 }
 
-export default A_Text
+export default A_Logo

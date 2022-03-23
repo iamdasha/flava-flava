@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%= javascript_include_tag Ckeditor.cdn_url %>
 <html>
   <head>
     <title>FlavaPrj</title>
@@ -8,8 +9,6 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag Ckeditor.cdn_url %>
-
   </head>
   <% if notice %>
     <p class="notice"><%= notice %></p>
@@ -54,7 +53,8 @@
 
 
     </div>
-    <%= react_component 'A_Text' %>
+    <%= react_component 'M_SectionSwitcher' %>
+    <%= react_component 'A_Logo' %>
 
     <%= yield %>
   </body>
