@@ -3,14 +3,13 @@ class LooksController < ApplicationController
 
   # GET /looks or /looks.json
   def index
-    if params.has_key?(:filtertag)
-      @filtertag = Filtertag.find_by_name(params[:filtertag])
-      @looks = Look.where(filtertag: @filtertag)
-    else
-      @looks = Look.all
-      @cloths = Cloth.find_by_id(params[:id])
-      @looks = Look.all
-    end
+    @looks = Look.where(nil)
+    @looks = @looks.filter_by_filtertag(params[:filtertag]) if params[:filtertag].present?
+
+    @cloths = Cloth.find_by_id(params[:id])
+
+
+
 
 
   end
@@ -20,6 +19,12 @@ class LooksController < ApplicationController
     if @look
       @cloths = Cloth.where(look_id: @look.id)
       render actions: :show
+    end
+
+    @filtertags = Filtertag.all
+    @looks = Look.all.includes(:filtertag).map do
+      |look|
+      look.as_json(include: [:filtertag, :image])
     end
   end
 

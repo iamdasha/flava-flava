@@ -5,12 +5,12 @@
     <% end %>
 </div>
 
+
 <div class="filter ">
 <% Filtertag.all.each do |filtertag| %>
-<%= link_to filtertag.name, posts_path(filtertag: filtertag.name) %>
-<% end %>
+  <%= link_to filtertag.name, posts_path(filtertag: filtertag.id) %>
+  <% end %>
 </div>
-
 
 
 

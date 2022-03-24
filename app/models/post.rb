@@ -12,4 +12,6 @@ class Post < ApplicationRecord
 		mount_uploader :simage, FpicUploader
 		mount_uploader :timage, FpicUploader
 
+		scope :filter_by_filtertag, -> (filtertag) { where filtertag: filtertag }
+
 end
