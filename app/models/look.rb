@@ -8,4 +8,7 @@ class Look < ApplicationRecord
   has_many :lookfavorites, dependent: :destroy
 
   mount_uploader :image, LookUploader
+
+  scope :filter_by_filtertag, -> (filtertag) { where filtertag: filtertag }
+  
 end

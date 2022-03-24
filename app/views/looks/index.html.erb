@@ -5,12 +5,14 @@
   <%= link_to 'Создать', new_look_path, :class =>"link_new" %>
 </div>
 
+
 <div class="filter ">
 <% Filtertag.all.each do |filtertag| %>
-<%= link_to filtertag.name, looks_path(filtertag: filtertag.name) %>
-<% end %>
+  <%= link_to filtertag.name, looks_path(filtertag: filtertag.id) %>
+  <% end %>
 </div>
 
+<%= react_component 'O_AllLooks', { looks: @looks }  %>
 
 <table>
   <thead>

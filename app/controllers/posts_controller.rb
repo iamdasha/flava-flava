@@ -5,21 +5,8 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
 
   def index
-    if params.has_key?(:filtertag)
-      @filtertag = Filtertag.find_by_name(params[:filtertag])
-      @posts = Post.where(filtertag: @filtertag)
-    elsif params.has_key?(:id)
-        @artist = Artist.find_by_id(params[:id])
-        @posts = Post.where(id: @artist)
-    elsif params.has_key?(:collection)
-      @collection = Collection.find_by_name(params[:collection])
-      @posts = Post.where(collection: @collection)
-    elsif params.has_key?(:id)
-        @collection = Collection.find_by_id(params[:id])
-        @posts = Post.where(id: @collection)
-    else
-      @posts = Post.all
-    end
+    @posts = Post.where(nil)
+    @posts = @posts.filter_by_filtertag(params[:filtertag]) if params[:filtertag].present?
     @looks = Look.find_by_id(params[:id])
 
   end

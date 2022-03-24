@@ -8,6 +8,8 @@
   </p>
 </div>
 
+<%= react_component 'M_Clothcard', { cloth: @cloth } %>
+
 <div class="info_margin artist_extra_info cloth_photo">
   <%= image_tag(@cloth.clothimage.url, alt: 'Image') if @cloth.clothimage? %>
 
