@@ -1,25 +1,3 @@
 <%= form_with(model: filtertag) do |form| %>
-  <% if filtertag.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(filtertag.errors.count, "error") %> prohibited this filtertag from being saved:</h2>
-
-      <ul>
-        <% filtertag.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <p class="p_form">Название фильтра</p>
-    <%= form.text_field :name , placeholder: "Введите название"%>
-  </div>
-
-
-  <div class="actions button_form">
-    <%= form.submit "Сохранить" %>
-  </div>
-
-  
+  <%= react_component 'M_filtertagform', { filtertag: @filtertag } %>
 <% end %>
