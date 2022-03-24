@@ -34,7 +34,9 @@
     </div>
   <% end %>
 
-    <div class="menubar">
+    <!-- <div class="menubar">
+
+
       <%= image_tag("logo.svg") %>
       <div class="menubar_left">
         <% if user_signed_in? %>
@@ -52,8 +54,12 @@
       </div>
 
 
-    </div>
-    <%= react_component 'A_Logo' %>
+    </div> -->
+<div class="menubar">
+  <%= react_component 'O_Header' %>
+</div>
+
+
     <%= react_component 'M_SectionSwitcher' %>
 
 

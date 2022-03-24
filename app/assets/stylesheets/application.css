@@ -23,6 +23,8 @@
   padding: 150px 60px;
   padding-right: 0px;
   box-sizing: border-box;
+  opacity: 20%;
+
   /* background: black; */
 
   /* display: none; */
@@ -50,7 +52,8 @@
   border-radius: 50px;
 }
 html {
-  margin-left: 285px;
+  /* margin-left: 285px; */
+  padding-left: 100px;
   margin-top: 102px;
 }
 
