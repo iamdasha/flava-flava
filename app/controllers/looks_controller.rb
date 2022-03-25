@@ -7,6 +7,8 @@ class LooksController < ApplicationController
     @looks = @looks.filter_by_filtertag(params[:filtertag]) if params[:filtertag].present?
 
     @cloths = Cloth.find_by_id(params[:id])
+    @filtertags = Filtertag.all
+    
 
 
 

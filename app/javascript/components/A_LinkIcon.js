@@ -6,11 +6,12 @@ class A_LinkIcon extends React.Component {
 
 
   render () {
-    let link = '${this.props.cloth.link}';
 
     return (
       <div>
-        <a href='$(link)'>  <img className="LinkIcon" src={LinkIcon}/></a>
+
+      <a href={this.props.link}> <img className= 'LinkIcon' src={LinkIcon}/></a>
+
 
 
       </div>

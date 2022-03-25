@@ -4,6 +4,7 @@ import '../../assets/stylesheets/A_Filtertag.scss'
 
 
 
+
 class A_Filtertagpreview extends React.Component {
   render () {
     let filtertag = '';
@@ -23,4 +24,4 @@ class A_Filtertagpreview extends React.Component {
   }
 }
 
-export default A_Filtertagpreview
+export default A_Filtertagpreview 
