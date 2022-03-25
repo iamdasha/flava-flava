@@ -23,8 +23,13 @@ class O_Lookcard extends React.Component {
           <a href={"/looks/" + `${this.props.look.id}`} className="looklink"> </a>
           <h2>{this.props.look.title}</h2>
           <p>{this.props.look.updated_at}</p>
+          <p>{this.props.look.filtertag_id} </p>
+          <p>{this.props.look.filtertag_id.name} </p>
+
+
           <A_Filtertagpreview
-            filtertag = {this.props.filtertag}
+          filtertag = {this.props.look.filtertag_id}
+
           />
 
         </div>

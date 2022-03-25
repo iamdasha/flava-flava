@@ -8,7 +8,7 @@ class M_Clothcard extends React.Component {
     return (
         <div className="clothcard">
           <h2>{this.props.cloth.name}</h2>
-          <A_LinkIcon />
+          <A_LinkIcon link={this.props.cloth.link}/>
 
         </div>
 
