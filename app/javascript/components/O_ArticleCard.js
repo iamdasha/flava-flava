@@ -1,8 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-class O_PostPart extends React.Component {
+class O_ArticleCard extends React.Component {
   render () {
+
     return (
       <div>
         <h1>{this.props.post.title}</h1>
@@ -14,4 +15,4 @@ class O_PostPart extends React.Component {
   }
 }
 
-export default O_PostPart
+export default O_ArticleCard
