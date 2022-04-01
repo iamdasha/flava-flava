@@ -10,7 +10,7 @@ class O_AllArtists extends React.Component {
 
         <div className="firstblockart">
         {this.props.artists.slice(0,6).map(artist => (
-           <M_Artist key={artist.id} artist={artist} photo={artist.artistphoto.url}/>
+           <M_Artist key={artist.id} artist={artist} photo={artist.artistphoto.thumb.url}/>
         ))}
         </div>
       </div>

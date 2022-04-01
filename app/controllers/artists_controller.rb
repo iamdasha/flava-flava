@@ -23,11 +23,20 @@ class ArtistsController < ApplicationController
   def show
     @artist = Artist.find(params[:id])
     # @posts = Post.all
-    if @artist
-      @posts = Post.where(artist_id: @artist.id)
-      @looks = Look.where(artist_id: @artist.id)
-      render actions: :show
+    @posts = Post.where(artist_id: @artist.id)
+    @filtertags = Filtertag.all
+
+    @posts = @posts.map do |post|
+      post.as_json(include: [:filtertag, :artist])
     end
+
+    @looks = Look.where(artist_id: @artist.id)
+
+    @looks = @looks.map do |look|
+      look.as_json(include: [:filtertag, :artist])
+    end
+
+    @artists = Artist.where(collection_id: @artist.collection_id)
 
 
   end

@@ -110,65 +110,7 @@ tbody tr {
 .brand_link a:hover {
   color: #FC62FF;
 }
-.artist_photo, .artist_info, .post_info {
-  display: inline-block;
-  vertical-align: top;
 
-}
-.artist_photo {
-  margin-left: 2vw;
-}
-.artist_name {
-  margin-top: 1.5vh;
-}
-.artist_info {
-  margin-left: 4.2vw;
-}
-.artist_info h1 {
-  margin-right: 2.5vw;
-}
-.artist_info_top > * {
-  display: inline-block;
-}
-.artist_info_top {
-  margin-bottom: 6vh;
-}
-.social_link {
-  margin: 0 0.5vw;
-}
-.info_margin_big {
-  margin-top: 12vh;
-}
-.info_margin {
-  margin-top: 6vh;
-}
-.strong_title {
-  display: block;
-  margin-bottom: 1.5vh;
-}
-.artist_extra_info {
-  margin-left: 3.7vw;
-}
-.extra_info_strong {
-  width: 30vw;
-  margin-left: 8.7vw;
-}
-.extra_info_strong4 {
-  margin-left: 3vw;
-}
-.extra_info_strong3 {
-  margin-left: 7.7vw;
-}
-.extra_info_strong2 {
-  margin-left: 6.05vw;
-}
-.artist_extra_info {
-  display: flex;
-}
-.artist_extra_info > * {
-  display: inline-block;
-  vertical-align: top;
-}
 
 .button_to input{
   box-sizing: content-box;
@@ -252,4 +194,76 @@ tbody tr {
   font-family: $Fontb;
   color: #111112;
   margin-bottom: 1vh;
+}
+.artist_posts {
+  margin-bottom: 100px;
+}
+.artist_looks_title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.artist_looks {
+  margin-bottom: 130px;
+}
+.artist_artists .firstblockart {
+  justify-content: center;
+}
+.artist_artists .firstblockart .M_Artist {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+.artist_block {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 5vh;
+  margin-bottom: 100px;
+}
+.artistphoto {
+  width: 292px;
+  height: 292px;
+  border-radius: 200px;
+}
+.artistphoto img {
+  width: 292px;
+  height: 292px;
+}
+.artist_info {
+  margin-left: 138px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.artist_info h1 {
+  font-family: "Pangram Bold";
+  font-size: 50px;
+  line-height: 60px;
+  color: rgba(242, 242, 242, 1);
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+.artist_info_item_title {
+  font-family: "Pangram";
+  font-size: 18px;
+  line-height: 20px;
+  color: rgba(147, 141, 152, 1);
+}
+.artist_info_item_content {
+  font-family: "Pangram";
+  font-size: 30px;
+  line-height: 46px;
+  color: rgba(242, 242, 242, 1);
+}
+.artist_info_items {
+  display: flex;
+  justify-content: flex-start;
+}
+.artist_info_item {
+  margin-right: 60px;
+}
+
+.icons a {
+  height: 100%;
+  position: relative;
+  margin-right: 14px;
 }

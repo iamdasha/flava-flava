@@ -1,80 +1,44 @@
-
-
-<div class="artist_content">
-  <%= link_to image_tag('back.svg'), artists_path %>
-  <div class="artist_photo">
+<div class="artist_block">
+  <div class="artistphoto">
     <%= image_tag(@artist.artistphoto.url, alt: 'Image') if @artist.artistphoto? %>
   </div>
-
   <div class="artist_info">
-    <div class="artist_info_top">
-      <h1 class="artist_name">
-        <%= @artist.name %>
-      </h1>
-      <p class="social_link">
-        <%= link_to image_tag('instagram.svg'), @artist.instagram, :target => "_blank" %>
-      </p>
-      <p class="social_link">
-        <%= link_to image_tag('youtube.svg'), @artist.youtube, :target => "_blank" %>
-      </p>
-      <p class="social_link">
-        <%= link_to image_tag('spotify.svg'), @artist.spotify, :target => "_blank" %>
-      </p>
-      <p class="social_link">
-        <%= link_to image_tag('wiki.svg'), @artist.wiki, :target => "_blank" %>
-      </p>
+    <div class="">
+      <h1><%= @artist.name %></h1>
+
+      <div class="artist_info_items">
+
+        <div class="artist_info_item">
+          <p class="artist_info_item_title">Жанр:</p>
+          <p class="artist_info_item_content"><%= @artist.genre %></p>
+        </div>
+
+        <div class="artist_info_item">
+          <p class="artist_info_item_title">Стиль одежды:</p>
+          <p class="artist_info_item_content"><%= @artist.style %></p>
+        </div>
+
+        <div class="artist_info_item">
+          <p class="artist_info_item_title">Любимые бренды:</p>
+          <p class="artist_info_item_content"><%= @artist.brand.name %><p>
+        </div>
+
+      </div>
     </div>
 
 
-
-    <p class="info_margin">
-      <strong class="font24 strong_title">Любимые бренды:</strong>
-      <%= @artist.brand.name %>
-    </p>
-
-    <p class="info_margin">
-      <strong class="font24 strong_title">Подборка:</strong>
-      <%= @artist.collection.name %>
-    </p>
-
+    <div class="icons">
+      <%= link_to image_tag('WikiIcon_green.svg'), @artist.wiki, :target => "_blank" %>
+      <%= link_to image_tag('SpoyifyIcon_green.svg'), @artist.spotify, :target => "_blank" %>
+      <%= link_to image_tag('YouTubeIcon_green.svg'), @artist.youtube, :target => "_blank" %>
+      <%= link_to image_tag('GeniusIcon_green.svg'), @artist.instagram, :target => "_blank" %>
+    </div>
   </div>
+
 </div>
 
 
-
-
-<div class="info_margin artist_extra_info ">
-  <div>
-    <p class="strong_title">
-      <strong class="font24">Пол:</strong>
-      <strong class="extra_info_strong"><%= @artist.sex %></strong>
-    </p>
-
-    <p class="strong_title">
-      <strong class="font24">Возраст:</strong>
-      <strong class="extra_info_strong2"><%= @artist.age %></strong>
-
-    </p>
-
-    <p class="strong_title">
-    	<strong class="font24">Жанр:</strong>
-      <strong class="extra_info_strong3"><%= @artist.genre %></strong>
-
-    </p>
-
-    <p class="strong_title">
-    	<strong class="font24">Стиль одежды:</strong>
-      <strong class="extra_info_strong3"><%= @artist.style %></strong>
-    </p>
-
-
-  </div>
-
-
-
-</div>
-
-<div class="user_link_edit filtertag_link_edit">
+<div class="">
 
   <% if user_signed_in? && current_user.isadmin == true %>
     <div class="filtertag_link_edit_item filtertag_extra">
@@ -95,43 +59,22 @@
 
 
 
-
-<h1 class="h1_postsinartist">Статьи об артисте</h1>
-<div class="posts_inartist">
-  <% @posts.each do |post| %>
-    <div class="posts_inartist_item">
-      <%= link_to image_tag(post.fimage.thumb.url), post if post.fimage? %>
-      <div class="posts_inartist_bottom">
-        <p class="posttitle_inartist">
-          <%= link_to post.title, post %>
-        </p>
-        <%= link_to image_tag('show.svg'), post %>
-      </div>
-
-
-    </div>
-
-  <% end %>
+<div class="artist_posts">
+  <%= react_component 'O_AllArticles', { posts: @posts, filtertags: @filtertags, artists: @artists }  %>
+</div>
+<div class="artist_looks">
+  <div class="artist_looks_title">
+    <h2>Образы артиста</h2>
+  </div>
+  <%= react_component 'O_AllLooksArtist', { looks: @looks, filtertags: @filtertags, artists: @artists}  %>
 </div>
 
-<h1 class="h1_postsinartist">Образы артиста</h1>
-<div class="posts_inartist">
-  <% @looks.each do |look| %>
-    <div class="posts_inartist_item">
-      <%= link_to image_tag(look.image.url), look if look.image? %>
-      <div class="posts_inartist_bottom">
-        <p class="posttitle_inartist">
-          <%= link_to look.title, look %>
-        </p>
-        <%= link_to image_tag('show.svg'), look %>
-      </div>
+<div class="artist_artists">
+  <div class="artist_looks_title">
+    <h2>Образы артиста</h2>
+  </div>
 
-
-    </div>
-
-  <% end %>
+  <%= react_component 'O_AllArtists', { artists: @artists }  %>
 </div>
 
-
-
-<%= render "promo/futer" %>
+<%= react_component 'O_Footer'  %>
