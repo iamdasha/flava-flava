@@ -6,7 +6,8 @@ class CollectionsController < ApplicationController
   def index
     @posts = Post.find_by_id(params[:id])
     @artists = Artist.find_by_id(params[:id])
-    @collections = Collection.all
+    @collections = Collection.where(nil)
+
 
   end
 
@@ -14,11 +15,22 @@ class CollectionsController < ApplicationController
   def show
     @acollection = Collection.find(params[:id])
 
-    if @collection
-      @posts = Post.where(collection_id: @collection.id)
-      @artists = Artist.where(collection_id: @collection.id)
-      render actions: :show
+    # if @collection
+    #   @posts = Post.where(collection_id: @collection.id)
+    #   @artists = Artist.where(collection_id: @collection.id)
+    #   render actions: :show
+    # end
+    @posts = Post.where(collection_id: @collection.id)
+    @artists = Artist.where(collection_id: @collection.id)
+
+    @filtertags = Filtertag.all
+
+    @posts = @posts.map do |post|
+      post.as_json(include: [:filtertag, :artist])
     end
+
+
+
   end
 
   # GET /collections/new

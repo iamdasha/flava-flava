@@ -1,3 +1,28 @@
 // Place all the styles related to the filtertags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+.filter a {
+  width: auto;
+  font-size: 18px;
+  font-family: "Pangram";
+  line-height: 20px;
+  color: rgba(147, 141, 152, 1);
+  border: 3px solid rgba(51, 50, 61, 1);
+  border-radius: 5px;
+  height: auto;
+  padding: 9px 35px 8px;
+  margin-right: auto;
+  margin: 0 10px;
+
+}
+.filter a:hover {
+  background: none;
+  border: 3px solid #FA00FF;
+  color: #FA00FF;
+}

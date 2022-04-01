@@ -12,3 +12,80 @@
   display: flex;
   margin-bottom: 5vh;
 }
+.firstblockcollect {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.secondtblockcollect {
+  display: flex;
+  justify-content: flex-start;
+}
+.collectioncard {
+  width: 400px;
+  height: 400px;
+  padding: 30px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.secondtblockcollect .collectioncardsmall {
+  margin-right: 30px;
+}
+.collectioncardsmall {
+  width: 292px;
+  height: 292px;
+  padding: 30px 27px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.colectionshow_block {
+  display: flex;
+  margin-top: 5vh;
+  // background:  #101010;
+  margin-bottom: 100px;
+}
+.colectionshow_block img {
+  border-radius: 5px;
+}
+.colection_desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 30px;
+  width: 100%;
+}
+.colection_desc h1 {
+  font-family: "Pangram Bold";
+  font-size: 50px;
+  color: rgba(239, 239, 239, 1);
+  line-height: 60px;
+  margin-bottom: 20px;
+}
+.colection_desc p {
+  font-size: 22px;
+  line-height: 33px;
+  color: rgba(239, 239, 239, 1);
+  width: 650px;
+}
+.colection_desc_bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.colection_desc_bottom p {
+  font-size: 18px;
+  line-height: 20px;
+  width: auto;
+}
+.share {
+  display: flex;
+  align-items: center;
+}
+.share img {
+  margin-right: 10px;
+}
+.share p {
+  color: rgba(225, 74, 228, 1);
+
+}

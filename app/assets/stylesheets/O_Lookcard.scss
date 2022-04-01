@@ -1,18 +1,27 @@
 .lookcard {
   position: relative;
   display: inline-block;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 5px;
 }
+
+.firstblock, .secondblock {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
 .firstblock div{
-  width: 300px;
-  height: 400px;
-  margin: 10px 10px;
+  width: 400px;
+  height: 534px;
 
 }
 .secondblock div{
-  width: 450px;
-  height: 550px;
-  margin: 10px 10px;
+  width: 614px;
+  height: 818px;
 
 }
 .looklink {
@@ -21,4 +30,55 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+.lookcard h2 {
+  font-size: 30px;
+  line-height: 37px;
+  font-family: 'Pangram Bold';
+  text-align: center;
+  width: 83%;
+  color: #F2F2F2;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6%;
+  margin-bottom: 12%;
+
+  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+
+
+}
+.secondblock .lookcard h2 {
+  font-size: 50px;
+  line-height: 60px;
+}
+.look-date {
+  font-size: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: white;
+}
+.secondblock .art-button_block {
+  margin-bottom: 36% !important;
+  padding: 30px 30px 0 30px;
+}
+.art-button_block {
+  position: relative;
+  width: 100%;
+  height: 64px  !important;
+  margin-bottom: 26% !important;
+  padding: 20px 20px 0 20px;
+}
+.Onartistlink {
+  width: 50%;
+  background: red;
+}
+.look-title {
+  width: 100% ;
+  height: auto !important;
+  display: flex;
+  justify-content: center;
+}
+.lookcard .Category--default {
+  height: auto;
 }

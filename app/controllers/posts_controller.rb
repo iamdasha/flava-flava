@@ -6,8 +6,17 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.where(nil)
-    @posts = @posts.filter_by_filtertag(params[:filtertag]) if params[:filtertag].present?
-    @looks = Look.find_by_id(params[:id])
+    filtering_params(params).each do |key, value|
+      @posts = @posts.public_send("filter_by_#{key}", value) if value.present?
+    end
+    @filtertags = Filtertag.all
+    @artists = Artist.all
+
+
+    @postcoms = @posts.map do |postcom|
+      postcom.as_json(include: [:filtertag, :artist])
+
+    end
 
   end
 
@@ -73,7 +82,10 @@ class PostsController < ApplicationController
     def set_post
       @post = Post.find(params[:id])
     end
-
+    
+    def filtering_params(params)
+          params.slice( :filtertag)
+    end
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:title, :content, :artist_id, :postcover, :fimage, :simage, :timage, :collection_id, :filtertag_id)

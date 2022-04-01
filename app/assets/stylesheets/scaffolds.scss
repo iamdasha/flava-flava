@@ -1,7 +1,7 @@
 body {
   background-color: #fff;
   color: #111112;
-  margin: 33px 60px 33px 0px;
+
 }
 
   @font-face {
@@ -11,6 +11,15 @@ body {
       font-style: normal;
       font-display: swap;
   }
+
+  @font-face {
+      font-family: 'Pangram Bold';
+      src: url('PPPangramSans-Bold.otf') format('OpenType');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+  }
+
 $Font: 'Pangram';
 $Fontb: 'Pangram Semibold';
 body, p, ol, ul, td {
@@ -184,12 +193,12 @@ textarea {
   margin-bottom: 2vh;
 }
 h2 {
-  font-family: $Fontb;
-  color: #111112;
-  margin-left: 3.7vw;
-  font-size: 36px;
-  line-height: 38px;
-  margin-bottom: 4vh;
+  font-family: 'Pangram Bold';
+  color: #F2F2F2;
+  font-size: 30px;
+  line-height: 32px;
+  display: inline-block;
+
 }
 .h2_form {
   margin-top: 8vh;

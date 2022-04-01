@@ -1,0 +1,54 @@
+// Place all the styles related to the Mainpage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.main_looks .firstblock {
+  display: none;
+}
+.main_looks {
+  margin-top: 5vh;
+}
+.Arrowlink {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.Arrowlink p {
+  font-family: "Pangram Bold";
+  font-size: 22px;
+  line-height: 25px;
+  color: rgba(11, 225, 147, 1);
+  margin-right: 18px;
+}
+.Arrowlink a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 175px;
+  height: 25px;
+}
+.link_block {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+.main_titlecollect {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.main_titlecollect h1 {
+  position: relative;
+  font-family: "Pangram Bold";
+  font-size: 50px;
+  line-height: 60px;
+  color: rgba(242, 242, 242, 1);
+  margin-bottom: 40px;
+}
+.collectmain {
+  justify-content: center;
+}
+.collectmain .collectioncardsmall {
+  margin: 0 15px;
+}

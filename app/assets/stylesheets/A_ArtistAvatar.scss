@@ -1,0 +1,29 @@
+a {
+  width: auto;
+  height: 32px;
+  width: 32px;
+  position: relative;
+}
+.Topblock_lookcard{
+  position: relative;
+  width: 60%  !important ;
+  height: 100%  !important;
+  display: flex;
+  justify-content: flex-start;
+  align-items: top;
+
+
+}
+.Topblock_lookcard img {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  display: inline-block;
+}
+.Topblock_lookcard p {
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 7px;
+  color: white;
+
+}

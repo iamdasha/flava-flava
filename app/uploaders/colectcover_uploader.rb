@@ -21,10 +21,10 @@ class ColectcoverUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-process resize_to_fit: [1095, 174]
+process resize_to_fill: [400, 400]
 
 version :thumb do
-   process resize_to_fill: [308, 100]
+   process resize_to_fill: [292, 292]
 end
   # Process files as they are uploaded:
   # process scale: [200, 300]

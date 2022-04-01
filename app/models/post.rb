@@ -9,7 +9,7 @@ class Post < ApplicationRecord
 
 		mount_uploader :postcover, PostcoverUploader
 		mount_uploader :fimage, FpicUploader
-		mount_uploader :simage, FpicUploader
+		mount_uploader :simage, PostcoverUploader
 		mount_uploader :timage, FpicUploader
 
 		scope :filter_by_filtertag, -> (filtertag) { where filtertag: filtertag }

@@ -1,7 +1,49 @@
 .switcher_container {
-  background-color: #ccc;
+  background-color: #101010;
   display: flex;
   list-style: none;
-  justify-content: space-around;
-  margin-bottom: 50px;
+  justify-content: space-between;
+  height: 57px;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 3px solid #33323D;
+}
+.switcher_container a {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  border-right: 3px solid #33323D;
+  transition: all .5s;
+
+}
+.switcher_container div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.switcher_container p {
+  font-family: "Pangram Bold";
+  font-size: 22px;
+  line-height: 25px;
+  color: #F2F2F2;
+  padding-top: 12px;
+}
+.switcher3 {
+  border-right: none !important;
+}
+.switcher1:hover {
+  width: 203%;
+  transition: all .4s;
+
+}
+.switcher2:hover {
+  width: 203%;
+  transition: all .4s;
+
+}
+.switcher3:hover {
+  width: 203%;
+  transition: all .4s;
+
 }

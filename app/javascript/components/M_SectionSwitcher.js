@@ -1,17 +1,20 @@
 import React from "react"
 import PropTypes from "prop-types"
-import "../../assets/stylesheets/M_SectionSwitcher.scss"
+
 
 class M_SectionSwitcher extends React.Component {
   render () {
     return (
-      <nav className="switcher_container">
-        <li><a href="/posts">Статьи</a></li>
-        <li><a href="/looks">Образы</a></li>
-        <li><a href="/collections">Подборки</a></li>
-      </nav>
-    );
-  }
+      <div className="switcher_block">
+        <nav className="switcher_container">
+          <a href="/posts" className="switcher1"><div><p>Статьи</p></div></a>
+          <a href="/looks" className="switcher2"><div><p>Образы</p></div></a>
+          <a href="/collections" className="switcher3"><div><p>Подборки</p></div></a>
+        </nav>
+      </div>
+
+)
+}
 }
 
 export default M_SectionSwitcher

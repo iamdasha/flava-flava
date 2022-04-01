@@ -1,10 +1,13 @@
 <div class="index_handb">
-  <h1>Статьи</h1>
   <% if user_signed_in? && current_user.isadmin == true %>
   <%= link_to 'Создать', new_post_path, :class =>"link_newpost", :class =>"link_new" %>
     <% end %>
 </div>
+<%= react_component 'O_ArticlesBanner', { posts: @postcoms, filtertags: @filtertags, artists: @artists }  %>
+<div class="switch">
+  <%= image_tag("switch.svg")%>
 
+</div>
 
 <div class="filter ">
 <% Filtertag.all.each do |filtertag| %>
@@ -13,37 +16,5 @@
 </div>
 
 
-<%= react_component 'O_AllArticles', { posts: @posts }  %>
-
-
-<table>
-  <thead>
-    <tr>
-
-      <th class="table1">Название</th>
-      <th>Артист</th>
-      <th>Создатель</th>
-      <th>Дата</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody >
-    <% @posts.each do |post| %>
-      <tr>
-        <td class="font24 table1"><%= post.title %></td>
-        <td class="font20"><%= post.artist.name %></td>
-        <td class="font20"><%= post.user.username %></td>
-        <td class="font20"><%= post.updated_at %></td>
-        <td><%= link_to image_tag('show.svg'), post, :class =>"link" %></td>
-        <% if user_signed_in? && current_user.isadmin == true %>
-          <td><%= link_to image_tag('edit.svg'), edit_post_path(post), :class =>"link"%></td>
-          <td><%= link_to image_tag('destroy.svg'), post, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"link"%></td>
-        <% end %>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= render "promo/futerindex" %>
+<%= react_component 'O_AllArticles', { posts: @postcoms, filtertags: @filtertags, artists: @artists }  %>
+<%= react_component 'O_Footer'  %>

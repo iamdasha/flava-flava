@@ -1,27 +1,27 @@
 import React from "react"
 import PropTypes from "prop-types"
-import '../../assets/stylesheets/A_Filtertag.scss'
+import "../../assets/stylesheets/A_Filtertag.scss"
 
 
+const STYLES = [
+'Category--default',
+'Category--shadow',
+]
 
+const A_Filtertagpreview = ({
+filtertag,
+textpart,
+style
+}) => {
 
-class A_Filtertagpreview extends React.Component {
-  render () {
-    let filtertag = '';
-    if (this.props.filtertag) {
-      filtertag = this.props.filtertag.name
-    }
+const checkStyle = STYLES.includes(style)
+? style : STYLES[0]
 
-
-
-    let textpart = <span>{filtertag}</span>
-
-    return (
-      <a
-      className = {`filtertag`}
-      >{textpart}</a>
-    );
-  }
+return (
+<a className = {`${checkStyle}`}  href={`/looks?filtertag=${filtertag}`}>
+  <p>{textpart}</p>
+</a>
+);
 }
 
-export default A_Filtertagpreview 
+export default A_Filtertagpreview

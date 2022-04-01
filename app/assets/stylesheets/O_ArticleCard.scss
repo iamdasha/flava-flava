@@ -1,0 +1,145 @@
+.firstblockpost {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.firstblockpost div {
+  width: 615px;
+  height: 358px;
+}
+.postcard {
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+.postcardimage {
+  height: 100%;
+  width: 35% !important;
+
+}
+.postcardcontent {
+  height: 100%;
+  width: 65% !important;
+
+  background: #202025;
+  display: flex;
+  flex-direction: column;
+}
+.postcardcontent h2 {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 86%;
+  margin-top: 30px;
+  margin-bottom: 55px;
+}
+.postcardcontent .art-button_block {
+  width: 100%;
+  margin-bottom: 10% !important;
+}
+
+.postlink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% ;
+  height: 100%;
+}
+.postcardsmall {
+  height: 169px  !important;
+  background: #202025;
+  border-radius: 5px;
+  padding: 36px 30px;
+
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.postcardsmall h2 {
+  margin-top: 0px;
+  font-size: 22px;
+  line-height: 28px;
+}
+.firstblockpost_small {
+  display: flex;
+  flex-direction: column ;
+  justify-content: space-between;
+}
+.postcardsmall_bottom {
+  width: 100% !important;
+  height: 32px !important;
+}
+.postcardsmall_bottom .art-button_block {
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0 !important;
+}
+.postcardsmall_bottom .Category--default {
+  position: absolute;
+  right: auto;
+  left: 0;
+  bottom: 23px;
+  top: auto;
+}
+.postcardbig {
+  width: 1260px !important;
+  height: 586px !important;
+
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+.postcardimagebig {
+  width: 57% !important;
+}
+.postcardcontentbig {
+  width: 43% !important;
+  position: relative;
+
+}
+.art-button_block_post {
+  padding-top: 48px !important;
+  padding-left: 30px !important;
+}
+.postcardsmall_bottom .Topblock_lookcard {
+  justify-content: flex-end;
+  width: 100% !important;
+}
+.banner .art-button_block {
+  padding: 48px 48px 0 48px ;
+}
+.banner  h2 {
+  font-size: 50px;
+  line-height: 60px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.banner .bannercontent p{
+  color: #F2F2F2;
+  font-size: 22px;
+  line-height: 33px;
+  text-align: center;
+  width: 80%;
+}
+.banner  span p{
+  margin: 0 auto;
+}
+.banner .Category--default {
+  position: absolute;
+  top: auto;
+  bottom: 40px;
+  left: calc(50% - 55px);
+}
+.switch {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 100px;
+}

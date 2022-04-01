@@ -36,10 +36,10 @@ h2 {
 
 }
 h3 {
-  font-family: $Font;
-  @include font(24px, 23px, 0px);
-  color: black;
-
+  font-family: "Pangram Bold";
+  font-size: 22px;
+  line-height: 28px;
+  color: rgba(242, 242, 242, 1);
 }
 
 .section {

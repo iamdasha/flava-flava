@@ -1,57 +1,32 @@
-<div class="collection_content">
-  <%= link_to image_tag('back.svg'), collections_path %>
+<div class="colectionshow_block">
+  <%= image_tag(@collection.cover.url, alt: 'Image') if @collection.cover? %>
+  <div class="colection_desc">
+    <div class="">
+      <h1 class=""><%= @collection.name %></h1>
+      <p ><%= @collection.description %></p>
+    </div>
 
-  <div class="post_title collection_title">
-    <h1 class="">
-      <%= @collection.name %>
-    </h1>
+    <div class="colection_desc_bottom">
+      <p>5 артистов &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp;  8 статей</p>
+      <div class="share">
+        <%= image_tag("ShareIcon.svg")%>
+        <p>Поделиться</p>
+      </div>
 
+    </div>
 
 
   </div>
 
-
-</div>
-<p class="post_text">
-  <%= @collection.description %>
-</p>
-
-
-
-<div class="posts_inartist">
-  <% @posts.each do |post| %>
-    <div class="posts_inartist_item">
-      <%= link_to image_tag(post.fimage.thumb.url), post if post.fimage? %>
-      <div class="posts_inartist_bottom">
-        <p class="posttitle_inartist">
-          <%= link_to post.title, post %>
-        </p>
-        <%= link_to image_tag('show.svg'), post %>
-      </div>
-
-
-    </div>
-
-  <% end %>
 </div>
 
-<h2>Артисты</h2>
-<div class="posts_inartist">
-  <% @artists.each do |artist| %>
-    <div class="posts_inartist_item">
-      <%= link_to image_tag(artist.artistphoto.url), artist if artist.artistphoto? %>
-      <div class="posts_inartist_bottom">
-        <p class="posttitle_inartist">
-          <%= link_to artist.name, artist %>
-        </p>
-        <%= link_to image_tag('show.svg'), artist %>
-      </div>
+<%= react_component 'O_AllArtists', { artists: @artists }  %>
+
+<%= react_component 'O_AllArticles', { posts: @posts, filtertags: @filtertags, artists: @artists }  %>
 
 
-    </div>
 
-  <% end %>
-</div>
+
 
 
 
@@ -77,4 +52,4 @@
 
 
 
-<%= render "promo/futer" %>
+<%= react_component 'O_Footer'  %>

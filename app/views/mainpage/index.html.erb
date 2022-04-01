@@ -1,0 +1,28 @@
+
+<div class="main_looks">
+  <%= react_component 'O_AllLooks', { looks: @lookcoms, filtertags: @filtertags, artists: @artists}  %>
+</div>
+<div class="link_block">
+  <%= react_component 'A_LinkArrow'  %>
+</div>
+
+<div class="main_posts">
+  <div class="filter ">
+  <% Filtertag.all.each do |filtertag| %>
+    <%= link_to filtertag.name, posts_path(filtertag: filtertag.id) %>
+    <% end %>
+  </div>
+
+  <%= react_component 'O_AllArticles', { posts: @postcoms, filtertags: @filtertags, artists: @artists }  %>
+</div>
+<div class="link_block">
+  <%= react_component 'A_LinkArrowposts'  %>
+</div>
+
+<div class="main_titlecollect">
+  <h1 class="">От кого фанатеешь ты?</h1>
+</div>
+
+<%= react_component 'O_AllcollectionsMain', { collections: @collections}  %>
+
+<%= react_component 'O_Footer'  %>

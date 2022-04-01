@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+  get 'mainpage/index'
   mount Ckeditor::Engine => '/ckeditor'
   resources :looks
   resources :collections
   devise_for :users
   resources :cloths
   resources :brands
-  resources :filtertags
+  resources :filtertags do
+    resources :looks
+  end
   resources :artists
-  resources :looks
   get 'about/index'
   resources :posts
   resources :subscribers
@@ -26,7 +28,8 @@ Rails.application.routes.draw do
   end
 
   resources :looks do
-      resources :lookfavorites
+    resources :lookfavorites
+    resources :filtertags
   end
 
   resources :cloths do
@@ -36,6 +39,7 @@ Rails.application.routes.draw do
   # root 'promo#index'
   get 'posts/index'
   get 'about/index'
+  get 'mainpage/index'
 
 
   get 'promo', to: 'promo#index'
@@ -57,7 +61,7 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show', :as => :user
   delete 'users/:id', to: 'users#destroy'
 
-  root 'artists#index'
+  root 'mainpage#index'
   # root 'posts#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

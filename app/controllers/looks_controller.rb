@@ -3,15 +3,47 @@ class LooksController < ApplicationController
 
   # GET /looks or /looks.json
   def index
-    @looks = Look.where(nil)
-    @looks = @looks.filter_by_filtertag(params[:filtertag]) if params[:filtertag].present?
+    @users = User.all
+    # @looks = Look.where(nil)
+    # @looks = @looks.filter_by_filtertag(params[:filtertag]) if params[:filtertag].present?
 
-    @cloths = Cloth.find_by_id(params[:id])
+
     @filtertags = Filtertag.all
-    
+    @artists = Artist.all
+    @looks = Look.where(nil)
+    filtering_params(params).each do |key, value|
+      @looks = @looks.public_send("filter_by_#{key}", value) if value.present?
+    end
+    @lookcoms = @looks.map do |lookcom|
+      lookcom.as_json(include: [:filtertag, :artist])
+    end
+    # @looks = @looks.filter_by_filtertag(params[:filtertag]) if params[:filtertag].present?
+
+    # @looks = Look.where(nil)
+
+
+    # @cloths = Cloth.all
+    # @cloths = Cloth.where(look_id: @look.id)
+
+  #   if params.has_key?(:filtertag)
+  #     @filtertag = Filtertag.find_by_name(params[:filtertag])
+  #     @looks = Look.where(filtertag: @filtertag, artist: @artist)
+  #   else
+  #     @looks = Look.all.includes(:filtertag, :artist).map do
+  #     |look|
+  #     look.as_json(include: [:filtertag, :artist])
+  #   end
+  #
+  #
+  #
+  # end
 
 
 
+  respond_to do |format|
+        format.html  # index.html.erb
+        format.json  { render :json => @looks }
+  end
 
 
   end
@@ -82,6 +114,9 @@ class LooksController < ApplicationController
       @look = Look.find(params[:id])
     end
 
+    def filtering_params(params)
+          params.slice( :filtertag)
+    end
     # Only allow a list of trusted parameters through.
     def look_params
       params.require(:look).permit(:title, :content, :image, :artist_id, :filtertag_id, :post_id)

@@ -27,10 +27,10 @@ class ArtistphotoUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
-process resize_to_fill: [420, 546]
+process resize_to_fill: [185, 185]
 
 version :thumb do
-   process resize_to_fill: [308, 401]
+   process resize_to_fill: [32, 32]
 end
 
 version :small_thumb, from_version: :thumb do
