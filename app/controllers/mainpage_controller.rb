@@ -1,10 +1,11 @@
+
 class MainpageController < ApplicationController
   def index
     @filtertags = Filtertag.all
     @artists = Artist.all
     @looks = Look.where(nil)
     @collections = Collection.where(nil)
-    
+
     @lookcoms = @looks.map do |lookcom|
       lookcom.as_json(include: [:filtertag, :artist])
     end
