@@ -1,3 +1,4 @@
+
 class Look < ApplicationRecord
   validates :title, :presence => true
 
@@ -10,5 +11,5 @@ class Look < ApplicationRecord
   mount_uploader :image, LookUploader
 
   scope :filter_by_filtertag, -> (filtertag) { where filtertag: filtertag }
-  
+
 end

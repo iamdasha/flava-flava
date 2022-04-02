@@ -19,9 +19,10 @@ class O_Footer extends React.Component {
           </div>
           <div className="footer_top2">
             <p>Следите в соцсетях</p>
-            <a href="#">Артисты</a>
-            <a href="#">Статьи</a>
-            <a href="#">Подборки</a>
+            <a href="/artists">Артисты</a>
+            <a href="/posts">Статьи</a>
+            <a href="/looks">Образы</a>
+            <a href="/collections">Подборки</a>
           </div>
           <div className="footer_top3">
             <p>Полезные ссылки</p>

@@ -1,3 +1,4 @@
+
 class ClothfavoritesController < ApplicationController
   before_action :find_cloth
   before_action :find_clothfavorite, only: [:destroy]
