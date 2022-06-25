@@ -1,38 +1,23 @@
-<p id="notice"><%= notice %></p>
+<% set_meta_tags title: 'Одежда из образов', description: 'Одежда из образов популярных артистов'%>
+<% set_meta_tags og: {
+    title: ['Одежда из образов']
+}  %>
+
+
 
 <div class="index_handb">
-  <h1>Предметы одежды</h1>
-  <%= link_to 'Создать', new_cloth_path, :class =>"link_new" %>
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Название</th>
-      <th>Создатель</th>
-      <th>Дата обновления</th>
-      <th colspan="3"></th>
+<% if user_signed_in? && current_user.isadmin == true %>
+    <%= react_component('O_HeaderAdmin', current_user: current_user)  %>
+    <div class="titleadminblock">
+      <h1 class="titleadmin">Одежда</h1>
+      <%= link_to 'Создать', new_cloth_path, :class =>"link_newpost", :class =>"link_new" %>
+    </div>
 
-    </tr>
-  </thead>
+    <%= react_component 'O_AllClothAdmin', { cloths: @clothcoms, looks: @looks}  %>
+<% else %>
+  <%= react_component('O_Header', current_user: current_user)  %>
+<% end %>
 
-  <tbody>
-    <% @cloths.each do |cloth| %>
-      <tr>
-        <td class="table1"><%= link_to(image_tag(cloth.clothimage.thumb.url, alt: 'Image'), cloth.clothimage.url, target: '_blank') if cloth.clothimage? %></td>
-        <td class="font24 "><%= cloth.name %></td>
-        <td class="font20"><%= cloth.user.username %></td>
-        <td class="font20"><%= cloth.updated_at %></td>
-        <td><%= link_to image_tag('show.svg'), cloth %></td>
-        <% if user_signed_in? && current_user.isadmin == true %>
-          <td><%= link_to image_tag('edit.svg'), edit_cloth_path(cloth)  %></td>
-          <td><%= link_to image_tag('destroy.svg'), cloth, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= render "promo/futerindex" %>
+<%= react_component 'O_Footer'  %>

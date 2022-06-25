@@ -11,20 +11,12 @@ class O_AllLooksArtist extends React.Component {
       <div>
 
         <div className="firstblock">
-        {this.props.looks.slice(0,3).map(look => (
-           <O_Lookcard key={look.id} look={look} filtertag={look.filtertag_id} artist={look.artist_id}/>
-        ))}
+          {this.props.looks.slice(0,10).map(look => (
+             <O_Lookcard key={look.id} look={look} filtertag={look.filtertag_id} artist={look.artist_id}/>
+          ))}
         </div>
-        <div className="firstblock">
-        {this.props.looks.slice(3,6).map(look => (
-           <O_Lookcard key={look.id} look={look} filtertag={look.filtertag_id} artist={look.artist_id}/>
-        ))}
-        </div>
-        <div className="firstblock">
-        {this.props.looks.slice(6,8).map(look => (
-           <O_Lookcard key={look.id} look={look} filtertag={look.filtertag_id} artist={look.artist_id}/>
-        ))}
-        </div>
+
+
       </div>
     );
   }

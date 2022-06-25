@@ -1,28 +1,35 @@
+<% set_meta_tags title: @collection.name, description: @collection.description%>
+
+<% if user_signed_in? && current_user.isadmin == true %>
+  <%= react_component('O_HeaderAdmin', current_user: current_user)  %>
+<% else %>
+<%= react_component('O_Header', current_user: current_user)  %>
+<% end %>
+<div class="header_lines_collections">
+  <%= link_to image_tag('header_lines.svg')%>
+</div>
+
+<h3>
+  <%= @collection.name %>
+</h3>
+
 <div class="colectionshow_block">
-  <%= image_tag(@collection.cover.url, alt: 'Image') if @collection.cover? %>
+  <%= image_tag(@collection.coverg.url, alt: 'Image') if @collection.coverg? %>
   <div class="colection_desc">
-    <div class="">
-      <h1 class=""><%= @collection.name %></h1>
-      <p ><%= @collection.description %></p>
-    </div>
-
-    <div class="colection_desc_bottom">
-      <p>5 артистов &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp;  8 статей</p>
-      <div class="share">
-        <%= image_tag("ShareIcon.svg")%>
-        <p>Поделиться</p>
+      <p><%= @collection.description %></p>
+      <div class="share_button share_button_alone">
+        <%= link_to image_tag('share.svg') %>
+        <%= button_to 'Поделиться подборкой' %>
       </div>
-
-    </div>
-
-
   </div>
 
 </div>
 
 <%= react_component 'O_AllArtists', { artists: @artists }  %>
 
-<%= react_component 'O_AllArticles', { posts: @posts, filtertags: @filtertags, artists: @artists }  %>
+<h3 class="titleincollection">Статьи</h3>
+
+<%= react_component 'O_AllArticlesinCollection', { posts: @posts, filtertags: @filtertags, artists: @artists }  %>
 
 
 
@@ -31,25 +38,7 @@
 
 
 
-<div class="user_link_edit filtertag_link_edit">
 
-  <% if user_signed_in? && current_user.isadmin == true %>
-    <div class="filtertag_link_edit_item filtertag_extra">
-      <%= link_to image_tag('edit.svg'), edit_collection_path(@collection) %>
-      <p>
-        <%= link_to 'Редактировать', edit_collection_path(@collection), :class =>"link_new link_new_user" %>
-      </p>
-    </div>
-    <div class="filtertag_link_edit_item">
-      <%= link_to image_tag('destroy.svg'), @collection, method: :delete, data: { confirm: 'Are you sure?' }%>
-      <p>
-        <%= link_to 'Удалить', @collection, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"link_new link_new_user" %>
-      </p>
-    </div>
-
-  <% end %>
-</div>
-
-
+<div class="extralittle"></div>
 
 <%= react_component 'O_Footer'  %>

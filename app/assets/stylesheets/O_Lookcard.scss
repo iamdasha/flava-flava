@@ -1,28 +1,42 @@
-.lookcard {
+.firstblock {
+  position: relative;
+  column-count: 3;
+  margin-bottom: 60px;
+  padding: 0 90px;
+
+
+}
+.secondblock {
+  position: relative;
+  margin-bottom: 60px;
+  padding: 0 90px;
+
+
+}
+ .secondblock1 .lookcard {
+  margin-left: 30px;
+}
+ .secondblock2 .lookcard {
+   margin-right: 30px;
+ }
+.secondblock .lookcard, .secondblock .lookcardbig {
   position: relative;
   display: inline-block;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  border-radius: 5px;
+  vertical-align: top;
 }
-
-.firstblock, .secondblock {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 30px;
-}
-
-.firstblock div{
+.lookcard {
   width: 400px;
-  height: 534px;
-
 }
-.secondblock div{
-  width: 614px;
-  height: 818px;
 
+.lookcard {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+.lookcardbig {
+  position: relative;
+  overflow: hidden;
+  width: 830px;
 }
 .looklink {
   width: 100%;
@@ -31,54 +45,158 @@
   top: 0;
   left: 0;
 }
-.lookcard h2 {
+
+.lookcard img,  .lookcardbig img{
+  display: block;
+  margin: 0 auto;
+}
+.lookcardcontent {
+  height: auto;
+  display: block;
+  margin-left: 32px;
+  width: 340px;
+}
+.lookcardcontentbig {
+  width: 766px;
+}
+.lookcardcontent h2 {
   font-size: 30px;
-  line-height: 37px;
+  line-height: 40px;
   font-family: 'Pangram Bold';
-  text-align: center;
-  width: 83%;
   color: #F2F2F2;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 6%;
-  margin-bottom: 12%;
+  margin-top: 37px;
+  margin-bottom: 30px;
+}
 
-  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+.lookcardcontent  span {
+  color: #F2F2F2;
+  margin-top: 28px;
+  display: block;
+  font-size: 14px;
+  line-height: 16px;
+  color: #F2F2F2;
+  font-family: 'Pangram Semibold';
+}
 
-
-}
-.secondblock .lookcard h2 {
-  font-size: 50px;
-  line-height: 60px;
-}
-.look-date {
-  font-size: 12px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  color: white;
-}
-.secondblock .art-button_block {
-  margin-bottom: 36% !important;
-  padding: 30px 30px 0 30px;
-}
-.art-button_block {
-  position: relative;
-  width: 100%;
-  height: 64px  !important;
-  margin-bottom: 26% !important;
-  padding: 20px 20px 0 20px;
-}
-.Onartistlink {
-  width: 50%;
-  background: red;
-}
-.look-title {
-  width: 100% ;
-  height: auto !important;
+.look_content {
+  padding: 0 90px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin-top: 100px;
+  margin-bottom: 126px;
 }
-.lookcard .Category--default {
-  height: auto;
+.look_content_right {
+  padding: 0 0 0 30px;
+}
+.clothitem {
+  width: 507px;
+  height: 90px;
+}
+.clothitem_name {
+  width: 70%;
+  font-family: 'Pangram Medium';
+  font-size: 18px;
+  line-height: 20px;
+  color: #F2F2F2;
+  margin-left: 10px;
+}
+.clothitem_content {
+  padding: 33px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.clothitem_line {
+  width: 507px;
+  height: 3px;
+  background: #33323D;
+}
+.clothitem_buttons a {
+  margin-left: 20px;
+}
+.look_desc {
+  font-family: 'Pangram Medium';
+  font-size: 18px;
+  line-height: 30px;
+  color: #F2F2F2;
+  margin-top: 40px;
+  margin-left: 10px;
+
+}
+.favotite_button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 184px;
+
+}
+.favotite_button input, .share_button input {
+  border: none;
+}
+.favotite_button a, .share_button a {
+  height: 24px;
+}
+.edit_button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 175px;
+}
+.share_button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 223px;
+  margin-left: 40px;
+
+}
+.delete_button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 110px;
+  margin-left: 40px;
+}
+.favotite_button input {
+  margin-left: 12px;
+}
+.look_buttons {
+  margin-left: 10px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-start;
+}
+.extrasmall {
+  height: 126px;
+}
+.addcloth_button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 172px;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+.addcloth_button:hover a {
+  color: #938D98;
+}
+svg path {
+  transition: all .2s;
+}
+.addcloth_button:hover svg path {
+  stroke: #938D98;
+  transition: all .2s;
+}
+.addcloth_button a {
+  font-family: "Pangram Medium";
+  font-size: 18px;
+  line-height: 30px;
+  color: #F2F2F2;
+  transition: all .2s;
+}
+.addcloth_button a:last-child {
+  width: auto;
+  margin-top: 4px;
+  margin-left: 4px;
 }

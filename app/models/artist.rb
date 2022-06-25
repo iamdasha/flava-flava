@@ -11,4 +11,6 @@ class Artist < ApplicationRecord
   has_many :looks, dependent: :destroy
 
   has_many :artistfavorites, dependent: :destroy
+
+  scope :filter_by_starts_with, -> (name) { where("name like ?", "%#{name}%")}
 end

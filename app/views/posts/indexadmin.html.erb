@@ -1,0 +1,12 @@
+<% set_meta_tags title: 'Статьи о моде в музыке', description: 'Лучшие материалы о моде в музыкальной индустрии'%>
+<% set_meta_tags og: {
+    title: ['Статьи о моде в музыке']
+}  %>
+
+<div class="index_handb">
+  <% if user_signed_in? && current_user.isadmin == true %>
+  <%= link_to 'Создать', new_post_path, :class =>"link_newpost", :class =>"link_new" %>
+    <% end %>
+</div>
+
+<%= react_component('O_Header', current_user: current_user)  %>

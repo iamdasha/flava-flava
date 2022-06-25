@@ -1,4 +1,5 @@
-<%= form_with(model: artist) do |form|%>
+<div class="forms">
+  <%= form_with(model: artist) do |form|%>
   <% if artist.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
@@ -11,13 +12,13 @@
     </div>
   <% end %>
 
-  <h2>Общая информация</h2>
+  <h2 class="h2form">Общая информация</h2>
   <div class="field">
     <p class="p_form">Имя артиста</p>
     <%= form.text_field :name , placeholder: "Введите имя"%>
   </div>
 
-  <div class="field photo_form">
+  <div class="field fieldfile">
     <p class="p_form ">Фото артиста</p>
   	<%= form.file_field :artistphoto %>
   </div>
@@ -45,16 +46,16 @@
   <div class="field">
     <p class="p_form">Соцсети артиста</p>
     <%= form.text_field :wiki, :class =>"social_link_form social_link_form2", placeholder: "Вставьте ссылку на википедию" %>
-  	<%= form.text_field :instagram, :class =>"social_link_form social_link_form2", placeholder: "Вставьте ссылку на инстраграм" %>
+  	<%= form.text_field :instagram, :class =>"social_link_form social_link_form2", placeholder: "Вставьте ссылку на спотифай" %>
     <%= form.text_field :youtube, :class =>"social_link_form social_link_form2", placeholder: "Вставьте ссылку на ютуб" %>
-    <%= form.text_field :spotify, :class =>"social_link_form social_link_form1", placeholder: "Вставьте ссылку на спотифай" %>
+    <%= form.text_field :spotify, :class =>"social_link_form social_link_form1", placeholder: "Вставьте ссылку на genius" %>
 
   </div>
 
 
 
 
-  <h2 class="h2_form">Информация о стиле</h2>
+  <h2 class="h2_form h2form">Информация о стиле</h2>
 
 
 
@@ -71,7 +72,8 @@
 
 
 
-  <div class="actions button_form">
+  <div class="actions">
     <%= form.submit "Сохранить" %>
   </div>
 <% end %>
+</div>

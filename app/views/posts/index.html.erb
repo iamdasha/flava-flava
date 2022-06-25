@@ -1,20 +1,31 @@
+<% set_meta_tags title: 'Статьи о моде в музыке', description: 'Лучшие материалы о моде в музыкальной индустрии'%>
+<% set_meta_tags og: {
+    title: ['Статьи о моде в музыке']
+}  %>
+
 <div class="index_handb">
-  <% if user_signed_in? && current_user.isadmin == true %>
-  <%= link_to 'Создать', new_post_path, :class =>"link_newpost", :class =>"link_new" %>
-    <% end %>
-</div>
-<%= react_component 'O_ArticlesBanner', { posts: @postcoms, filtertags: @filtertags, artists: @artists }  %>
-<div class="switch">
-  <%= image_tag("switch.svg")%>
-
-</div>
-
-<div class="filter ">
-<% Filtertag.all.each do |filtertag| %>
-  <%= link_to filtertag.name, posts_path(filtertag: filtertag.id) %>
-  <% end %>
 </div>
 
 
-<%= react_component 'O_AllArticles', { posts: @postcoms, filtertags: @filtertags, artists: @artists }  %>
+
+
+
+<% if user_signed_in? && current_user.isadmin == true %>
+    <%= react_component('O_HeaderAdmin', current_user: current_user)  %>
+    <div class="titleadminblock">
+      <h1 class="titleadmin">Статьи</h1>
+      <%= link_to 'Создать', new_post_path, :class =>"link_newpost", :class =>"link_new" %>
+    </div>
+
+    <%= react_component 'O_AllArticlesAdmin', { posts: @postcoms, filtertags: @filtertags, artists: @artists }  %>
+<% else %>
+  <%= react_component('O_Header', current_user: current_user)  %>
+  <div class="header_lines_posts">
+    <%= link_to image_tag('header_lines_posts.svg')%>
+  </div>
+  <h1>Читай, чтобы вдохновляться</h1>
+
+  <%= react_component 'O_AllArticles', { posts: @postcoms, filtertags: @filtertags, artists: @artists }  %>
+<% end %>
+
 <%= react_component 'O_Footer'  %>

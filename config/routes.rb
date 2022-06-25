@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'mainpage/index'
+  get 'search/index'
   mount Ckeditor::Engine => '/ckeditor'
   resources :looks
   resources :collections
@@ -38,8 +39,10 @@ Rails.application.routes.draw do
 
   # root 'promo#index'
   get 'posts/index'
+  get 'posts/indexadmin'
   get 'about/index'
   get 'mainpage/index'
+  get 'search/index'
 
 
   get 'promo', to: 'promo#index'
@@ -51,6 +54,8 @@ Rails.application.routes.draw do
   get 'brands', to: 'brands#index'
   get 'collections', to: 'types#index'
   get 'looks/index', to: 'styles#index'
+  get 'search', to: 'search#index'
+
 
   # root 'promo#index'
 

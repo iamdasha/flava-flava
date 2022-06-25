@@ -13,5 +13,6 @@ class Post < ApplicationRecord
 		mount_uploader :timage, FpicUploader
 
 		scope :filter_by_filtertag, -> (filtertag) { where filtertag: filtertag }
+		scope :filter_by_starts_with, -> (title) { where("title like ?", "%#{title}%")}
 
 end

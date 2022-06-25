@@ -1,4 +1,5 @@
-<%= form_with(model: cloth) do |form| %>
+<div class="forms">
+  <%= form_with(model: cloth) do |form| %>
   <% if cloth.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(cloth.errors.count, "error") %> prohibited this cloth from being saved:</h2>
@@ -26,7 +27,7 @@
     <%= form.select :look_id, Look.pluck(:title, :id) %>
   </div>
 
-  <div class="field photo_form">
+  <div class="field fieldfile">
     <p class="p_form ">Фото</p>
     <%= form.file_field :clothimage %>
   </div>
@@ -36,10 +37,11 @@
     <%= form.text_field :link, placeholder: "Введите ссылку" %>
   </div>
 
-  <div class="actions button_form">
+  <div class="actions">
     <%= form.submit "Сохранить" %>
   </div>
 
 
 
 <% end %>
+</div>

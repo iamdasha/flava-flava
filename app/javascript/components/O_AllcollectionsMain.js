@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import O_CollectionBig from "./O_CollectionBig.js"
 import O_CollectionSmall from "./O_CollectionSmall.js"
 
 class O_AllcollectionsMain extends React.Component {
@@ -8,11 +9,6 @@ class O_AllcollectionsMain extends React.Component {
       <div>
         <div className="firstblockcollect">
         {this.props.collections.slice(0,4).map(collection => (
-           <O_CollectionSmall key={collection.id} collection={collection} />
-        ))}
-        </div>
-        <div className="secondtblockcollect collectmain ">
-        {this.props.collections.slice(4,6).map(collection => (
            <O_CollectionSmall key={collection.id} collection={collection} />
         ))}
         </div>

@@ -8,12 +8,12 @@ class O_Allcollections extends React.Component {
     return (
       <div>
         <div className="firstblockcollect">
-        {this.props.collections.slice(0,3).map(collection => (
-           <O_CollectionBig key={collection.id} collection={collection} />
+        {this.props.collections.slice(0,4).map(collection => (
+           <O_CollectionSmall key={collection.id} collection={collection} />
         ))}
         </div>
         <div className="secondtblockcollect">
-        {this.props.collections.slice(3,7).map(collection => (
+        {this.props.collections.slice(4,8).map(collection => (
            <O_CollectionSmall key={collection.id} collection={collection} />
         ))}
         </div>

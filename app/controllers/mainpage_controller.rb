@@ -3,6 +3,7 @@ class MainpageController < ApplicationController
   def index
     @filtertags = Filtertag.all
     @artists = Artist.all
+    @users = User.all
     @looks = Look.where(nil)
     @collections = Collection.where(nil)
 
@@ -16,7 +17,7 @@ class MainpageController < ApplicationController
     end
 
     @postcoms = @posts.map do |postcom|
-      postcom.as_json(include: [:filtertag, :artist])
+      postcom.as_json(include: [:filtertag, :artist, :user])
 
     end
 

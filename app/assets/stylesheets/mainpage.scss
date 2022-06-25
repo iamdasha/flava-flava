@@ -1,38 +1,7 @@
 // Place all the styles related to the Mainpage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.main_looks .firstblock {
-  display: none;
-}
-.main_looks {
-  margin-top: 5vh;
-}
-.Arrowlink {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-.Arrowlink p {
-  font-family: "Pangram Bold";
-  font-size: 22px;
-  line-height: 25px;
-  color: rgba(11, 225, 147, 1);
-  margin-right: 18px;
-}
-.Arrowlink a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 175px;
-  height: 25px;
-}
-.link_block {
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 40px;
-  margin-bottom: 80px;
-}
+
 .main_titlecollect {
   width: 100%;
   display: flex;
@@ -51,4 +20,82 @@
 }
 .collectmain .collectioncardsmall {
   margin: 0 15px;
+}
+
+.banner {
+  height: 800px;
+}
+.postcardsmall {
+  height: 100%;
+  padding: 0 198px;
+  padding-top: 480px;
+}
+.bannertitle {
+  margin-top: 0;
+  margin-left: 0;
+  margin-top: 30px;
+  margin-bottom: 35px;
+}
+.bannerhover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 800px;
+  width: 200px;
+  background-image: url("hover.png");
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: all .5s;
+}
+
+.bannerhover2 {
+  left: auto;
+  right: 0;
+  background-image: url("hoverright.png");
+  background-position: right;
+}
+.bannerhover:hover {
+  opacity: 100%;
+  transition: all .3s;
+  cursor: pointer;
+}
+.bannertag {
+  padding: 3px 8px;
+  color: #F2F2F2;
+  font-family: "Pangram Semibold";
+  font-size: 18px;
+  line-height: 20px;
+  border: solid 2px #F2F2F2;
+  width: 77px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-right: 30px;
+}
+.postcardsmall span {
+  display: inline-block;
+  color: #F2F2F2;
+  font-family: "Pangram Semibold";
+  font-size: 18px;
+  line-height: 20px;
+}
+.mainpage_headline {
+  margin-left: 120px;
+  margin-top: 135px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 55px;
+}
+.mainpage_headline2 {
+    margin-top: 255px;
+}
+.mainpage_h1 {
+  margin: 0;
+}
+.mainpage_span {
+  color: #F2F2F2;
+  font-family: "Pangram Bold";
+  font-size: 18px;
+  line-height: 20px;
+  margin-left: 30px;
 }

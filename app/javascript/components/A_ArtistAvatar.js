@@ -2,33 +2,32 @@ import React from "react"
 import PropTypes from "prop-types"
 // import "../../assets/stylesheets/A_ArtistAvatar.scss"
 
+class A_ArtistAvatar extends React.Component {
+  constructor(props) {
+    super(props);
 
-const STYLES = [
-'Artistphoto'
-]
-
-const A_ArtistAvatar = ({
-artist,
-avatar,
-textpart,
-style
-}) => {
-
-const checkStyle = STYLES.includes(style)
-? style : STYLES[0]
-
-return (
-  <a  href={`artists/${artist}`} className = "Onartistlink">
-    <div className = "Topblock_lookcard">
-      <img src={`${avatar}`}/>
-      <p>{textpart}</p>
-
-    </div>
-
-
-  </a>
-
-);
+    console.log(this.props.artist[0].id)
 }
+
+  render () {
+
+
+    return (
+      <a  href={`/artists/${this.props.artist[0].id}`} className = "Onartistlink">
+        <div className = "Topblock_lookcard">
+          <img src={`${this.props.artist[0].artistphoto.url}`}/>
+          <p>Больше об артисте</p>
+
+        </div>
+
+
+      </a>
+
+
+
+    );
+  }
+}
+
 
 export default A_ArtistAvatar

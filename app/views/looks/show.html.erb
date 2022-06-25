@@ -1,63 +1,103 @@
+<% set_meta_tags title: @look.title, description: @look.filtertag.name%>
 <p id="notice"><%= notice %></p>
 
-
-
-<%= image_tag(@look.image.url, alt: 'Image') if @look.image? %>
-
-<p>
-  <strong>Артист:</strong>
-  <%= @look.artist.name %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @look.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @look.content %>
-</p>
-
-<p>
-  <strong>Фильтр</strong>
-  <%= @look.filtertag.name %>
-</p>
-
-<p>
-  <strong>Статья</strong>
-  <%= @look.post.title %>
-</p>
-
-<% if user_signed_in? %>
-
-  <% pre_lookfavorite = @look.lookfavorites.find { |lookfavorite| lookfavorite.user_id == current_user.id} %>
-  <% if pre_lookfavorite %>
-      <%= button_to 'Удалить из избранного', look_lookfavorite_path(@look, pre_lookfavorite), method: :delete %>
-  <% else %>
-      <%= button_to 'В избранное', look_lookfavorites_path(@look), method: :look %>
-  <% end %>
-
+<% if user_signed_in? && current_user.isadmin == true %>
+  <%= react_component('O_HeaderAdmin', current_user: current_user)  %>
+<% else %>
+  <%= react_component('O_Header', current_user: current_user)  %>
 <% end %>
 
-<%= link_to 'Edit', edit_look_path(@look) %> |
-<%= link_to 'Back', looks_path %>
-
-
-<h1 class="h1_postsinartist">Одежда в образе</h1>
-<div>
-  <% @cloths.each do |cloth| %>
-    <div class="posts_inartist_item">
-      <%= link_to image_tag(cloth.clothimage.thumb.url), cloth if cloth.clothimage? %>
-      <div class="posts_inartist_bottom">
-        <p class="posttitle_inartist">
-          <%= link_to cloth.name, cloth %>
-        </p>
-        <%= link_to image_tag('show.svg'), cloth %>
-      </div>
-
-
-    </div>
-
-  <% end %>
+<div class="header_lines_looks">
+  <%= link_to image_tag('header_lines_looks.svg')%>
 </div>
+
+<h3>
+  <%= @look.title %>
+</h3>
+
+<div class="look_content">
+  <div class="look_img">
+    <%= image_tag(@look.image.url, alt: 'Image') if @look.image? %>
+  </div>
+  <div class="look_content_right">
+    <% @cloths.each do |cloth| %>
+      <div class="clothitem">
+        <div class="clothitem_line"></div>
+        <div class="clothitem_content">
+          <%= link_to cloth.name, cloth.link, :class =>"clothitem_name" %>
+          <div class="clothitem_buttons">
+            <%= link_to image_tag('leave.svg'), cloth.link %>
+            <%= link_to image_tag('like.svg') %>
+          </div>
+
+        </div>
+
+      </div>
+    <% end %>
+
+    <div class="clothitem_line"></div>
+
+    <% if user_signed_in? && current_user.isadmin == true %>
+      <div class="addcloth_button">
+        <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.5557 1.83008V12.9991M12.5557 24.1681V12.9991M12.5557 12.9991H23.7248M12.5557 12.9991H1.38672" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <%= link_to 'Добавить вещь', new_cloth_path %>
+      </div>
+    <% end %>
+    <p class="look_desc">
+      <%= @look.content %>
+    </p>
+    <% if user_signed_in? && current_user.isadmin == true %>
+      <div class="look_buttons">
+
+        <div class="edit_button">
+          <%= link_to image_tag('edit.svg'), edit_look_path(@look), :class =>"edit_link"%>
+          <%= link_to 'Редактировать', edit_look_path(@look) %>
+        </div>
+
+        <div class="delete_button">
+          <%= link_to image_tag('delete.svg'), @look, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Удалить', @look, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    <% else %>
+      <div class="look_buttons">
+        <% if user_signed_in? %>
+
+          <% pre_lookfavorite = @look.lookfavorites.find { |lookfavorite| lookfavorite.user_id == current_user.id} %>
+          <% if pre_lookfavorite %>
+            <div class="favotite_button">
+              <%= link_to image_tag('likeon.svg'), look_lookfavorite_path(@look, pre_lookfavorite), method: :delete %>
+              <%= button_to 'Удалить из избранного', look_lookfavorite_path(@look, pre_lookfavorite), method: :delete %>
+            </div>
+          <% else %>
+            <div class="favotite_button">
+              <%= link_to image_tag('like.svg'), look_lookfavorites_path(@look), method: :post %>
+              <%= button_to 'Сохранить образ', look_lookfavorites_path(@look), method: :post %>
+            </div>
+          <% end %>
+
+        <% end %>
+        <div class="share_button">
+          <%= link_to image_tag('share.svg') %>
+          <%= button_to 'Поделиться образом' %>
+        </div>
+      </div>
+    <% end %>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="extrasmall"></div>
+
+
+<%= react_component 'O_Footer'  %>

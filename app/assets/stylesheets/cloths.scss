@@ -1,3 +1,48 @@
 // Place all the styles related to the Cloths controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.clothshow {
+  margin-left: 305px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 90px;
+}
+.clothshow p {
+  font-family: 'Pangram Medium';
+  font-size: 18px;
+  line-height: 30px;
+  color: #F2F2F2;
+}
+
+.strong_title p {
+  display: inline-block;
+}
+.strong_title p:last-child {
+  margin-left: 20px;
+  width: 450px;
+}
+.strong_title  {
+  display: flex;
+  margin-bottom: 30px;
+}
+.clothshowtext {
+  margin-left: 30px;
+}
+.clothshowbutton a{
+  font-family: 'Pangram Medium';
+  font-size: 18px;
+  line-height: 30px;
+  color: #F2F2F2;
+}
+.clothshowbutton {
+  display: flex;
+  align-items: center;
+}
+.clothshowbuttons {
+  display: flex;
+  margin-top: 90px;
+}
+.clothshowbuttons .clothshowbutton:last-child {
+  margin-left: 30px;
+}

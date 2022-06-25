@@ -1,9 +1,34 @@
-<p id="notice"><%= notice %></p>
+<% set_meta_tags title: 'Подборки', description: 'Подборки статей и артистов'%>
+<% set_meta_tags og: {
+    title: ['Подборки']
+}  %>
+
+
 <div class="index_handb">
-  <% if user_signed_in? && current_user.isadmin == true %>
-    <%= link_to 'Создать', new_collection_path, :class =>"link_new" %>
-  <% end %>
+  
 </div>
 
-<%= react_component 'O_Allcollections', { collections: @collections}  %>
+
+
+
+
+<% if user_signed_in? && current_user.isadmin == true %>
+    <%= react_component('O_HeaderAdmin', current_user: current_user)  %>
+    <div class="titleadminblock">
+      <h1 class="titleadmin">Подборки</h1>
+      <%= link_to 'Создать', new_collection_path, :class =>"link_new" %>
+    </div>
+
+    <%= react_component 'O_AllCollectionsAdmin', { collections: @collections, users: @users}  %>
+<% else %>
+  <%= react_component('O_Header', current_user: current_user)  %>
+  <div class="header_lines_collections">
+    <%= link_to image_tag('header_lines.svg')%>
+  </div>
+  <h1>Быть другим</h1>
+
+  <%= react_component 'O_Allcollections', { collections: @collections}  %>
+<% end %>
+
+
 <%= react_component 'O_Footer'  %>

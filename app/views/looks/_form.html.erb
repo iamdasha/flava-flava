@@ -1,47 +1,49 @@
-<%= form_with(model: look) do |form| %>
-  <% if look.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(look.errors.count, "error") %> prohibited this look from being saved:</h2>
+<div class="forms">
+  <%= form_with(model: look) do |form| %>
+    <% if look.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(look.errors.count, "error") %> prohibited this look from being saved:</h2>
 
-      <ul>
-        <% look.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% look.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <p class="p_form">Чей образ?</p>
+      <%= form.select :artist_id, Artist.pluck(:name, :id) %>
+    </div>
+
+    <div class="field">
+        <p class="p_form">Фильтр образа</p>
+        <%= form.select :filtertag_id, Filtertag.pluck(:name, :id) %>
+    </div>
+
+    <div class="field">
+        <p class="p_form">В какой пост внести?</p>
+        <%= form.select :post_id, Post.pluck(:title, :id) %>
+    </div>
+
+    <div class="field">
+      <p class="p_form">Название образа</p>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="field fieldfile">
+      <p class="p_form">Фотография</p>
+    	<%= form.file_field :image %>
+    </div>
+
+    <div class="field">
+      <p class="p_form">Описание</p>
+      <%= form.text_area :content %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Сохранить'%>
     </div>
   <% end %>
-
-  <div class="field">
-    <p class="p_form">Чей образ?</p>
-    <%= form.select :artist_id, Artist.pluck(:name, :id) %>
-  </div>
-
-  <div class="field">
-      <p class="p_form">Фильтр образа</p>
-      <%= form.select :filtertag_id, Filtertag.pluck(:name, :id) %>
-  </div>
-
-  <div class="field">
-      <p class="p_form">В какой пост внести?</p>
-      <%= form.select :post_id, Post.pluck(:title, :id) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-  	<%= form.label :image %>
-  	<%= form.file_field :image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

@@ -1,51 +1,23 @@
-<p id="notice"><%= notice %></p>
+<% set_meta_tags title: 'Артисты', description: 'Артисты на сервисе Flava'%>
+<% set_meta_tags og: {
+    title: ['Артисты']
+}  %>
+
+
 
 <div class="index_handb">
-  <h1>Артисты</h1>
-  <% if user_signed_in? && current_user.isadmin == true %>
-    <%= link_to 'Создать', new_artist_path, :class =>"link_new" %>
-  <% end %>
 </div>
 
+<% if user_signed_in? && current_user.isadmin == true %>
+    <%= react_component('O_HeaderAdmin', current_user: current_user)  %>
+    <div class="titleadminblock">
+      <h1 class="titleadmin">Артисты</h1>
+      <%= link_to 'Создать', new_artist_path, :class =>"link_newpost", :class =>"link_new" %>
+    </div>
 
+    <%= react_component 'O_AllArtistsAdmin', { artists: @artistcoms, filtertags: @filtertags}  %>
+<% else %>
+  <%= react_component('O_Header', current_user: current_user)  %>
+<% end %>
 
-
-
-
-
-
-
-
-
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Имя артиста</th>
-      <th>Создатель</th>
-      <th>Дата обновления</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @artists.each do |artist| %>
-      <tr>
-        <td class="table1"><%= link_to(image_tag(artist.artistphoto.small_thumb.url, alt: 'Image'), artist.artistphoto.url, target: '_blank') if artist.artistphoto? %></td>
-        <td class="font24 "><%= artist.name %></td>
-        <td class="font20"><%= artist.user.username %></td>
-        <td class="font20"><%= artist.updated_at %></td>
-        <td><%= link_to image_tag('show.svg'), artist %></td>
-        <% if user_signed_in? && current_user.isadmin == true %>
-          <td><%= link_to image_tag('edit.svg'), edit_artist_path(artist) %></td>
-          <td><%= link_to image_tag('destroy.svg'), artist, method: :delete, data: { confirm: 'Are you sure?' }%></td>
-        <% end %>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-
-<%= render "promo/futerindex" %>
+<%= react_component 'O_Footer'  %>

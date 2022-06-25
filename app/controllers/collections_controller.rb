@@ -7,6 +7,8 @@ class CollectionsController < ApplicationController
     @posts = Post.find_by_id(params[:id])
     @artists = Artist.find_by_id(params[:id])
     @collections = Collection.where(nil)
+    @users = User.all
+
 
 
   end
@@ -26,7 +28,7 @@ class CollectionsController < ApplicationController
     @filtertags = Filtertag.all
 
     @posts = @posts.map do |post|
-      post.as_json(include: [:filtertag, :artist])
+      post.as_json(include: [:filtertag, :artist, :user])
     end
 
 
@@ -87,6 +89,6 @@ class CollectionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def collection_params
-      params.require(:collection).permit(:name, :cover, :description)
+      params.require(:collection).permit(:name, :cover, :description, :coverg )
     end
 end

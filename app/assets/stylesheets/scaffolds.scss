@@ -22,7 +22,7 @@ body {
 
 $Font: 'Pangram';
 $Fontb: 'Pangram Semibold';
-body, p, ol, ul, td {
+body, p, ol, ul {
   font-family: $Font;
   font-size: 18px;
   line-height: 20px; }
@@ -163,42 +163,51 @@ label {
 .c_extra_info_strong {
   margin-left: 4.4vw;
 }
-.field {
-  margin-left: 3.7vw;
 
-}
 .field p {
-  font-family: $Fontb;
-  color: #111112;
-  margin-bottom: 1vh;
+  font-family: "Pangram Medium";
+  color: #F2F2F2;
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 20px;
 }
 input {
-  width: 32vw;
-  background: #F2F2F2;
-  border: none;
+  width: 400px;
+  background: #101010;
+  border: solid 3px #33323D;
   padding: 1vh 2vh;
-  font-family: $Font;
-  font-size: 16px;
+  font-family: "Pangram Medium";
+  font-size: 18px;
+  line-height: 30px;
   margin-bottom: 2vh;
+  color: #F2F2F2;
 
 }
+input::placeholder {
+  color: #938D98;
+}
 textarea {
-  width: 32vw;
-  background: #F2F2F2;
-  border: none;
+  width: 400px;
+  background: #101010;
+  border: solid 3px #33323D;
   padding: 1vh 2vh;
-  height: 20vh;
-  font-family: $Font;
-  font-size: 16px;
+  font-family: "Pangram Medium";
+  font-size: 18px;
+  line-height: 30px;
   margin-bottom: 2vh;
+  color: #F2F2F2;
+  height: 180px;
 }
 h2 {
   font-family: 'Pangram Bold';
   color: #F2F2F2;
   font-size: 30px;
-  line-height: 32px;
+  line-height: 40px;
   display: inline-block;
 
+}
+span {
+  font-family: $Fontb;
 }
 .h2_form {
   margin-top: 8vh;
@@ -210,15 +219,23 @@ h2 {
   background: none;
   width: 20vw;
 }
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-image: none !important;
+    background-color: -internal-light-dark(rgb(16, 16, 1), rgb(242, 242, 242)) !important;
+    color: fieldtext !important;
+}
 
 select {
-  width: 21vw;
-  background: #F2F2F2;
-  border: none;
-  padding: 1vh 2vh;
-  font-family: $Font;
-  font-size: 16px;
+  width: 293px;
+  background: #101010;
+  border: solid 3px #33323D;
+  padding: 12px 12px;
+  font-family: "Pangram Medium";
+  font-size: 18px;
+  line-height: 30px;
   margin-bottom: 2vh;
+  color: #F2F2F2;
 }
 .social_link_form {
   display: block;

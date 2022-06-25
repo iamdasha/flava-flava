@@ -17,6 +17,10 @@ class ArtistsController < ApplicationController
     @artist = Artist.where(params[:artistphoto])
 
     @looks = Look.find_by_id(params[:id])
+
+    @artistcoms = @artists.map do |artistcom|
+      artistcom.as_json(include: [])
+    end
   end
 
   # GET /artists/1 or /artists/1.json
@@ -25,9 +29,11 @@ class ArtistsController < ApplicationController
     # @posts = Post.all
     @posts = Post.where(artist_id: @artist.id)
     @filtertags = Filtertag.all
+    @users = User.all
+
 
     @posts = @posts.map do |post|
-      post.as_json(include: [:filtertag, :artist])
+      post.as_json(include: [:filtertag, :artist, :user])
     end
 
     @looks = Look.where(artist_id: @artist.id)

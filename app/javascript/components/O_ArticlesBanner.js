@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import O_ArticlecardBig from "./O_ArticlecardBig.js"
+import O_ArticleCardBanner from "./O_ArticleCardBanner.js"
 
 class O_ArticlesBanner extends React.Component {
   render () {
@@ -8,12 +8,12 @@ class O_ArticlesBanner extends React.Component {
       <div>
         <div className="banner">
         {this.props.posts.slice(0,1).map(post => (
-           <O_ArticlecardBig key={post.id} post={post} filtertag={post.filtertag_id} artist={post.artist_id}/>
+           <O_ArticleCardBanner key={post.id} post={post}/>
         ))}
         </div>
       </div>
     );
-  }
+  } 
 }
 
 O_ArticlesBanner.propTypes = {

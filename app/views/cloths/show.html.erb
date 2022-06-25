@@ -1,62 +1,44 @@
-<div class="collection_content">
-  <%= link_to image_tag('back.svg'), cloths_path %>
-  <div class="post_title collection_title">
-    <h1 class="">Предмет одежды</h1>
-  </div>
-  <p class="strong_title link_shop">
-    <strong class="font24 link "><%= link_to "Перейти на сайт", @cloth.link, :target => "_blank" %></strong>
-  </p>
-</div>
+<%= react_component('O_HeaderAdmin', current_user: current_user)  %>
 
-<%= react_component 'M_Clothcard', { cloth: @cloth } %>
+<h3>
+  <%= @cloth.name %>
+</h3>
 
-<div class="info_margin artist_extra_info cloth_photo">
+
+<div class="clothshow">
   <%= image_tag(@cloth.clothimage.url, alt: 'Image') if @cloth.clothimage? %>
 
-  <div >
-    <p class="strong_title">
-      <strong class="font24">Название:</strong>
-      <strong class="c_extra_info_strong"><%= @cloth.name %></strong>
-    </p>
+  <div class="clothshowtext">
+    <div class="strong_title">
+      <p class="font24">Образ:</p>
+      <p><%= @cloth.look.title %></p>
+    </div>
+    <div class="strong_title">
+      <p class="font24">Бренд:</p>
+      <p><%= @cloth.brand.name %></p>
+    </div>
+    <div class="clothshowbuttons">
+      <div class="clothshowbutton">
+        <%= link_to image_tag('edit.svg'), edit_cloth_path(@cloth) %>
+        <p>
+          <%= link_to 'Редактировать', edit_cloth_path(@cloth), :class =>"" %>
+        </p>
+      </div>
+      <div class="clothshowbutton">
+        <%= link_to image_tag('delete.svg'), @cloth, method: :delete, data: { confirm: 'Are you sure?' }%>
+        <p>
+          <%= link_to 'Удалить', @cloth, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"" %>
+        </p>
+      </div>
+    </div>
 
-    <p class="strong_title">
-      <strong class="font24">Бренд:</strong>
-      <strong class="c_extra_info_strong"><%= @cloth.brand.name %></strong>
-    </p>
 
-    <p class="strong_title">
-      <strong class="font24">Образ:</strong>
-      <strong class="c_extra_info_strong"><%= @cloth.look.title %></strong>
-    </p>
   </div>
 </div>
 
-<% if user_signed_in? %>
 
-  <% pre_clothfavorite = @cloth.clothfavorites.find { |clothfavorite| clothfavorite.user_id == current_user.id} %>
-  <% if pre_clothfavorite %>
-      <%= button_to 'Удалить из избранного', cloth_clothfavorite_path(@cloth, pre_clothfavorite), method: :delete %>
-  <% else %>
-      <%= button_to 'В избранное', cloth_clothfavorites_path(@cloth), method: :cloth %>
-  <% end %>
+<div class="extrasmall"></div>
 
-<% end %>
 
-<div class="user_link_edit filtertag_link_edit">
 
-  <% if user_signed_in? && current_user.isadmin == true %>
-    <div class="filtertag_link_edit_item filtertag_extra">
-      <%= link_to image_tag('edit.svg'), edit_cloth_path(@cloth) %>
-      <p>
-        <%= link_to 'Редактировать', edit_cloth_path(@cloth), :class =>"link_new link_new_user" %>
-      </p>
-    </div>
-    <div class="filtertag_link_edit_item">
-      <%= link_to image_tag('destroy.svg'), @cloth, method: :delete, data: { confirm: 'Are you sure?' }%>
-      <p>
-        <%= link_to 'Удалить', @cloth, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"link_new link_new_user" %>
-      </p>
-    </div>
-
-  <% end %>
-</div>
+<%= react_component 'O_Footer'  %>

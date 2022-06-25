@@ -7,10 +7,10 @@ class O_ArticleCard extends React.Component {
   render () {
     let imgsrc = '';
 
-    if (!this.props.post.fimage.thumb.url) {
+    if (!this.props.post.fimage.url) {
       imgsrc = '';
     }  else {
-      imgsrc = this.props.post.fimage.thumb.url;
+      imgsrc = this.props.post.fimage.url;
     }
 
 
@@ -21,28 +21,10 @@ class O_ArticleCard extends React.Component {
     return (
       <div className="postcard">
         <a href={"/posts/" + `${this.props.post.id}`} className="postlink"> </a>
-        <div style={postStyle} className="postcardimage"></div>
+        <img src={this.props.post.fimage.thumb.url}/>
         <div className="postcardcontent">
-          <div className="art-button_block art-button_block_post">
-            <A_ArtistAvatar
-            style="Artist--default"
-            textpart = { `${this.props.post.artist.name}`}
-            avatar = {`${this.props.post.artist.artistphoto.url}`}
-            artist = {`${this.props.post.artist.id}`}
-
-            >
-            </A_ArtistAvatar>
-          </div>
-
-
-
+          <span>{"Автор статьи " + `${this.props.post.user.username}`}</span>
           <h2>{this.props.post.title}</h2>
-          <A_Filtertagpreview
-          style="Filtertag--default"
-          textpart = { `${this.props.post.filtertag.name}`}>
-          </A_Filtertagpreview>
-
-
         </div>
 
 

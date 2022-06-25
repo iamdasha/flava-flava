@@ -2,19 +2,22 @@ class PostsController < ApplicationController
 
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
+  # layout :set_layout
   # GET /posts or /posts.json
 
   def index
+
     @posts = Post.where(nil)
     filtering_params(params).each do |key, value|
       @posts = @posts.public_send("filter_by_#{key}", value) if value.present?
     end
     @filtertags = Filtertag.all
     @artists = Artist.all
+    @users = User.all
 
 
     @postcoms = @posts.map do |postcom|
-      postcom.as_json(include: [:filtertag, :artist])
+      postcom.as_json(include: [:filtertag, :artist, :user])
 
     end
 
@@ -23,10 +26,18 @@ class PostsController < ApplicationController
   # GET /posts/1 or /posts/1.json
   def show
     @post = Post.find(params[:id])
+    @users = User.all
+    @artists = Artist.where(id: @post.artist_id)
+
     # @posts = Post.all
     if @post
-      @looks = Look.where(post_id: @post.id)
+      @posts = Post.all
       render actions: :show
+    end
+
+    @postcoms = @posts.map do |postcom|
+      postcom.as_json(include: [:filtertag, :artist, :user])
+
     end
   end
 
@@ -77,12 +88,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def set_layout
+     if current_user.isadmin == true
+       'indexadmin'
+     else
+       'index'
+     end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
     end
-    
+
     def filtering_params(params)
           params.slice( :filtertag)
     end

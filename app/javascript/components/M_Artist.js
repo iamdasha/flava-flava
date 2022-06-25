@@ -3,23 +3,12 @@ import PropTypes from "prop-types"
 
 class M_Artist extends React.Component {
   render () {
-    let imgsrc = '';
-
-    if (!this.props.photo) {
-      imgsrc = '';
-    }  else {
-      imgsrc = this.props.photo;
-    }
-
-    let artistStyle= {
-      backgroundImage: `url(${imgsrc})`
-    };
-
-
 
     return (
       <div className = "M_Artist">
-          <div style={artistStyle} className = "M_Artist_photo"><a  href={`/artists/${this.props.artist.id}`} className = "Artistlink"></a></div>
+          <div className = "M_Artistphoto">
+            <a href={`/artists/${this.props.artist.id}`} className = "Artistlink"><img src={this.props.artist.artistphoto.thumb.url}/></a>
+          </div>
           <p>{this.props.artist.name}</p>
       </div>
     );

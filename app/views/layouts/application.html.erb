@@ -2,10 +2,8 @@
 <%= javascript_include_tag Ckeditor.cdn_url %>
 <html>
   <head>
-    <title>FlavaPrj</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <%= display_meta_tags(default_meta_tags) %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -18,11 +16,14 @@
   <body>
 
 
+    <% if user_signed_in? && current_user.isadmin == true %>
+      <%= react_component 'M_Sidebar'  %>
+
+    <% end %>
 
 
 
-  <%= react_component 'O_Header', {current_user: current_user}%>
-  <%= react_component 'M_SectionSwitcher' %>
+
 
 
 

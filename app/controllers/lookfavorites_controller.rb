@@ -2,6 +2,11 @@ class LookfavoritesController < ApplicationController
   before_action :find_look
   before_action :find_lookfavorite, only: [:destroy]
 
+  skip_before_action :verify_authenticity_token
+  protect_from_forgery prepend: true, with: :exception
+  # before_action :authenticate_user!
+  # before_action :set_bug, only: [:show, :edit, :update]
+
    def create
      if already_lookfavorited?
        flash[:notice] = "You can't add to favorite more than once"

@@ -1,28 +1,34 @@
+<%= react_component('O_Headerextra', current_user: current_user)  %>
+
+<%= react_component 'O_ArticlesBanner', { posts: @postcoms, users: @users}  %>
+
+<div class="mainpage_headline">
+  <h1 class="mainpage_h1">Образы</h1>
+  <span class="mainpage_span">смотреть все</span>
+</div>
 
 <div class="main_looks">
   <%= react_component 'O_AllLooks', { looks: @lookcoms, filtertags: @filtertags, artists: @artists}  %>
 </div>
-<div class="link_block">
-  <%= react_component 'A_LinkArrow'  %>
+
+<div class="mainpage_headline mainpage_headline2">
+  <h1 class="mainpage_h1">Статьи</h1>
+  <span class="mainpage_span">смотреть все</span>
 </div>
 
 <div class="main_posts">
-  <div class="filter ">
-  <% Filtertag.all.each do |filtertag| %>
-    <%= link_to filtertag.name, posts_path(filtertag: filtertag.id) %>
-    <% end %>
-  </div>
-
   <%= react_component 'O_AllArticles', { posts: @postcoms, filtertags: @filtertags, artists: @artists }  %>
 </div>
-<div class="link_block">
-  <%= react_component 'A_LinkArrowposts'  %>
-</div>
 
-<div class="main_titlecollect">
-  <h1 class="">От кого фанатеешь ты?</h1>
+<div class="mainpage_headline mainpage_headline2">
+  <h1 class="mainpage_h1">Подборки</h1>
+  <span class="mainpage_span">смотреть все</span>
 </div>
 
 <%= react_component 'O_AllcollectionsMain', { collections: @collections}  %>
+
+<div class="extra">
+
+</div>
 
 <%= react_component 'O_Footer'  %>

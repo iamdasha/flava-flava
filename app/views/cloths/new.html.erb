@@ -1,11 +1,10 @@
-<div class="collection_content">
-  <%= link_to image_tag('back.svg'), cloths_path %>
-
-  <div class="post_title collection_title">
-    <h1 class="">Создание предмета одежды</h1>
-
-  </div>
-
+<div class="index_handb">
 </div>
+
+<%= react_component('O_HeaderAdmin', current_user: current_user)  %>
+<div class="titleadminblock">
+  <h1 class="titleadmin titleform">Новая вещь</h1>
+</div>
+
 
 <%= render 'form', cloth: @cloth %>

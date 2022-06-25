@@ -27,7 +27,7 @@ class PostcoverUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
-process resize_to_fill: [722, 586]
+process resize_to_fill: [1440, 800]
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process resize_to_fit: [50, 50]

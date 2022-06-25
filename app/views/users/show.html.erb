@@ -18,7 +18,7 @@
       <strong class="font24">Никнейм:</strong>
       <%= @user.username %>
     </p>
-
+    <p>Admin <%= @user.isadmin %></p>
     <% if user_signed_in? && current_user.isadmin == true %>
       <p class="user_info">
         <strong class="font24">Права администратора:</strong>

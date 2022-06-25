@@ -10,24 +10,26 @@ class O_header extends React.Component {
         // WARNING:
 
       const renderAuthButton = () => {
-        if (this.props.current_user.id == -1) {
-          return <a href="/users/sign_in"><div className="comein"></div></a>;
+        if (this.props.current_user != null) {
+          return <a href={`/users/${this.props.current_user.id}`}>Профиль</a>
         } else {
-            return <A_Avatar
-              size="small"
-              link = {this.props.current_user.id}
-              avatar = {this.props.current_user.avatar.url}
-              textpart = {this.props.current_user.username}>
-            </A_Avatar>
-
+            return <a href="/users/sign_in">Войти</a>;
           }
       }
+
 
     return (
       <div className="menubar">
         <A_Logo />
+        <div className="menulist">
+          <a href="/looks"><li>Образы</li></a>
+          <a href="/posts"><li>Статьи</li></a>
+          <a href="/collections"><li>Подборки</li></a>
+          <a href="/search"><li>Поиск</li></a>
+        </div>
         <div className="Account_action">
-          {renderAuthButton()}
+        {renderAuthButton()}
+
         </div>
       </div>
 

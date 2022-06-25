@@ -6,24 +6,21 @@ a {
 }
 .Topblock_lookcard{
   position: relative;
-  width: 60%  !important ;
-  height: 100%  !important;
   display: flex;
   justify-content: flex-start;
   align-items: top;
-
+  margin-left: 40px;
 
 }
 .Topblock_lookcard img {
-  width: 32px;
-  height: 32px;
-  border-radius: 16px;
+  width: 30px;
+  height: 30px;
   display: inline-block;
 }
 .Topblock_lookcard p {
   display: inline-block;
   margin-left: 10px;
   margin-top: 7px;
-  color: white;
+  color: #F2F2F2;
 
 }

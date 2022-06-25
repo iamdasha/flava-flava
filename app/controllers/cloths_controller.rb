@@ -9,6 +9,11 @@ class ClothsController < ApplicationController
     else
       @cloths = Cloth.all
     end
+
+    @clothcoms = @cloths.map do |clothcom|
+      clothcom.as_json(include: [:look])
+    end
+
   end
 
   # GET /cloths/1 or /cloths/1.json

@@ -21,36 +21,15 @@ class O_LookcardBig extends React.Component {
     };
 
     return (
-        <div style={lookStyle} className="lookcard">
-          <a href={"/looks/" + `${this.props.look.id}`} className="looklink"> </a>
-          <div className="art-button_block">
-            <A_ArtistAvatar
-            style="Artist--default"
-            textpart = { `${this.props.look.artist.name}`}
-            avatar = {`${this.props.look.artist.artistphoto.url}`}
-            artist = {`${this.props.look.artist.id}`}
-            >
-            </A_ArtistAvatar>
-          </div>
-
-          <A_Filtertagpreview
-          style="Filtertag--default"
-          textpart = { `${this.props.look.filtertag.name}`}>
-          </A_Filtertagpreview>
-
-          <div className="look-title">
-            <h2>{this.props.look.title}</h2>
-          </div>
-          <p className="look-date">{this.props.look.updated_at}</p>
-
-
-
-
-
-
-
-
+      <div className="lookcardbig">
+        <a href={"/looks/" + `${this.props.look.id}`} className="looklink"> </a>
+        <img src={this.props.look.image.url}/>
+        <div className="lookcardcontent lookcardcontentbig">
+          <span>{this.props.look.filtertag.name}</span>
+          <h2>{this.props.look.title}</h2>
         </div>
+      </div>
+
 
 
 

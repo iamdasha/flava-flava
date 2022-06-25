@@ -10,21 +10,32 @@ class O_AllLooks extends React.Component {
     return (
       <div>
 
+        <div className="secondblock secondblock1">
+          {this.props.looks.slice(0,1).map(look => (
+             <O_LookcardBig key={look.id} look={look} filtertag={look.filtertag_id} artist={look.artist_id}/>
+          ))}
+          {this.props.looks.slice(1,2).map(look => (
+             <O_Lookcard key={look.id} look={look} filtertag={look.filtertag_id} artist={look.artist_id}/>
+          ))}
+        </div>
+
         <div className="firstblock">
-        {this.props.looks.slice(0,3).map(look => (
-           <O_Lookcard key={look.id} look={look} filtertag={look.filtertag_id} artist={look.artist_id}/>
-        ))}
+          {this.props.looks.slice(2,8).map(look => (
+             <O_Lookcard key={look.id} look={look} filtertag={look.filtertag_id} artist={look.artist_id}/>
+          ))}
         </div>
-        <div className="secondblock">
-        {this.props.looks.slice(3,5).map(look => (
-           <O_LookcardBig key={look.id} look={look} filtertag={look.filtertag_id} artist={look.artist_id}/>
-        ))}
+
+        <div className="secondblock secondblock2">
+          {this.props.looks.slice(8,9).map(look => (
+             <O_Lookcard key={look.id} look={look} filtertag={look.filtertag_id} artist={look.artist_id}/>
+          ))}
+          {this.props.looks.slice(9,10).map(look => (
+             <O_LookcardBig key={look.id} look={look} filtertag={look.filtertag_id} artist={look.artist_id}/>
+          ))}
         </div>
-        <div className="firstblock">
-        {this.props.looks.slice(5,8).map(look => (
-           <O_Lookcard key={look.id} look={look} filtertag={look.filtertag_id} artist={look.artist_id}/>
-        ))}
-        </div>
+
+      
+
       </div>
     );
   }

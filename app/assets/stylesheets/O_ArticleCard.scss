@@ -1,40 +1,43 @@
 .firstblockpost {
   position: relative;
-  display: flex;
-  justify-content: space-between;
+  column-count: 2;
   margin-bottom: 15px;
+  padding: 0 90px;
+
 }
-.firstblockpost div {
+.firstblockpost .postcard {
   width: 615px;
-  height: 358px;
 }
 .postcard {
-  border-radius: 5px;
   overflow: hidden;
-  display: flex;
-  justify-content: flex-start;
   position: relative;
-}
-.postcardimage {
-  height: 100%;
-  width: 35% !important;
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;  
+  break-inside: avoid;
+  page-break-inside: avoid;
 
+
+}
+.postcard img {
+  width: 35% ;
+  display: inline-block;
 }
 .postcardcontent {
-  height: 100%;
-  width: 65% !important;
 
-  background: #202025;
-  display: flex;
-  flex-direction: column;
+  height: auto;
+  display: inline-block;
+
 }
 .postcardcontent h2 {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  width: 86%;
-  margin-top: 30px;
-  margin-bottom: 55px;
+  margin-left: 30px;
+  margin-top: 37px;
+
+}
+.postcardcontent span {
+  color: #F2F2F2;
+  margin-left: 30px;
+  display: block;
 }
 .postcardcontent .art-button_block {
   width: 100%;
@@ -48,22 +51,7 @@
   width: 100% ;
   height: 100%;
 }
-.postcardsmall {
-  height: 169px  !important;
-  background: #202025;
-  border-radius: 5px;
-  padding: 36px 30px;
 
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
-.postcardsmall h2 {
-  margin-top: 0px;
-  font-size: 22px;
-  line-height: 28px;
-}
 .firstblockpost_small {
   display: flex;
   flex-direction: column ;
@@ -87,27 +75,23 @@
   top: auto;
 }
 .postcardbig {
-  width: 1260px !important;
-  height: 586px !important;
-
-  border-radius: 5px;
   overflow: hidden;
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
   position: relative;
+  width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.postcardimagebig {
-  width: 57% !important;
-}
-.postcardcontentbig {
-  width: 43% !important;
-  position: relative;
+.firstblockpost1 {
+  margin-bottom: 90px;
+  padding: 0 90px;
 
 }
-.art-button_block_post {
-  padding-top: 48px !important;
-  padding-left: 30px !important;
+.firstblockpost2 {
+  margin-top: 90px;
 }
+
 .postcardsmall_bottom .Topblock_lookcard {
   justify-content: flex-end;
   width: 100% !important;

@@ -21,7 +21,6 @@ class ColectcoverUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-process resize_to_fill: [400, 400]
 
 version :thumb do
    process resize_to_fill: [292, 292]

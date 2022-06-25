@@ -1,51 +1,58 @@
-<div class="artist_content">
+<% set_meta_tags title: @post.title, description: @post.filtertag.name%>
 
-  <%= link_to image_tag('back.svg'), posts_path %>
-  <div class="post_info">
-    <p class="post_artistname">
+<% if user_signed_in? && current_user.isadmin == true %>
+  <%= react_component('O_HeaderAdmin', current_user: current_user)  %>
+<% else %>
+  <%= react_component('O_Header', current_user: current_user)  %>
+<% end %>
 
-      <%= @post.artist.name %>
-    </p>
 
-    <h1 class="post_title">
-      <%= @post.title %>
-    </h1>
+<div class="header_lines_posts">
+  <%= link_to image_tag('header_lines_posts.svg')%>
+</div>
 
-    <p class="post_text">
-      <%= @post.content.html_safe %>
-    </p>
+<h3>
+  <%= @post.title %>
+</h3>
 
-  </div>
+<div class="post_info">
+
+    <%= @post.content.html_safe %>
+
 </div>
 
 
-<div class="post_images">
-  <%= image_tag(@post.fimage.url, alt: 'Image') if @post.fimage? %>
-  <%= image_tag(@post.simage.url, alt: 'Image') if @post.simage? %>
-  <%= image_tag(@post.timage.url, alt: 'Image') if @post.timage? %>
-</div>
-
-<p>
-  <strong>Фильтр-тэг</strong>
-  <%= @post.filtertag.name %>
-</p>
 
 
+
+
+
+<div class="look_buttons post_buttons">
   <% if user_signed_in? %>
-
     <% pre_favorite = @post.favorites.find { |favorite| favorite.user_id == current_user.id} %>
     <% if pre_favorite %>
-        <%= button_to 'Удалить из избранного', post_favorite_path(@post, pre_favorite), method: :delete %>
+        <div class="favotite_button favotite_button2">
+          <%= link_to image_tag('likeon.svg'), post_favorite_path(@post, pre_favorite), method: :delete %>
+          <%= button_to 'Удалить из избранного', post_favorite_path(@post, pre_favorite), method: :delete %>
+        </div>
     <% else %>
-        <%= button_to 'В избранное', post_favorites_path(@post), method: :post %>
+        <div class="favotite_button">
+          <%= link_to image_tag('like.svg'), post_favorites_path(@post), method: :post %>
+          <%= button_to 'Сохранить статью', post_favorites_path(@post), method: :post %>
+        </div>
     <% end %>
 
   <% end %>
-
+  <div class="share_button">
+    <%= link_to image_tag('share.svg') %>
+    <%= button_to 'Поделиться образом' %>
+  </div>
+  <%= react_component 'A_ArtistAvatar', {artist: @artists}  %>
 
 </div>
 
-<div class="user_link_edit filtertag_link_edit">
+
+<div class="">
 
   <% if user_signed_in? && current_user.isadmin == true %>
     <div class="filtertag_link_edit_item filtertag_extra">
@@ -55,7 +62,7 @@
       </p>
     </div>
     <div class="filtertag_link_edit_item">
-      <%= link_to image_tag('destroy.svg'), @post, method: :delete, data: { confirm: 'Are you sure?' }%>
+      <%= link_to image_tag('delete.svg'), @post, method: :delete, data: { confirm: 'Are you sure?' }%>
       <p>
         <%= link_to 'Удалить', @post, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"link_new link_new_user" %>
       </p>
@@ -64,26 +71,12 @@
   <% end %>
 </div>
 
-
-<h1 class="h1_postsinartist">Образы  по теме</h1>
-<div class="posts_inartist">
-  <% @looks.each do |look| %>
-    <div class="posts_inartist_item">
-      <%= link_to image_tag(look.image.url), look if look.image? %>
-      <div class="posts_inartist_bottom">
-        <p class="posttitle_inartist">
-          <%= link_to look.title, look %>
-        </p>
-        <%= link_to image_tag('show.svg'), look %>
-      </div>
-
-
-    </div>
-
-  <% end %>
+<div class="footer_lines_posts">
+  <%= link_to image_tag('lines_post.svg')%>
 </div>
 
+<h3 class="titleinpost">Другие наши статьи</h3>
 
+<%# <%= react_component 'O_AllArticlesinCollection', { posts: @posts, filtertags: @filtertags, artists: @artists }  %> %>
 
-
-<%= render "promo/futer" %>
+<%= react_component 'O_Footer'  %>
