@@ -281,14 +281,16 @@ td a {
   margin-top: 0;
 }
 .artist_block {
-  margin-top: 30px;
-  padding: 0 305px;
+  margin-top: 44px;
+  // padding: 0 305px;
+  padding-left: 345px;
+  padding-right: 304px;
   display: flex;
 
 }
 .artistphoto {
-  width: 293px;
-  height: 365px;
+  width: 213px;
+    height: 240px;
   overflow: hidden;
   background-repeat: no-repeat;
   background-size: auto 100%;
@@ -300,7 +302,7 @@ td a {
 }
 .artist_info {
   margin-left: 30px;
-  width: 400px;
+  width: 507px;
 }
 .artist_info p {
   font-family: "Pangram Medium";
@@ -334,9 +336,28 @@ td a {
 }
 .titleinartist {
   padding-left: 90px;
-  margin-top: 145px;
+  margin-top: 76px;
   margin-bottom: 74px;
 }
 .extrasmall2 {
   height: 80px;
+}
+.artist_info .artist_info_item:first-child {
+  margin-top: 0;
+}
+.artist_info_item {
+  margin-top: 9px;
+}
+.artist_info p {
+  margin-top: 33px;
+  margin-left: 30px;
+}
+.artist_info_item p:nth-of-type(1) {
+  margin-left: 0;
+}
+.artist_info_item2 p:nth-of-type(2) {
+  margin-left: 80px;
+}
+.artist_info_item3 p:nth-of-type(2) {
+  margin-left: 47px;
 }

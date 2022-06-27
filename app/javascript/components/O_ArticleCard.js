@@ -21,7 +21,9 @@ class O_ArticleCard extends React.Component {
     return (
       <div className="postcard">
         <a href={"/posts/" + `${this.props.post.id}`} className="postlink"> </a>
-        <img src={this.props.post.fimage.thumb.url}/>
+
+        <div className="imgtest2" ><img src={this.props.post.fimage.thumb.url}/></div>
+
         <div className="postcardcontent">
           <span>{"Автор статьи " + `${this.props.post.user.username}`}</span>
           <h2>{this.props.post.title}</h2>

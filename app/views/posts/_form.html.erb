@@ -29,6 +29,11 @@
     <%= form.select :collection_id, Collection.pluck(:name, :id) %>
   </div>
 
+  <div class="field fieldfile">
+    <p class="p_form">Обложка статьи</p>
+    <%= form.file_field :fimage, :class =>"social_link_form social_link_form2" %>
+  </div>
+
   <h2 class="h2_form h2form">Контент статьи</h2>
 
 
@@ -44,12 +49,7 @@
 
 
 
-  <div class="field fieldfile">
-    <p class="p_form">Фото образов</p>
-    <%= form.file_field :fimage, :class =>"social_link_form social_link_form2" %>
-    <%= form.file_field :simage, :class =>"social_link_form social_link_form2" %>
-    <%= form.file_field :timage, :class =>"social_link_form social_link_form1" %>
-  </div>
+
 
 
   <div class="actions">

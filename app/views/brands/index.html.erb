@@ -27,7 +27,7 @@
         <td class="user_view user_view2"><%= link_to image_tag('show.svg'), brand %></td>
         <% if user_signed_in? && current_user.isadmin == true %>
           <td class="user_view"><%= link_to image_tag('edit.svg'), edit_brand_path(brand)%></td>
-          <td class="user_view"><%= link_to image_tag('destroy.svg'), brand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="user_view"><%= link_to image_tag('delete.svg'), brand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>

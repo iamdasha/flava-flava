@@ -14,25 +14,25 @@ class O_AllArticles extends React.Component {
         </div>
 
         <div className="firstblockpost">
-        {this.props.posts.slice(1,7).map(post => (
+        {this.props.posts.slice(1,8).map(post => (
            <O_ArticleCard key={post.id} post={post} filtertag={post.filtertag_id} artist={post.artist_id}/>
         ))}
         </div>
 
         <div className="firstblockpost1 firstblockpost2">
-        {this.props.posts.slice(7,8).map(post => (
-           <O_ArticlecardBig key={post.id} post={post} filtertag={post.filtertag_id} artist={post.artist_id}/>
-        ))}
-        </div>
-
-        <div className="firstblockpost1">
         {this.props.posts.slice(8,9).map(post => (
            <O_ArticlecardBig key={post.id} post={post} filtertag={post.filtertag_id} artist={post.artist_id}/>
         ))}
         </div>
 
+        <div className="firstblockpost1">
+        {this.props.posts.slice(9,10).map(post => (
+           <O_ArticlecardBig key={post.id} post={post} filtertag={post.filtertag_id} artist={post.artist_id}/>
+        ))}
+        </div>
+
         <div className="firstblockpost">
-        {this.props.posts.slice(9,15).map(post => (
+        {this.props.posts.slice(10,15).map(post => (
            <O_ArticleCard key={post.id} post={post} filtertag={post.filtertag_id} artist={post.artist_id}/>
         ))}
         </div>

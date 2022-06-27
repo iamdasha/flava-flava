@@ -22,7 +22,9 @@ class O_Lookcard extends React.Component {
     return (
         <div className="lookcard">
           <a href={"/looks/" + `${this.props.look.id}`} className="looklink"> </a>
-          <img src={this.props.look.image.url}/>
+          <div className="imgtest" ><img src={this.props.look.image.url}/></div>
+
+
           <div className="lookcardcontent">
             <span>{this.props.look.filtertag.name}</span>
             <h2>{this.props.look.title}</h2>

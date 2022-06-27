@@ -34,7 +34,12 @@ class O_AllLooks extends React.Component {
           ))}
         </div>
 
-      
+        <div className="firstblock">
+          {this.props.looks.slice(10,16).map(look => (
+             <O_Lookcard key={look.id} look={look} filtertag={look.filtertag_id} artist={look.artist_id}/>
+          ))}
+        </div>
+
 
       </div>
     );

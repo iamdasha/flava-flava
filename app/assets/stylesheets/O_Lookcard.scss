@@ -46,10 +46,13 @@
   left: 0;
 }
 
-.lookcard img,  .lookcardbig img{
+.lookcard img,  .lookcardbig img, .imgtest{
   display: block;
   margin: 0 auto;
+  position: relative;
+  width: fit-content;
 }
+
 .lookcardcontent {
   height: auto;
   display: block;
@@ -66,20 +69,25 @@
   color: #F2F2F2;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 37px;
+  margin-top: 16px;
   margin-bottom: 30px;
 }
 
 .lookcardcontent  span {
   color: #F2F2F2;
-  margin-top: 28px;
+  margin-top: 16px;
   display: block;
   font-size: 14px;
   line-height: 16px;
   color: #F2F2F2;
   font-family: 'Pangram Semibold';
 }
-
+.lookcardcontentbig span {
+  margin-top: 30px;
+}
+.lookcardcontentbig h2 {
+  margin-top: 40px;
+}
 .look_content {
   padding: 0 90px;
   display: flex;
@@ -89,6 +97,7 @@
 }
 .look_content_right {
   padding: 0 0 0 30px;
+  width: 537px;
 }
 .clothitem {
   width: 507px;
@@ -199,4 +208,81 @@ svg path {
   width: auto;
   margin-top: 4px;
   margin-left: 4px;
+}
+.lookcard:hover .imgtest::after {
+  width: 100%;
+  height: 100%;
+  background: rgba(225, 74, 228, 0.7);
+  mix-blend-mode: screen;
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  backdrop-filter: grayscale(1) contrast(2);
+  cursor: pointer;
+
+}
+.lookcardbig:hover .imgtest::after {
+  width: 100%;
+  height: 100%;
+  background: rgba(225, 74, 228, 0.7);
+  mix-blend-mode: screen;
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  backdrop-filter: grayscale(1) contrast(2);
+  cursor: pointer;
+
+}
+.look_img {width: 726px; height: 420px; display: flex; justify-content: space-between;}
+.look_img img {height: 100%; width: auto; margin: 0 auto;}
+.Onartistlink:hover p {
+  color: #938D98;
+  transition: all .2s ease;
+}
+.Onartistlink p {
+  transition: all .4s ease;
+}
+
+.lookcardbig:hover span {
+  color: #938D98;
+  transition: all .2s ease;
+}
+.lookcardbig:hover h2 {
+  color: #938D98;
+  transition: all .2s ease;
+}
+.lookcardbig span {
+  transition: all .4s ease;
+}
+.lookcardbig h2 {
+  transition: all .4s ease;
+}
+.lookcard:hover span {
+  color: #938D98;
+  transition: all .2s ease;
+}
+.lookcard:hover h2 {
+  color: #938D98;
+  transition: all .2s ease;
+}
+.lookcard span {
+  transition: all .4s ease;
+}
+.lookcard h2 {
+  transition: all .4s ease;
+}
+.clothitem_buttons a:nth-of-type(2) {
+  position: absolute;
+  right: 122.5px;
+  opacity: 0;
+  transition: all .4s ease;
+
+}
+.clothitem_buttons a:nth-of-type(2):hover {
+  opacity: 100%;
+  transition: all .2s ease;
 }

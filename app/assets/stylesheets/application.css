@@ -280,3 +280,49 @@ h3 {
   width: 615px;
   margin-bottom: 4vh;
 }
+.menulist a:hover li {
+  color: #938D98;
+  transition: all .2s ease;
+}
+.menulist li {
+  transition: all .4s ease;
+}
+.footer a:hover{
+  color: #938D98;
+  transition: all .2s ease;
+
+}
+.footer a {
+  transition: all .4s ease;
+
+}
+.aintd:hover a {
+  color: #938D98;
+  transition: all .2s ease;
+}
+.aintd a {
+  transition: all .4s ease;
+}
+.actions input:hover {
+  background: #938D98;
+  transition: all .2s ease;
+  cursor: pointer;
+
+}
+.actions input {
+  transition: all .2s ease;
+}
+.sidebar a:hover li{
+  color: #938D98;
+  transition: all .2s ease;
+}
+.sidebar li {
+  transition: all .4s ease;
+}
+td a:hover {
+  color: #938D98;
+  transition: all .2s ease;
+}
+td a {
+  transition: all .2s ease;
+}

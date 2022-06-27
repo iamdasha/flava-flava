@@ -7,13 +7,13 @@ class O_ArticlesBanner extends React.Component {
     return (
       <div>
         <div className="banner">
-        {this.props.posts.slice(0,1).map(post => (
+        {this.props.posts.slice(15,16).map(post => (
            <O_ArticleCardBanner key={post.id} post={post}/>
         ))}
         </div>
       </div>
     );
-  } 
+  }
 }
 
 O_ArticlesBanner.propTypes = {

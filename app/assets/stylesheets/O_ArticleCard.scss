@@ -13,7 +13,7 @@
   position: relative;
   margin-bottom: 60px;
   display: flex;
-  align-items: center;  
+  align-items: center;
   break-inside: avoid;
   page-break-inside: avoid;
 
@@ -126,4 +126,39 @@
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 100px;
+}
+.postcard img {
+    width: 215px;
+    display: inline-block;
+}
+.imgtest2 {
+  width: 215px;
+  display: inline-block;
+}
+.postcard:hover .imgtest2::after {
+  width: 215px;
+  height: 100%;
+  background: rgba(35, 241, 179, 0.7);
+  mix-blend-mode: screen;
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  backdrop-filter: grayscale(1) contrast(2);
+  cursor: pointer;
+}
+.postcard:hover span{
+  color: #938D98;
+  transition: all .2s ease;
+}
+.postcard:hover h2{
+  color: #938D98;
+  transition: all .2s ease;
+}
+.postcard span {
+  transition: all .4s ease;
+}
+.postcard h2 {
+  transition: all .4s ease;
 }
